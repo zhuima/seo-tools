@@ -25,6 +25,8 @@ export const getGptsFromFile = async (): Promise<Gpts[]> => {
         created_at: v["created_at"],
         updated_at: v["data"]["gizmo"]["updated_at"],
         detail: JSON.stringify(v),
+        properties: undefined,
+        id: undefined,
       });
     });
 
