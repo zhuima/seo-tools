@@ -160,6 +160,7 @@ function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
 function formatGpts(row: QueryResultRow): Gpts | undefined {
   const gpts: Gpts = {
     id: row.id,
+    uuid: row.id,
     org_id: row.org_id,
     name: row.name,
     description: row.description,
