@@ -1,0 +1,24 @@
+@baseUri = http://localhost:8067/api 
+
+### update gpts
+POST {{baseUri}}/process/update-gpts
+
+### get all gpts
+POST {{baseUri}}/gpts/all
+Content-Type: application/json
+
+{
+    "last_id": 0,
+    "limit": 3
+}
+
+### get random gpts
+GET {{baseUri}}/gpts/random
+
+### search gpts
+POST {{baseUri}}/gpts/search
+Content-Type: application/json
+
+{
+    "question": "I want a coding assistant"
+}
