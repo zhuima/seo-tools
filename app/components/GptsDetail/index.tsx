@@ -11,6 +11,7 @@ interface Props {
 export default ({ gpts }: Props) => {
   const tools = getGptsTools(gpts);
 
+  // console.log("gpts", gpts);
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
@@ -26,10 +27,10 @@ export default ({ gpts }: Props) => {
               Created by {gpts.author_name}
             </p>
             <h1 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
-              {gpts.name}
+              {gpts.properties.Title.title[0].plain_text}
             </h1>
             <p className="text-sm text-[#808080] sm:text-xl">
-              {gpts.description}
+              {gpts.properties.Description.rich_text[0].plain_text}
             </p>
             <div className="mb-8 mt-8 h-px w-full bg-black"></div>
             <div className="mb-6 flex flex-col gap-2 text-sm text-[#808080] sm:text-base lg:mb-8">
@@ -62,7 +63,7 @@ export default ({ gpts }: Props) => {
 
             <div className="flex flex-col gap-4 font-semibold sm:flex-row">
               <a
-                href={gpts.visit_url}
+                href={gpts.properties.Link.url}
                 target="_blank"
                 className="flex items-center gap-2 rounded-md border border-solid border-black bg-primary text-white px-6 py-3 truncate"
               >

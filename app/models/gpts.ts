@@ -1,4 +1,9 @@
 import { QueryResult, QueryResultRow, sql } from "@vercel/postgres";
+import { Client } from "@notionhq/client";
+
+const notion = new Client({
+  auth: process.env.NOTION_TOKEN,
+});
 
 import { Gpts } from "@/app/types/gpts";
 import { isGptsSensitive } from "@/app/services/gpts";
@@ -127,17 +132,12 @@ export async function getTotalCount(): Promise<number> {
   return row.count;
 }
 
-export async function findByUuid(uuid: string): Promise<Gpts | undefined> {
-  const res = await sql`SELECT * FROM gpts WHERE uuid = ${uuid} LIMIT 1`;
-  if (res.rowCount === 0) {
-    return undefined;
-  }
+export async function findByUuid(uuid: string) {
+  const res = await notion.pages.retrieve({ page_id: uuid });
+  return res;
+  // const gpts = formatGpts(res);
 
-  const { rows } = res;
-  const row = rows[0];
-  const gpts = formatGpts(row);
-
-  return gpts;
+  // return gpts;
 }
 
 function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {

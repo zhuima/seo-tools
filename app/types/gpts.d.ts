@@ -1,4 +1,5 @@
 export interface Gpts {
+  Title: ReactNode;
   properties: any;
   id: any;
   uuid: string;

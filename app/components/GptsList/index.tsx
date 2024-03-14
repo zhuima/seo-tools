@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 16:39:08
+ * @LastEditTime: 2024-03-14 17:10:48
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -51,7 +51,9 @@ export default ({ gpts, loading }: Props) => {
 
                     <div className="flex items-center">
                       {item.properties.Rating.number &&
-                        Array.from({ length: 5 }).map((_, idx: number) => (
+                        Array.from({
+                          length: item.properties.Rating.number,
+                        }).map((_, idx: number) => (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
                             key={idx}

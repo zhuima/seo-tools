@@ -1,3 +1,14 @@
+/* eslint-disable @next/next/no-img-element */
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-03-14 14:25:32
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-03-14 16:56:12
+ * @FilePath: /gpts-works/web/app/components/GptsDetail/Preview.tsx
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 import {
   getGptsTools,
   getGptsWelcomeMessage,
@@ -14,7 +25,7 @@ export default ({ gpts }: Props) => {
   const promptStarters = gptGptsPromptStarters(gpts);
   const welcomeMessage = getGptsWelcomeMessage(gpts);
   const toolss = getGptsTools(gpts);
-  console.log("toos", toolss);
+  // console.log("toos", toolss);
   return (
     <div className="w-full text-center h-full relative">
       <div className="mx-auto mt-12">
