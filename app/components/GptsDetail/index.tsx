@@ -82,7 +82,7 @@ export default ({ gpts }: Props) => {
                     className="ml-2 text-md font-medium text-gray-500 hover:text-gray-700"
                     aria-current="page"
                   >
-                    {data?.properties.Title.title[0].plain_text}
+                    {gpts.properties.Title.title[0].plain_text}
                   </Link>
                 </div>
               </li>
