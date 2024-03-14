@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 15:12:57
+ * @LastEditTime: 2024-03-14 16:25:43
  * @FilePath: /gpts-works/web/app/components/Brand/index.tsx
  * @Description:
  *
@@ -25,13 +25,13 @@ export default ({ count }: Props) => {
           <p className="mt-4 mb-4 md:mt-12 md:mb-8 text:lg md:text-4xl">
             <span className="text-primary font-bold">{count}</span> awesome
             Indie Hacker Tools
-            <a
+            {/* <a
               href="https://github.com/all-in-aigc/gpts-works/issues/5"
               target="_blank"
               className="text-sm text-primary mx-2"
             >
               Submit yours 👉
-            </a>
+            </a> */}
           </p>
         </div>
       </div>
