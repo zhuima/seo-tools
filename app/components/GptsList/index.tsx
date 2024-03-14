@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 15:26:51
+ * @LastEditTime: 2024-03-14 15:49:20
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -62,7 +62,7 @@ export default ({ gpts, loading }: Props) => {
                       <div className="flex-1"></div>
 
                       <p className="text-slate-500 text-sm">
-                        {moment(item.created_time).fromNow()}
+                        {moment(item?.created_time).fromNow()}
                       </p>
                     </div>
                   </div>
