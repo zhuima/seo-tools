@@ -6,7 +6,7 @@ import Image from "next/image";
 import extensionSrc from "@/public/extension.png";
 import { findByUuid } from "@/app/models/gpts";
 
-async function getData(uuid: string): Promise<Gpts | undefined> {
+async function getData(uuid: string) {
   if (!uuid) {
     return;
   }
