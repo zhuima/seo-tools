@@ -159,7 +159,7 @@ function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
 
 function formatGpts(row: QueryResultRow): Gpts | undefined {
   const gpts: Gpts = {
-    uuid: row.uuid,
+    uuid: row.id,
     org_id: row.org_id,
     name: row.name,
     description: row.description,
@@ -167,7 +167,7 @@ function formatGpts(row: QueryResultRow): Gpts | undefined {
     short_url: row.short_url,
     author_id: row.author_id,
     author_name: row.author_name,
-    created_at: row.created_at,
+    created_at: row.created_time,
     updated_at: row.updated_at,
     visit_url: "https://chat.openai.com/g/" + row.short_url,
     rating: row.rating,
