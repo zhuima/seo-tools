@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 14:57:31
+ * @LastEditTime: 2024-03-14 15:46:09
  * @FilePath: /gpts-works/web/app/api/gpts/all/route.ts
  * @Description:
  *
@@ -18,8 +18,10 @@ import { respData, respErr } from "@/app/utils/resp";
 
 export async function POST(req: Request) {
   try {
+    const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+
     const posts = await notion.databases.query({
-      database_id: process.env.DATABASE_ID,
+      database_id: databaseId,
       sorts: [
         {
           property: "Date",
