@@ -134,10 +134,10 @@ export async function getTotalCount(): Promise<number> {
 
 export async function findByUuid(uuid: string) {
   const res = await notion.pages.retrieve({ page_id: uuid });
-  return res;
-  // const gpts = formatGpts(res);
+  // return res;
+  const gpts = formatGpts(res);
 
-  // return gpts;
+  return gpts;
 }
 
 function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
@@ -173,6 +173,7 @@ function formatGpts(row: QueryResultRow): Gpts | undefined {
     visit_url: "https://chat.openai.com/g/" + row.short_url,
     rating: row.rating,
     properties: undefined,
+    Title: undefined,
   };
 
   try {
