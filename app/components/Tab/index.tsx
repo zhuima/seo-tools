@@ -58,17 +58,16 @@ export default ({ tabValue, setTabValue }: Props) => {
   return (
     <section className="relative mt-4">
       <div className="mx-auto max-w-7xl px-2 py-4 md:px-8 md:py-4 text-center">
-        <div role="tablist" className=" mx-auto">
+        <div
+          role="tablist"
+          className="tabs tabs-boxed tabs-sm md:tabs-md flex flex-wrap p-4 bg-[#f4f4f5]"
+        >
           {tabs.map((tab: Tags, idx: number) => {
             return (
               <a
                 role="tab"
                 key={idx}
-                className={` ${
-                  tabValue === tab.name
-                    ? "border text-sm rounded-md px-3 py-1 mx-1 "
-                    : "border text-sm rounded-md px-3 py-1 mx-1 "
-                }`}
+                className={` ${tabValue === tab.name ? "" : ""}`}
                 onClick={() => setTabValue(tab.name)}
               >
                 {tab.name}
