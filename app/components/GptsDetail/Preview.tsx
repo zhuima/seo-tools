@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 16:56:12
+ * @LastEditTime: 2024-03-15 12:01:17
  * @FilePath: /gpts-works/web/app/components/GptsDetail/Preview.tsx
  * @Description:
  *
@@ -15,13 +15,13 @@ import {
   gptGptsPromptStarters,
 } from "@/app/services/gpts";
 
-import { Items } from "@/app/types/gpts";
+import { Gpts } from "@/app/types/gpts";
 
 interface Props {
-  post: Items;
+  gpts: Gpts;
 }
 
-export default ({ post }: Props) => {
+export default ({ gpts }: Props) => {
   const promptStarters = gptGptsPromptStarters(gpts);
   const welcomeMessage = getGptsWelcomeMessage(gpts);
   const toolss = getGptsTools(gpts);
