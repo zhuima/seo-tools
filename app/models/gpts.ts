@@ -132,12 +132,10 @@ export async function getTotalCount(): Promise<number> {
   return row.count;
 }
 
+// @ts-nocheck
 export async function findByUuid(uuid: string): Promise<Items | undefined> {
   const res = await notion.pages.retrieve({ page_id: uuid });
-  return res;
-  // const gpts = formatGpts(res);
-
-  // return gpts;
+  return res as Items | undefined;
 }
 
 function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
@@ -157,7 +155,7 @@ function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
   return gpts;
 }
 
-function formatGpts(row: QueryResultRow): Page | undefined {
+function formatGpts(row: QueryResultRow): Gpts | undefined {
   const gpts: Gpts = {
     id: row.id,
     uuid: row.id,
