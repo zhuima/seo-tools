@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 11:07:18
+ * @LastEditTime: 2024-03-15 15:07:15
  * @FilePath: /gpts-works/web/app/page.tsx
  * @Description:
  *
@@ -11,7 +11,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
 import Brand from "./components/Brand";
 import { Items } from "./types/gpts";
 import GptsList from "./components/GptsList";
@@ -25,7 +24,7 @@ export default () => {
   const [loading, setLoading] = useState(false);
   const [tabValue, setTabValue] = useState("hot");
 
-  const fetchGpts = async (tab: string) => {
+  const fetchPosts = async (tab: string) => {
     const params = {
       last_id: 0,
       limit: 50,
@@ -52,7 +51,7 @@ export default () => {
   };
 
   useEffect(() => {
-    fetchGpts(tabValue);
+    fetchPosts(tabValue);
   }, [tabValue]);
 
   return (

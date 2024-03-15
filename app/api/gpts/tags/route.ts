@@ -12,7 +12,7 @@
 
 import { respData, respErr } from "@/app/utils/resp";
 
-import { getAllPosts } from "@/app/services/gpts";
+import { getAllTags } from "@/app/services/gpts";
 export async function POST(req: Request) {
   try {
     // const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
@@ -32,9 +32,9 @@ export async function POST(req: Request) {
     //   rows: allPosts,
     //   count: allPosts.length,
     // });
-    const entries = await getAllPosts();
-    console.log("get all posts: ", entries);
-    return entries;
+    const allTags = await getAllTags();
+    console.log("get all posts: ", allTags);
+    return allTags;
   } catch (e) {
     console.log("get all posts failed: ", e);
     return respErr("get posts failed");

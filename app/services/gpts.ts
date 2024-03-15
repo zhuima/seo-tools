@@ -1,5 +1,77 @@
-import { Gpts } from "@/app/types/gpts";
-import fs from "fs";
+import notion from "@/app/utils/notionClient";
+import { Items } from "@/app/types/gpts";
+import { respData, respErr } from "@/app/utils/resp";
+import { Tags } from "../types/tags";
+
+// 函数用于获取数据库中的所有条目
+export const getAllPosts = async () => {
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+
+  const posts = await notion.databases.query({
+    database_id: databaseId,
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
+  });
+  const allPosts = posts.results;
+
+  return respData({
+    rows: allPosts,
+    count: allPosts.length,
+  });
+};
+
+// 函数用于从数据库条目中收集所有标签// 函数用于从数据库条目中收集所有标签
+export const getAllTags = async () => {
+  const entries = await getAllPosts();
+  // const allTags = new Set<string>();
+  // 创建一个 Set 来存储标签名称
+  const uniqueTagNames = new Set<string>();
+  const allTags: Tags[] = [];
+
+  const postsData = await entries.json();
+  // 如果你的数据结构不止 results，需要根据实际情况修改
+  const allPosts = postsData.data.rows;
+
+  allPosts.forEach((entry: Items) => {
+    const tagsProperty = entry.properties.Tags;
+
+    // if (tagsProperty && tagsProperty.multi_select) {
+    //   tagsProperty.multi_select.forEach((tag) => {
+    //     allTags.add(tag.name);
+    //   });
+
+    tagsProperty.multi_select.forEach((tag: any) => {
+      // const tagObject: Tags = {
+      //   id: tag.id,
+      //   name: tag.name,
+      //   color: tag.color,
+      // };
+      // allTags.push(tagObject);
+
+      // 检查标签名称是否已经存在于 Set 中，如果不存在，则将其添加到 Set 和 tagsArray 中
+      if (!uniqueTagNames.has(tag.name)) {
+        uniqueTagNames.add(tag.name);
+
+        // 将标签转换成目标接口 Tags 的对象，并添加到 tagsArray 中
+        const tagObject: Tags = {
+          id: tag.id,
+          name: tag.name,
+          color: tag.color,
+        };
+        allTags.push(tagObject);
+      }
+    });
+  });
+
+  return respData({
+    rows: Array.from(allTags),
+    count: allTags.length,
+  });
+};
 
 // export const getGptsFromFile = async (): Promise<Gpts[]> => {
 //   try {
