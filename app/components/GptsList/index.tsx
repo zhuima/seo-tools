@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 11:52:05
+ * @LastEditTime: 2024-03-15 16:14:29
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -35,27 +35,27 @@ export default ({ posts, loading }: Props) => {
                   <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage
-                        src={item.properties.Icon.url}
+                        src={item?.properties?.Icon?.url}
                         alt=""
                         className="mr-4 inline-block h-16 w-16 object-cover rounded-full"
                       />
                       <div className="flex flex-col">
                         <h6 className="text-base font-semibold">
-                          {item.properties.Title.title[0].plain_text}
+                          {item?.properties?.Title?.title[0]?.plain_text}
                         </h6>
                         <p className="text-sm text-[#636262]">
-                         {item.properties.Title.title[0].plain_text}
+                          {item?.properties.Title?.title[0]?.plain_text}
                         </p>
                       </div>
                     </div>
                     <p className="mb-4 text-sm text-[#636262]">
-                      {item.properties.Description.rich_text[0].plain_text}
+                      {item?.properties?.Description?.rich_text[0]?.plain_text}
                     </p>
 
                     <div className="flex items-center">
-                      {item.properties.Rating.number &&
+                      {item?.properties?.Rating?.number &&
                         Array.from({
-                          length: item.properties.Rating.number,
+                          length: item?.properties?.Rating?.number,
                         }).map((_, idx: number) => (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
