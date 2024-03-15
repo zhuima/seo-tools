@@ -58,7 +58,7 @@ export default ({ tabValue, setTabValue }: Props) => {
   return (
     <section className="relative mt-4">
       <div className="mx-auto max-w-7xl px-2 py-4 md:px-8 md:py-4 text-center">
-        <div role="tablist" className="tabs-sm md:tabs-md mx-auto">
+        <div role="tablist" className="mx-auto">
           {tabs.map((tab: Tags, idx: number) => {
             return (
               <a
@@ -66,8 +66,8 @@ export default ({ tabValue, setTabValue }: Props) => {
                 key={idx}
                 className={` ${
                   tabValue === tab.name
-                    ? "border text-sm rounded-md px-3 py-1 mx-1 "
-                    : "border text-sm rounded-md px-3 py-1 mx-1 "
+                    ? "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
+                    : "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                 }`}
                 onClick={() => setTabValue(tab.name)}
               >
