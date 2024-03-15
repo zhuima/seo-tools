@@ -66,8 +66,8 @@ export default ({ tabValue, setTabValue }: Props) => {
                 key={idx}
                 className={` ${
                   tabValue === tab.name
-                    ? "border text-sm rounded-md px-3 py-1 mx-1 "
-                    : "border text-sm rounded-md px-3 py-1 mx-1 "
+                    ? "border text-sm rounded-md px-3 py-1 mx-1 mb-2"
+                    : "border text-sm rounded-md px-3 py-1 mx-1 mb-2"
                 }`}
                 onClick={() => setTabValue(tab.name)}
               >
