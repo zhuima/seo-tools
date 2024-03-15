@@ -2,11 +2,11 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 10:59:41
+ * @LastEditTime: 2024-03-15 14:06:14
  * @FilePath: /gpts-works/web/app/layout.tsx
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
@@ -19,11 +19,46 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "GPTs Works - Third-party GPTs store",
+  title: "Chuhai Tools - 独立开发者出海技术栈和工具",
   description:
-    "GPTs Works is a Third-party GPTs store. Support seach GPTs by chatting.",
-  keywords:
-    "GPTs, GPTs store, GPTs Works, ChatGPT, OpenAI GPTs, vector search GPTs",
+    "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+  keywords: [
+    "技术出海",
+    "工具出海",
+    "品牌出海",
+    "独立开发者",
+    "科技出海",
+    "独立开发者出海技术栈和工具",
+    "独立开发者出海工具",
+    "独立开发者出海技术栈",
+    "出海营销",
+    "独立开发者出海",
+    "独立开发者出海业务",
+    "面向海外用户开发产品",
+    "出海第一步，搞定工具库",
+  ],
+  icons: {
+    icon: "https://img.techrk1688.eu.org/file/7c62adaced7e805fb9d4e.png",
+    shortcut: "/favicon-16x16.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "Chuhai Tools - 独立开发者出海技术栈和工具",
+    description:
+      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+    type: "website",
+    url: "https://chuhai.tools",
+    siteName: "Chuhai Tools - 独立开发者出海技术栈和工具",
+    images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Chuhai Tools - 独立开发者出海技术栈和工具",
+    description:
+      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+    site: "https://chuhai.tools",
+    images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+  },
 };
 
 export default function RootLayout({
