@@ -15,13 +15,13 @@ import {
   gptGptsPromptStarters,
 } from "@/app/services/gpts";
 
-import { Gpts } from "@/app/types/gpts";
+import { Items } from "@/app/types/gpts";
 
 interface Props {
-  gpts: Gpts;
+  post: Items;
 }
 
-export default ({ gpts }: Props) => {
+export default ({ post }: Props) => {
   const promptStarters = gptGptsPromptStarters(gpts);
   const welcomeMessage = getGptsWelcomeMessage(gpts);
   const toolss = getGptsTools(gpts);

@@ -5,7 +5,7 @@ const notion = new Client({
   auth: process.env.NOTION_TOKEN,
 });
 
-import { Gpts } from "@/app/types/gpts";
+import { Gpts, Items } from "@/app/types/gpts";
 import { isGptsSensitive } from "@/app/services/gpts";
 
 export async function createTable() {
@@ -132,12 +132,12 @@ export async function getTotalCount(): Promise<number> {
   return row.count;
 }
 
-export async function findByUuid(uuid: string) {
+export async function findByUuid(uuid: string): Promise<Items | undefined> {
   const res = await notion.pages.retrieve({ page_id: uuid });
-  // return res;
-  const gpts = formatGpts(res);
+  return res;
+  // const gpts = formatGpts(res);
 
-  return gpts;
+  // return gpts;
 }
 
 function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
@@ -157,7 +157,7 @@ function getGptsFromSqlResult(res: QueryResult<QueryResultRow>): Gpts[] {
   return gpts;
 }
 
-function formatGpts(row: QueryResultRow): Gpts | undefined {
+function formatGpts(row: QueryResultRow): Page | undefined {
   const gpts: Gpts = {
     id: row.id,
     uuid: row.id,
@@ -174,6 +174,7 @@ function formatGpts(row: QueryResultRow): Gpts | undefined {
     rating: row.rating,
     properties: undefined,
     Title: undefined,
+    Description: undefined,
   };
 
   try {

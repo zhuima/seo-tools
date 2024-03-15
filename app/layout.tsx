@@ -1,3 +1,13 @@
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-03-14 14:25:32
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-03-15 10:59:41
+ * @FilePath: /gpts-works/web/app/layout.tsx
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
@@ -32,12 +42,6 @@ export default function RootLayout({
           {children}
           <Footer />
         </main>
-
-        <script
-          defer
-          data-domain="gpts.works"
-          src="https://plausible.io/js/script.js"
-        ></script>
       </body>
     </html>
   );

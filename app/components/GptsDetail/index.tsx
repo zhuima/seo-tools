@@ -1,18 +1,18 @@
 import Link from "next/link";
 import { BsChatDots } from "react-icons/bs";
-import { Gpts } from "@/app/types/gpts";
+import { Items } from "@/app/types/gpts";
 import Preview from "./Preview";
 import { getGptsTools } from "@/app/services/gpts";
 import moment from "moment";
 
 interface Props {
-  gpts: Gpts;
+  post: Items;
 }
 
-export default ({ gpts }: Props) => {
-  const tools = getGptsTools(gpts);
+export default ({ post }: Props) => {
+  // const tools = getGptsTools(post);
 
-  // console.log("gpts", gpts);
+  console.log("postgpts details", post);
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
@@ -25,10 +25,10 @@ export default ({ gpts }: Props) => {
                     <svg
                       stroke="currentColor"
                       fill="none"
-                      stroke-width="2"
+                      strokeWidth="2"
                       viewBox="0 0 24 24"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                       height="1em"
                       width="1em"
                       xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +45,7 @@ export default ({ gpts }: Props) => {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 24 24"
                     height="1em"
                     width="1em"
@@ -68,7 +68,7 @@ export default ({ gpts }: Props) => {
                   <svg
                     stroke="currentColor"
                     fill="currentColor"
-                    stroke-width="0"
+                    strokeWidth="0"
                     viewBox="0 0 24 24"
                     height="1em"
                     width="1em"
@@ -82,7 +82,7 @@ export default ({ gpts }: Props) => {
                     className="ml-2 text-md font-medium text-gray-500 hover:text-gray-700"
                     aria-current="page"
                   >
-                    {gpts.properties.Title.title[0].plain_text}
+                    {post?.properties?.Title.title[0].plain_text}
                   </Link>
                 </div>
               </li>
@@ -94,20 +94,20 @@ export default ({ gpts }: Props) => {
             <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1">
               <div className="mr-1 h-2 w-2 rounded-full bg-black"></div>
               <p className="text-sm">
-                Created at {moment(gpts.updated_at).fromNow()}
+                Created at {moment(post.last_edited_time).fromNow()}
               </p>
             </div>
             <p className="text-sm text-[#808080] sm:text-xl">
-              Created by {gpts.author_name}
+              Created by {post.properties.Title.title[0].plain_text}
             </p>
             <h1 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
-              {gpts.properties.Title.title[0].plain_text}
+              {post?.properties?.Title.title[0].plain_text}
             </h1>
             <p className="text-sm text-[#808080] sm:text-xl">
-              {gpts.properties.Description.rich_text[0].plain_text}
+              {post?.properties?.Description.rich_text[0].plain_text}
             </p>
             <div className="mb-8 mt-8 h-px w-full bg-black"></div>
-            <div className="mb-6 flex flex-col gap-2 text-sm text-[#808080] sm:text-base lg:mb-8">
+            {/* <div className="mb-6 flex flex-col gap-2 text-sm text-[#808080] sm:text-base lg:mb-8">
               <p className="font-medium">Capabilities</p>
               <p>
                 <input
@@ -133,21 +133,24 @@ export default ({ gpts }: Props) => {
                 />
                 Code Interpreter
               </p>
-            </div>
+            </div> */}
 
             <div className="flex flex-col gap-4 font-semibold sm:flex-row">
-              <a
-                href={gpts.properties.Link.url}
+              <Link
+                href={post.properties ? post.properties.Link.url : "#"}
                 target="_blank"
                 className="flex items-center gap-2 rounded-md border border-solid border-black bg-primary text-white px-6 py-3 truncate"
               >
                 <BsChatDots />
-                <p>Use this GPTs on ChatGPT 👉</p>
-              </a>
+                <p>
+                  Try using {post?.properties?.Title.title[0].plain_text} in
+                  your next project 👉
+                </p>
+              </Link>
             </div>
           </div>
           <div className="min-h-[530px] overflow-hidden rounded-md bg-[#f2f2f7]">
-            <Preview gpts={gpts} />
+            {/* <Preview gpts={post} /> */}
           </div>
         </div>
       </div>

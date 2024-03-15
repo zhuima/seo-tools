@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 17:10:48
+ * @LastEditTime: 2024-03-15 11:52:05
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -10,25 +10,28 @@
  */
 "use client";
 
-import { Gpts } from "@/app/types/gpts";
+import { Items } from "@/app/types/gpts";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import moment from "moment";
 
 interface Props {
-  gpts: Gpts[];
+  posts: Items[];
   loading: boolean;
 }
 
-export default ({ gpts, loading }: Props) => {
+export default ({ posts, loading }: Props) => {
+  console.log("posts --->", posts);
+
   return (
     <section className="relative">
       <div className="mx-auto max-w-7xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
         {!loading ? (
           <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
-            {gpts.map((item: Gpts, idx: number) => {
+            {posts.map((item: Items, idx: number) => {
+              console.log("item --->", item);
               return (
-                <Link href={`/g/${item.id}`} target="_self" key={idx}>
+                <Link href={`/tools/${item.id}`} target="_self" key={idx}>
                   <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage
@@ -41,7 +44,7 @@ export default ({ gpts, loading }: Props) => {
                           {item.properties.Title.title[0].plain_text}
                         </h6>
                         <p className="text-sm text-[#636262]">
-                          {item.author_name}
+                         {item.properties.Title.title[0].plain_text}
                         </p>
                       </div>
                     </div>
@@ -65,7 +68,7 @@ export default ({ gpts, loading }: Props) => {
                       <div className="flex-1"></div>
 
                       <p className="text-slate-500 text-sm">
-                        {moment(item?.created_at).fromNow()}
+                        {moment(item?.created_time).fromNow()}
                       </p>
                     </div>
                   </div>

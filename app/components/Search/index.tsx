@@ -10,14 +10,14 @@ import {
   useState,
 } from "react";
 
-import { Gpts } from "@/app/types/gpts";
+import { Items } from "@/app/types/gpts";
 
 interface Props {
-  setGpts: Dispatch<SetStateAction<Gpts[]>>;
+  setPosts: Dispatch<SetStateAction<Items[]>>;
   setLoading: Dispatch<SetStateAction<boolean>>;
 }
 
-export default ({ setGpts, setLoading }: Props) => {
+export default ({ setPosts, setLoading }: Props) => {
   const [inputDisabled, setInputDisabled] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [content, setContent] = useState("");
@@ -53,7 +53,7 @@ export default ({ setGpts, setLoading }: Props) => {
       if (resp.ok) {
         const res = await resp.json();
         if (res.data) {
-          setGpts(res.data);
+          setPosts(res.data);
         }
       }
     } catch (e) {

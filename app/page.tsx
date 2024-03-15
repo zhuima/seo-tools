@@ -2,26 +2,26 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 15:27:14
+ * @LastEditTime: 2024-03-15 11:07:18
  * @FilePath: /gpts-works/web/app/page.tsx
- * @Description: 
- * 
- * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 "use client";
 
 import { useEffect, useState } from "react";
 
 import Brand from "./components/Brand";
-import { Gpts } from "./types/gpts";
+import { Items } from "./types/gpts";
 import GptsList from "./components/GptsList";
 import ProductHunt from "./components/ProductHunt";
 import Search from "./components/Search";
 import Tab from "./components/Tab";
 
 export default () => {
-  const [gpts, setGpts] = useState<Gpts[]>([]);
-  const [gptsCount, setGptsCount] = useState(0);
+  const [posts, setPosts] = useState<Items[]>([]);
+  const [postsCount, setPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [tabValue, setTabValue] = useState("hot");
 
@@ -45,8 +45,8 @@ export default () => {
     if (resp.ok) {
       const res = await resp.json();
       if (res.data) {
-        setGptsCount(res.data.count);
-        setGpts(res.data.rows);
+        setPostsCount(res.data.count);
+        setPosts(res.data.rows);
       }
     }
   };
@@ -57,11 +57,11 @@ export default () => {
 
   return (
     <>
-      <Brand count={gptsCount} />
+      <Brand count={postsCount} />
       {/* <ProductHunt /> */}
-      <Search setGpts={setGpts} setLoading={setLoading} />
+      <Search setPosts={setPosts} setLoading={setLoading} />
       <Tab tabValue={tabValue} setTabValue={setTabValue} />
-      <GptsList gpts={gpts} loading={loading} />
+      <GptsList posts={posts} loading={loading} />
     </>
   );
 };
