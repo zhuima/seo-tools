@@ -3,13 +3,62 @@ import { Items } from "@/app/types/gpts";
 import { respData, respErr } from "@/app/utils/resp";
 import { Tags } from "../types/tags";
 import { Gpts } from "../types/gpts";
-
+import { GetPostsParams } from "../types/params";
 // 函数用于获取数据库中的所有条目
-export const getAllPosts = async () => {
+export const getAllPosts = async (params: GetPostsParams) => {
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+
+  console.log("server params", params);
+  const isTrue: boolean = true;
+  const posts = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      and: [
+        {
+          property: "Tags",
+          multi_select: {
+            contains: params.tab,
+          },
+        },
+        {
+          property: "Tags",
+          multi_select: {
+            is_not_empty: true,
+          },
+        },
+      ],
+    },
+
+    sorts: [
+      {
+        property: "Date",
+        direction: "descending",
+      },
+    ],
+  });
+  const allPosts = posts.results;
+
+  return respData({
+    rows: allPosts,
+    count: allPosts.length,
+  });
+};
+
+export const getAllPostsWhioutFilter = async () => {
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
 
   const posts = await notion.databases.query({
     database_id: databaseId,
+    filter: {
+      or: [
+        {
+          property: "Tags",
+          multi_select: {
+            is_not_empty: true,
+          },
+        },
+      ],
+    },
     sorts: [
       {
         property: "Date",
@@ -27,7 +76,7 @@ export const getAllPosts = async () => {
 
 // 函数用于从数据库条目中收集所有标签// 函数用于从数据库条目中收集所有标签
 export const getAllTags = async () => {
-  const entries = await getAllPosts();
+  const entries = await getAllPostsWhioutFilter();
   // const allTags = new Set<string>();
   // 创建一个 Set 来存储标签名称
   const uniqueTagNames = new Set<string>();

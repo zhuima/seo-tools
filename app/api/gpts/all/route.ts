@@ -2,14 +2,14 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 14:44:07
+ * @LastEditTime: 2024-03-15 18:56:03
  * @FilePath: /gpts-works/web/app/api/gpts/all/route.ts
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 // import notion from "@/app/utils/notionClient";
-
+import { GetPostsParams } from "@/app/types/params";
 import { respData, respErr } from "@/app/utils/resp";
 
 import { getAllPosts } from "@/app/services/gpts";
@@ -32,11 +32,16 @@ export async function POST(req: Request) {
     //   rows: allPosts,
     //   count: allPosts.length,
     // });
-    const entries = await getAllPosts();
+
+    const params = await req.json();
+
+    console.log("api router params", params);
+    const entries = await getAllPosts(params);
     console.log("get all posts: ", entries);
     return entries;
   } catch (e) {
     console.log("get all posts failed: ", e);
-    return respErr("get posts failed");
+    const errinfo = "get posts failed" + e;
+    return respErr(errinfo);
   }
 }

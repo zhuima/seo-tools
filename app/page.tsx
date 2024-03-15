@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 15:07:15
+ * @LastEditTime: 2024-03-15 18:33:56
  * @FilePath: /gpts-works/web/app/page.tsx
  * @Description:
  *
@@ -22,15 +22,17 @@ export default () => {
   const [posts, setPosts] = useState<Items[]>([]);
   const [postsCount, setPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [tabValue, setTabValue] = useState("hot");
+  const [tabValue, setTabValue] = useState("前端");
 
   const fetchPosts = async (tab: string) => {
     const params = {
       last_id: 0,
       limit: 50,
       tab: tab,
+      is_not_empty: true,
     };
 
+    console.log("tab ----:", tab);
     setLoading(true);
     const resp = await fetch("/api/gpts/all", {
       method: "POST",
