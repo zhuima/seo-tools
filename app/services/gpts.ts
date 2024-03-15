@@ -51,6 +51,7 @@ export const getAllPostsWhioutFilter = async () => {
     database_id: databaseId,
     filter: {
       or: [
+        { property: "Title", rich_text: { is_not_empty: true } },
         {
           property: "Tags",
           multi_select: {
