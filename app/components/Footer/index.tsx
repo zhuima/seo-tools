@@ -122,7 +122,7 @@ export default () => {
           <div className="max-[991px]:flex-none">
             <p className="text-[#636262] max-[479px]:text-sm pb-8">
               {" "}
-              © Copyright{" "}
+              © Copyright 2024{" "}
               <Link className="text-primary" href="https://chuhai.tools/">
                 chuhai.tools
               </Link>
