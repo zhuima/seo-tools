@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 14:06:14
+ * @LastEditTime: 2024-03-15 17:13:52
  * @FilePath: /gpts-works/web/app/layout.tsx
  * @Description:
  *
@@ -11,6 +11,7 @@
 import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
+import ScrollToTop from "./components/ToTop";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Inter } from "next/font/google";
@@ -76,6 +77,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <ScrollToTop />
         </main>
       </body>
     </html>
