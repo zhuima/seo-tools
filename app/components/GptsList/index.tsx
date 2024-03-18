@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 15:27:51
+ * @LastEditTime: 2024-03-18 15:55:05
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -32,7 +32,7 @@ export default ({ posts, loading }: Props) => {
               console.log("item --->", item);
               return (
                 <Link href={`/tools/${item.id}`} target="_self" key={idx}>
-                  <div className="mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
+                  <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage
                         src={item?.properties?.Icon?.url}
