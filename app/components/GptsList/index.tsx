@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 15:08:23
+ * @LastEditTime: 2024-03-18 15:27:51
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -52,6 +52,22 @@ export default ({ posts, loading }: Props) => {
                       {item?.properties?.Description?.rich_text[0]?.plain_text}
                     </p>
 
+                    {item?.properties?.IsFree && (
+                      <span
+                        className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
+              dark:bg-red-700`}
+                      >
+                        免费
+                      </span>
+                    )}
+
+                    {item?.properties?.IsFire && (
+                      <span
+                        className={`absolute right-0 top-0 rounded-bl-md rounded-tr-md text-2xl`}
+                      >
+                        🔥
+                      </span>
+                    )}
                     <div className="flex items-center">
                       {item?.properties?.Rating?.number &&
                         Array.from({
