@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 18:33:56
+ * @LastEditTime: 2024-03-18 11:16:32
  * @FilePath: /gpts-works/web/app/page.tsx
  * @Description:
  *
@@ -20,7 +20,8 @@ import Tab from "./components/Tab";
 
 export default () => {
   const [posts, setPosts] = useState<Items[]>([]);
-  const [postsCount, setPostsCount] = useState(0);
+  const [currentPostsCount, setCurrentPostsCount] = useState(0);
+  const [totalPostsCount, setTotalPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
   const [tabValue, setTabValue] = useState("前端");
 
@@ -45,7 +46,8 @@ export default () => {
     if (resp.ok) {
       const res = await resp.json();
       if (res.data) {
-        setPostsCount(res.data.count);
+        setCurrentPostsCount(res.data.count);
+        setTotalPostsCount(res.data.totalCount);
         setPosts(res.data.rows);
       }
     }
@@ -57,7 +59,7 @@ export default () => {
 
   return (
     <>
-      <Brand count={postsCount} />
+      <Brand count={totalPostsCount} />
       {/* <ProductHunt /> */}
       <Search setPosts={setPosts} setLoading={setLoading} />
       <Tab tabValue={tabValue} setTabValue={setTabValue} />

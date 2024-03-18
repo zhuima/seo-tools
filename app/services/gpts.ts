@@ -36,11 +36,17 @@ export const getAllPosts = async (params: GetPostsParams) => {
       },
     ],
   });
+
+  const totalCount = await notion.databases.query({
+    database_id: databaseId,
+  });
+
   const allPosts = posts.results;
 
   return respData({
     rows: allPosts,
     count: allPosts.length,
+    totalCount: totalCount.results.length,
   });
 };
 

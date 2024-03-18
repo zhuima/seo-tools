@@ -1,8 +1,9 @@
+/* eslint-disable @next/next/no-img-element */
 /*
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 10:36:17
+ * @LastEditTime: 2024-03-18 10:51:29
  * @FilePath: /gpts-works/web/app/components/Brand/index.tsx
  * @Description:
  *
