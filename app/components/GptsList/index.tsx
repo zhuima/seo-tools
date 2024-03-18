@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 16:14:29
+ * @LastEditTime: 2024-03-18 15:08:23
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -28,7 +28,7 @@ export default ({ posts, loading }: Props) => {
       <div className="mx-auto max-w-7xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
         {!loading ? (
           <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
-            {posts.map((item: Items, idx: number) => {
+            {posts?.map((item: Items, idx: number) => {
               console.log("item --->", item);
               return (
                 <Link href={`/tools/${item.id}`} target="_self" key={idx}>

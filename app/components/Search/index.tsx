@@ -21,7 +21,8 @@ export default ({ setPosts, setLoading }: Props) => {
   const [inputDisabled, setInputDisabled] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [content, setContent] = useState("");
-
+  const [currentPostsCount, setCurrentPostsCount] = useState(0);
+  const [totalPostsCount, setTotalPostsCount] = useState(0);
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
@@ -52,7 +53,9 @@ export default ({ setPosts, setLoading }: Props) => {
       if (resp.ok) {
         const res = await resp.json();
         if (res.data) {
-          setPosts(res.data);
+          setCurrentPostsCount(res.data.count);
+          setTotalPostsCount(res.data.totalCount);
+          setPosts(res.data.rows);
         }
       }
     } catch (e) {
