@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 15:29:53
+ * @LastEditTime: 2024-03-18 16:19:26
  * @FilePath: /gpts-works/web/app/components/Header/index.tsx
  * @Description:
  *
@@ -75,7 +75,7 @@ export default () => {
             </li>
           </ul>
         </div>
-        <a href="https://www.buymeacoffee.com/idoubi" target="_blank">
+        {/* <a href="https://www.buymeacoffee.com/idoubi" target="_blank">
           <svg
             width="27"
             height="39"
@@ -93,7 +93,7 @@ export default () => {
               fill="#0D0C22"
             ></path>
           </svg>
-        </a>
+        </a> */}
       </div>
     </header>
   );
