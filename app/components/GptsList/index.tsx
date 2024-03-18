@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 15:55:05
+ * @LastEditTime: 2024-03-18 18:09:00
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -14,6 +14,8 @@ import { Items } from "@/app/types/gpts";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import moment from "moment";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface Props {
   posts: Items[];
@@ -96,7 +98,11 @@ export default ({ posts, loading }: Props) => {
             })}
           </div>
         ) : (
-          <div className="mx-auto text-center">Loading data...</div>
+          <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
+            <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
+              <Skeleton count={3} />
+            </div>
+          </div>
         )}
       </div>
     </section>
