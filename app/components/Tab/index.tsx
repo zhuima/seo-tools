@@ -58,7 +58,10 @@ export default ({ tabValue, setTabValue }: Props) => {
   return (
     <section className="relative mt-4">
       <div className="mx-auto max-w-7xl px-2 py-4 md:px-8 md:py-4 text-center">
-        <div role="tablist" className="mx-auto">
+        <div
+          role="tablist"
+          className="mx-auto flex flex-wrap justify-start gap-2"
+        >
           {tabs.map((tab: Tags, idx: number) => {
             return (
               <a
