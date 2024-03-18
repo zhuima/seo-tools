@@ -2,14 +2,14 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 11:16:32
+ * @LastEditTime: 2024-03-18 16:34:49
  * @FilePath: /gpts-works/web/app/page.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 "use client";
-
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import Brand from "./components/Brand";
 import { Items } from "./types/gpts";
@@ -62,6 +62,23 @@ export default () => {
       <Brand count={totalPostsCount} />
       {/* <ProductHunt /> */}
       <Search setPosts={setPosts} setLoading={setLoading} />
+      <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
+        <Link
+          href="https://github.com/weijunext/indie-hacker-tools"
+          target="_target"
+          className="inline-block text-sm text-primary mx-2 mt-4"
+        >
+          <h3>Submit your GPTs 👉</h3>
+        </Link>
+        {/* <a class="inline-block text-sm text-slate-300 mx-2 mt-4">|</a>
+        <a
+          href="/dashboard/promote-gpts"
+          target="_self"
+          class="inline-block text-sm text-primary mx-2 mt-4"
+        >
+          <h3>Promote your GPTs 👉</h3>
+        </a> */}
+      </div>
       <Tab tabValue={tabValue} setTabValue={setTabValue} />
       <GptsList posts={posts} loading={loading} />
     </>
