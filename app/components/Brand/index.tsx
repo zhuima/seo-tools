@@ -10,6 +10,8 @@
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 "use client";
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 
 interface Props {
   count: number;
@@ -24,8 +26,10 @@ export default ({ count }: Props) => {
             Indie Hacker Tools
           </h2>
           <p className="mt-4 mb-4 md:mt-12 md:mb-8 text:lg md:text-4xl">
-            <span className="text-primary font-bold">{count}</span> Awesome
-            Indie Hacker Tools
+            <span className="text-primary font-bold">
+              {count || <Skeleton />}
+            </span>{" "}
+            Awesome Indie Hacker Tools
             {/* <a
               href="https://github.com/all-in-aigc/gpts-works/issues/5"
               target="_blank"
