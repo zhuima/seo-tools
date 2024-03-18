@@ -51,23 +51,6 @@ export default ({ posts, loading }: Props) => {
                     <p className="mb-4 text-sm text-[#636262]">
                       {item?.properties?.Description?.rich_text[0]?.plain_text}
                     </p>
-
-                    {item?.properties?.IsFree && (
-                      <span
-                        className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
-              dark:bg-red-700`}
-                      >
-                        免费
-                      </span>
-                    )}
-
-                    {item?.properties?.IsFire && (
-                      <span
-                        className={`absolute right-0 top-0 rounded-bl-md rounded-tr-md text-2xl`}
-                      >
-                        🔥
-                      </span>
-                    )}
                     <div className="flex items-center">
                       {item?.properties?.Rating?.number &&
                         Array.from({
@@ -87,6 +70,22 @@ export default ({ posts, loading }: Props) => {
                         {moment(item?.created_time).fromNow()}
                       </p>
                     </div>
+                    {item?.properties?.IsFree && (
+                      <span
+                        className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
+              dark:bg-red-700`}
+                      >
+                        免费
+                      </span>
+                    )}
+
+                    {item?.properties?.IsFire && (
+                      <span
+                        className={`absolute right-0 top-0 rounded-bl-md rounded-tr-md text-2xl`}
+                      >
+                        🔥
+                      </span>
+                    )}
                   </div>
                 </Link>
               );
