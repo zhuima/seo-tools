@@ -70,7 +70,7 @@ export default ({ posts, loading }: Props) => {
                         {moment(item?.created_time).fromNow()}
                       </p>
                     </div>
-                    {item?.properties?.IsFree ? (
+                    {item?.properties?.IsFree.checkbox ? (
                       <span
                         className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
               dark:bg-red-700`}
@@ -81,7 +81,7 @@ export default ({ posts, loading }: Props) => {
                       ""
                     )}
 
-                    {item?.properties?.IsFire ? (
+                    {item?.properties?.IsFire.checkbox ? (
                       <span
                         className={`absolute right-0 top-0 rounded-bl-md rounded-tr-md text-2xl`}
                       >
