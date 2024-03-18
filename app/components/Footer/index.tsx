@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 13:46:13
+ * @LastEditTime: 2024-03-18 10:44:58
  * @FilePath: /gpts-works/web/app/components/Footer/index.tsx
  * @Description:
  *
@@ -100,8 +100,7 @@ export default () => {
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse non
-              cupiditate quae nam molestias.
+              Find fantastic indie hacker tools all over the world.
             </p>
 
             <ul className="mt-8 flex gap-6">
@@ -401,7 +400,7 @@ export default () => {
         </div>
 
         <p className="text-xs text-gray-500">
-          &copy; 2022. Company Name. All rights reserved.
+          &copy; 2024. chuhai.tools. All rights reserved.
         </p>
       </div>
     </footer>
