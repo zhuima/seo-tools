@@ -68,7 +68,7 @@ export default () => {
           target="_target"
           className="inline-block text-sm text-primary mx-2 mt-4"
         >
-          <h3>Submit your GPTs 👉</h3>
+          <h3>Submit your Tools 👉</h3>
         </Link>
         {/* <a class="inline-block text-sm text-slate-300 mx-2 mt-4">|</a>
         <a
