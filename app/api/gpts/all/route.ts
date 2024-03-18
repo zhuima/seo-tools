@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 10:24:15
+ * @LastEditTime: 2024-03-15 18:56:03
  * @FilePath: /gpts-works/web/app/api/gpts/all/route.ts
  * @Description:
  *
@@ -12,7 +12,7 @@
 import { GetPostsParams } from "@/app/types/params";
 import { respData, respErr } from "@/app/utils/resp";
 
-import { getAllPosts, getAllPostsWhioutFilter } from "@/app/services/gpts";
+import { getAllPosts } from "@/app/services/gpts";
 export async function POST(req: Request) {
   try {
     // const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
@@ -36,7 +36,7 @@ export async function POST(req: Request) {
     const params = await req.json();
 
     console.log("api router params", params);
-    const entries = await getAllPostsWhioutFilter();
+    const entries = await getAllPosts(params);
     console.log("get all posts: ", entries);
     return entries;
   } catch (e) {
