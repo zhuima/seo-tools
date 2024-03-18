@@ -1,27 +1,32 @@
 import { respData, respErr } from "@/app/utils/resp";
 
 import { getRowsByName } from "@/app/models/gpts";
-import { searchGpts } from "@/app/services/gpts";
+import { searchGpts, searchPosts } from "@/app/services/gpts";
 
 export async function POST(req: Request) {
-  const { question, keyword } = await req.json();
-  if (!question && !keyword) {
-    return respErr("invalid params");
+  try {
+    const params = await req.json();
+
+    console.log("api router params", params);
+
+    const question = params.question;
+    // const posts = await searchPosts(question);
+    // return respData({ data: posts });
+
+    const posts = await searchPosts(question);
+    console.log("search all posts: ", posts);
+    return posts;
+  } catch (e) {
+    console.log("search all posts failed: ", e);
+    const errinfo = "search posts failed" + e;
+    return respErr(errinfo);
   }
+  // const vectorData = await searchPosts(question);
+  // console.log("vectorData", vectorData);
 
-  if (keyword) {
-    const data = await getRowsByName(keyword);
-    return respData(data);
-  }
+  // // const data = mergeArraysUnique(dbData, vectorData);
 
-  const dbData = await getRowsByName(question);
-  const vectorData = await searchGpts(question);
-  console.log("dbData", dbData);
-  console.log("vectorData", vectorData);
-
-  const data = mergeArraysUnique(dbData, vectorData);
-
-  return respData(data);
+  // return respData(vectorData);
 }
 
 function mergeArraysUnique<T>(arr1: T[], arr2: T[]): T[] {

@@ -3,13 +3,13 @@ import { Items } from "@/app/types/gpts";
 import { respData, respErr } from "@/app/utils/resp";
 import { Tags } from "../types/tags";
 import { Gpts } from "../types/gpts";
+import { Posts } from "../types/posts";
 import { GetPostsParams } from "../types/params";
 // 函数用于获取数据库中的所有条目
 export const getAllPosts = async (params: GetPostsParams) => {
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
 
   console.log("server params", params);
-  const isTrue: boolean = true;
   const posts = await notion.databases.query({
     database_id: databaseId,
     filter: {
@@ -130,6 +130,62 @@ export const getAllTags = async () => {
   });
 };
 
+export const searchPosts = async (question: string) => {
+  try {
+    console.log("question", question);
+    const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+
+    const posts = await notion.databases.query({
+      database_id: databaseId,
+      // filter_properties: ["Title", "Tags", "Description"],
+      filter: {
+        or: [
+          {
+            property: "Tags",
+            multi_select: {
+              contains: question,
+            },
+          },
+          {
+            property: "Title",
+            title: {
+              contains: question,
+            },
+          },
+          {
+            property: "Description",
+            rich_text: {
+              contains: question,
+            },
+          },
+        ],
+      },
+
+      sorts: [
+        {
+          property: "Date",
+          direction: "descending",
+        },
+      ],
+    });
+
+    const totalCount = await notion.databases.query({
+      database_id: databaseId,
+    });
+
+    const allPosts = posts.results;
+
+    console.log("allposts", posts);
+    return respData({
+      rows: allPosts,
+      count: allPosts.length,
+      totalCount: totalCount.results.length,
+    });
+  } catch (e) {
+    console.log("request gpts search failed: ", e);
+    throw e; // Rethrow the error to allow the calling function to handle it
+  }
+};
 // export const getGptsFromFile = async (): Promise<Gpts[]> => {
 //   try {
 //     const dataFile = process.env.GPTS_DATA_FILE;

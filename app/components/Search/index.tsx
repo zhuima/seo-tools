@@ -30,16 +30,15 @@ export default ({ setPosts, setLoading }: Props) => {
     if (e.code === "Enter" && !e.shiftKey) {
       if (e.keyCode !== 229) {
         e.preventDefault();
-        handleSubmit("", content);
+        handleSubmit(content);
       }
     }
   };
 
-  const handleSubmit = async (keyword: string, question: string) => {
+  const handleSubmit = async (question: string) => {
     try {
       const uri = "/api/gpts/search";
       const params = {
-        keyword: keyword,
         question: question,
       };
 
@@ -94,7 +93,7 @@ export default ({ setPosts, setLoading }: Props) => {
             className="absolute right-4 cursor-pointer"
             onClick={() => {
               if (content) {
-                handleSubmit("", content);
+                handleSubmit(content);
               }
             }}
           >
