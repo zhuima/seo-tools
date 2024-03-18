@@ -3,7 +3,6 @@ import { Items } from "@/app/types/gpts";
 import { respData, respErr } from "@/app/utils/resp";
 import { Tags } from "../types/tags";
 import { Gpts } from "../types/gpts";
-import { Posts } from "../types/posts";
 import { GetPostsParams } from "../types/params";
 // 函数用于获取数据库中的所有条目
 export const getAllPosts = async (params: GetPostsParams) => {
