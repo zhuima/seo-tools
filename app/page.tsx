@@ -29,7 +29,6 @@ export default () => {
       last_id: 0,
       limit: 50,
       tab: tab,
-      is_not_empty: true,
     };
 
     console.log("tab ----:", tab);
