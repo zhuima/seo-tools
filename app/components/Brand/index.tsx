@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-14 16:25:43
+ * @LastEditTime: 2024-03-18 10:36:17
  * @FilePath: /gpts-works/web/app/components/Brand/index.tsx
  * @Description:
  *
@@ -23,7 +23,7 @@ export default ({ count }: Props) => {
             Indie Hacker Tools
           </h2>
           <p className="mt-4 mb-4 md:mt-12 md:mb-8 text:lg md:text-4xl">
-            <span className="text-primary font-bold">{count}</span> awesome
+            <span className="text-primary font-bold">{count}</span> Awesome
             Indie Hacker Tools
             {/* <a
               href="https://github.com/all-in-aigc/gpts-works/issues/5"
