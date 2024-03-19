@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 16:25:37
+ * @LastEditTime: 2024-03-19 10:04:49
  * @FilePath: /gpts-works/web/app/components/Footer/index.tsx
  * @Description:
  *
@@ -131,7 +131,7 @@ export default () => {
 
               <li>
                 <Link
-                  href="#"
+                  href="https://www.instagram.com/"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
@@ -199,7 +199,7 @@ export default () => {
 
               <li>
                 <Link
-                  href="#"
+                  href="https://dribbble.com"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
@@ -401,7 +401,7 @@ export default () => {
         </div>
 
         <p className="text-xs text-gray-500">
-          &copy; 2024. chuhai.tools. All rights reserved.
+          &copy; {new Date().getFullYear()}. chuhai.tools. All rights reserved.
         </p>
       </div>
     </footer>
