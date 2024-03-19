@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 16:34:49
+ * @LastEditTime: 2024-03-19 13:43:34
  * @FilePath: /gpts-works/web/app/page.tsx
  * @Description:
  *
@@ -70,14 +70,14 @@ export default () => {
         >
           <h3>Submit your Tools 👉</h3>
         </Link>
-        {/* <a class="inline-block text-sm text-slate-300 mx-2 mt-4">|</a>
-        <a
-          href="/dashboard/promote-gpts"
-          target="_self"
-          class="inline-block text-sm text-primary mx-2 mt-4"
+        <span className="inline-block text-sm text-slate-300 mx-2 mt-4">|</span>
+        <Link
+          href="https://tally.so/r/w7WWja"
+          target="_target"
+          className="inline-block text-sm text-primary mx-2 mt-4"
         >
-          <h3>Promote your GPTs 👉</h3>
-        </a> */}
+          <h3>Submit your Tally 👉</h3>
+        </Link>
       </div>
       <Tab tabValue={tabValue} setTabValue={setTabValue} />
       <GptsList posts={posts} loading={loading} />
