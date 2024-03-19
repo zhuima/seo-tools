@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://serach.chuhai.tools/sitemap.xml
