@@ -230,15 +230,16 @@ export default () => {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="https://chat.ruankao168.top/#/chat"
+                    target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    1on1 Coaching{" "}
+                    ChatNext{" "}
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
@@ -276,7 +277,7 @@ export default () => {
                     {" "}
                     SEO Optimisation{" "}
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
 
