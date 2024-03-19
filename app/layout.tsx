@@ -38,6 +38,9 @@ export const metadata: Metadata = {
     "面向海外用户开发产品",
     "出海第一步，搞定工具库",
   ],
+  alternates: {
+    canonical: "https://chuhai.tools",
+  },
   icons: {
     icon: "https://img.techrk1688.eu.org/file/7c62adaced7e805fb9d4e.png",
     shortcut: "/favicon-16x16.ico",
