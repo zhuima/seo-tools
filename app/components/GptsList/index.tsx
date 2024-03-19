@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 10:00:49
+ * @LastEditTime: 2024-03-19 10:15:30
  * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -98,20 +98,18 @@ export default ({ posts, loading }: Props) => {
             })}
           </div>
         ) : (
-          <>
+          <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
             {Array(3)
               .fill(null)
               .map((_, index) => (
                 <div
                   key={index}
-                  className="mb-8 gap-5 py-4 grid grid-cols-1 md:mb-12 lg:mb-16 [column-count:1 md:2 lg:3]"
+                  className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8"
                 >
-                  <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-slate-600 bg-white p-8">
-                    <Skeleton />
-                  </div>
+                  <Skeleton count={3} />
                 </div>
               ))}
-          </>
+          </div>
         )}
       </div>
     </section>
