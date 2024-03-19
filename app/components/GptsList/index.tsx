@@ -77,7 +77,7 @@ export default ({ posts, loading }: Props) => {
                         className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
               dark:bg-red-700`}
                       >
-                        免费
+                        开源
                       </span>
                     ) : (
                       ""
