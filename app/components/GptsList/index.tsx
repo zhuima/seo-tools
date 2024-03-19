@@ -98,18 +98,20 @@ export default ({ posts, loading }: Props) => {
             })}
           </div>
         ) : (
-          <div className="mb-8 gap-5 py-4 grid grid-cols-1 md:mb-12 lg:mb-16 [column-count:1 md:2 lg:3]">
+          <>
             {Array(3)
               .fill(null)
               .map((_, index) => (
                 <div
                   key={index}
-                  className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-slate-600 bg-white p-8"
+                  className="mb-8 gap-5 py-4 grid grid-cols-1 md:mb-12 lg:mb-16 [column-count:1 md:2 lg:3]"
                 >
-                  <Skeleton />
+                  <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-slate-600 bg-white p-8">
+                    <Skeleton />
+                  </div>
                 </div>
               ))}
-          </div>
+          </>
         )}
       </div>
     </section>
