@@ -181,8 +181,9 @@ export default ({ post }: Props) => {
               >
                 <BsChatDots />
                 <p className="text-sm text-white-nowrap">
-                  Try using {post?.properties?.Title.title[0].plain_text} in
-                  your next project 👉
+                  {/* Try using {post?.properties?.Title.title[0].plain_text} in
+                  your next project 👉  */}
+                  Try in your next project 👉
                 </p>
               </Link>
             </div>
