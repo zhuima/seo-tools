@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 16:34:23
+ * @LastEditTime: 2024-03-19 16:40:35
  * @FilePath: /gpts-works/web/app/components/Footer/index.tsx
  * @Description:
  *
@@ -230,7 +230,7 @@ export default () => {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
-                    href="https://chat.ruankao168.top/#/chat"
+                    href="https://chat.ruankao.eu.org/"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
                   >
