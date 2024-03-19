@@ -1,9 +1,12 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { BsChatDots } from "react-icons/bs";
 import { Items } from "@/app/types/gpts";
 import Preview from "./Preview";
 import { getGptsTools } from "@/app/services/gpts";
 import moment from "moment";
+import GptsList from "../GptsList";
 
 interface Props {
   post: Items;
@@ -13,6 +16,41 @@ export default ({ post }: Props) => {
   // const tools = getGptsTools(post);
 
   console.log("postgpts details", post);
+  const [posts, setPosts] = useState<Items[]>([]);
+  const [currentPostsCount, setCurrentPostsCount] = useState(0);
+  const [totalPostsCount, setTotalPostsCount] = useState(0);
+  const [loading, setLoading] = useState(false);
+
+  const fetchPosts = async (tags: string) => {
+    const params = {
+      tags: tags,
+    };
+
+    console.log("tab ----:", tags);
+    setLoading(true);
+    const resp = await fetch("/api/gpts/random", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params),
+    });
+    setLoading(false);
+
+    if (resp.ok) {
+      const res = await resp.json();
+      if (res.data) {
+        setCurrentPostsCount(res.data.count);
+        setTotalPostsCount(res.data.totalCount);
+        setPosts(res.data.rows);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchPosts(post.properties.Tags.multi_select[0].name);
+  }, [post.properties.Tags.multi_select]);
+
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
@@ -57,7 +95,7 @@ export default ({ post }: Props) => {
                   <Link
                     className="ml-2 text-md font-medium text-gray-500 hover:text-gray-700"
                     aria-current="page"
-                    href="/gpts/random"
+                    href="#"
                   >
                     tools
                   </Link>
@@ -142,7 +180,7 @@ export default ({ post }: Props) => {
                 className="flex items-center gap-2 rounded-md border border-solid border-black bg-primary text-white px-6 py-3 truncate"
               >
                 <BsChatDots />
-                <p>
+                <p className="text-sm text-white-nowrap">
                   Try using {post?.properties?.Title.title[0].plain_text} in
                   your next project 👉
                 </p>
@@ -153,6 +191,12 @@ export default ({ post }: Props) => {
             {/* <Preview gpts={post} /> */}
           </div>
         </div>
+      </div>
+      <div className="w-full text-center">
+        <h2 className="mx-auto font-bold text-3xl mt-8 mb-4">
+          Other Tools you may like
+        </h2>
+        <GptsList posts={posts} loading={loading} />
       </div>
     </section>
   );

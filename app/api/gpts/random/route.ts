@@ -1,12 +1,30 @@
-import { getRandRows } from "@/app/models/gpts";
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-03-14 14:25:32
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-03-19 15:11:08
+ * @FilePath: /gpts-works/web/app/api/gpts/random/route.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 
-export async function GET() {
+import { searchSamePosts } from "@/app/services/gpts";
+
+export async function POST(req: Request) {
   try {
-    const data = await getRandRows(0, 50);
+    const params = await req.json();
 
-    return Response.json({ code: 0, message: "ok", data: data });
+    console.log("api router params", params);
+
+    const tags = params.tags;
+
+    const posts = await searchSamePosts(tags);
+
+    console.log("search all posts: ", posts);
+    return posts;
   } catch (e) {
-    console.log("get gpts failed: ", e);
+    console.log("get same posts failed: ", e);
     return Response.json({
       code: -1,
       message: "failed",
