@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 17:13:52
- * @FilePath: /gpts-works/web/app/layout.tsx
+ * @LastEditTime: 2024-03-21 13:54:23
+ * @FilePath: /web/app/layout.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -42,8 +42,9 @@ export const metadata: Metadata = {
     canonical: "https://chuhai.tools",
   },
   icons: {
-    icon: "https://img.techrk1688.eu.org/file/7c62adaced7e805fb9d4e.png",
+    icon: "/favicon.ico",
     shortcut: "/favicon-16x16.ico",
+    android: "/android-chrome-192x192.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
