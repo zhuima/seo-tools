@@ -97,7 +97,7 @@ export default () => {
                   fill="currentColor"
                 />
               </svg> */}
-              Indie Hacker Tools
+              <img src="/logo.png" alt="Indie Hacker Tools" />
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">

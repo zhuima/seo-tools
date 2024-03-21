@@ -1,15 +1,17 @@
+/* eslint-disable @next/next/no-img-element */
 /*
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-18 16:19:26
- * @FilePath: /gpts-works/web/app/components/Header/index.tsx
+ * @LastEditTime: 2024-03-21 11:42:55
+ * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 "use client";
 import Link from "next/link";
+
 import { BsGithub, BsTwitter } from "react-icons/bs";
 
 import { usePathname } from "next/navigation";
@@ -23,11 +25,12 @@ export default () => {
           <Link
             className="bg-cover bg-center px-3 py-3 md:px-4 md:py-4 m text-white cursor-pointer"
             href="/"
-            style={{
-              backgroundImage: "url('/brand.svg')",
-            }}
+            target="_self"
+            // style={{
+            //   backgroundImage: "url('/brand.svg')",
+            // }}
           >
-            Indie Hacker Tools
+            <img src="/logo.png" alt="Indie Hacker Tools" />
           </Link>
         </h1>
 
