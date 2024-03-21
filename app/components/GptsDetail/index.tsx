@@ -180,13 +180,13 @@ export default ({ post }: Props) => {
                 target="_blank"
                 className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
               >
-                <BsChatDots />
+                {/* <BsChatDots /> */}
                 {/* <p className="text-sm text-white-nowrap">
                   Try using {post?.properties?.Title.title[0].plain_text} in
                   your next project 👉 
                   Try in your next project 👉
                 </p> */}
-                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-primary top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
                 <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease">
                   Try in your next project 👉
                 </span>
@@ -196,7 +196,7 @@ export default ({ post }: Props) => {
           <div className="min-h-[530px] overflow-hidden rounded-md bg-[#f2f2f7]">
             {/* <Preview gpts={post} /> */}
             <img
-              className="h-full w-full object-cover object-center rounded-full"
+              className="h-full w-full object-cover object-center"
               src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
               alt="indie hacker tools"
               loading="lazy"
