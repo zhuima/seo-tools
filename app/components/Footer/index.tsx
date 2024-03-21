@@ -97,7 +97,7 @@ export default () => {
                   fill="currentColor"
                 />
               </svg> */}
-              <img src="/logo.png" alt="Indie Hacker Tools" />
+              <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs />
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">

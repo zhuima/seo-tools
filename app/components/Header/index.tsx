@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-21 11:42:55
+ * @LastEditTime: 2024-03-21 12:09:27
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -30,7 +30,7 @@ export default () => {
             //   backgroundImage: "url('/brand.svg')",
             // }}
           >
-            <img src="/logo.png" alt="Indie Hacker Tools" />
+            <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs />
           </Link>
         </h1>
 
