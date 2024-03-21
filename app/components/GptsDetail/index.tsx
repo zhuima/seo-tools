@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -194,6 +195,12 @@ export default ({ post }: Props) => {
           </div>
           <div className="min-h-[530px] overflow-hidden rounded-md bg-[#f2f2f7]">
             {/* <Preview gpts={post} /> */}
+            <img
+              className="mx-auto w-16 h-16 rounded-full"
+              src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
+              alt="indie hacker tools"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>
