@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 16:40:35
- * @FilePath: /gpts-works/web/app/components/Footer/index.tsx
+ * @LastEditTime: 2024-03-21 12:14:20
+ * @FilePath: /web/app/components/Footer/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -97,7 +97,8 @@ export default () => {
                   fill="currentColor"
                 />
               </svg> */}
-              <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs />
+              {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+              Indie Hacker Tools
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
