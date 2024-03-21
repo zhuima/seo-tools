@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-21 13:54:23
+ * @LastEditTime: 2024-03-21 13:58:35
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -44,7 +44,6 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.ico",
-    android: "/android-chrome-192x192.png",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
