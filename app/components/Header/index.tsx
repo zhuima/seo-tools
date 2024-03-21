@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-21 12:19:58
+ * @LastEditTime: 2024-03-21 12:25:52
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -21,17 +21,23 @@ export default () => {
   return (
     <header className="mx-auto w-full max-w-7xl px-4 md:px-10 mt-8 md:mt-12">
       <div className="flex items-center">
-        <h1 className="text-lg md:text-3xl font-medium ">
+        <h1 className="text-lg md:text-3xl font-medium">
           <Link
-            className="bg-cover bg-center px-3 py-3 md:px-4 md:py-4 m text-white cursor-pointer"
+            className="bg-cover bg-center bg-no-repeat px-3 py-3 md:px-4 md:py-4 m text-white cursor-pointer"
             href="/"
             target="_self"
-            style={{
-              backgroundImage: "url('/logo.png')",
-            }}
+            // style={{
+            //   backgroundImage: "url('/logo.png')",
+            //   backgroundSize: "contain",
+            //   backgroundPosition: "center",
+            // }}
           >
-            {/* Indie Hacker Tools */}
-            {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+            <img
+              src="/logo.png"
+              alt="Indie Hacker Tools"
+              className="block max-h-[3.5rem] md:max-h-[5rem]"
+              loading="lazy"
+            />
           </Link>
         </h1>
 
