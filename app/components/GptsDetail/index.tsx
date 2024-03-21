@@ -177,14 +177,18 @@ export default ({ post }: Props) => {
               <Link
                 href={post.properties ? post.properties.Link.url : "#"}
                 target="_blank"
-                className="flex items-center gap-2 rounded-md border border-solid border-black bg-primary text-white px-6 py-3 truncate"
+                className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
               >
                 <BsChatDots />
-                <p className="text-sm text-white-nowrap">
-                  {/* Try using {post?.properties?.Title.title[0].plain_text} in
-                  your next project 👉  */}
+                {/* <p className="text-sm text-white-nowrap">
+                  Try using {post?.properties?.Title.title[0].plain_text} in
+                  your next project 👉 
                   Try in your next project 👉
-                </p>
+                </p> */}
+                <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-indigo-600 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
+                <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease">
+                  Try in your next project 👉
+                </span>
               </Link>
             </div>
           </div>
