@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 10:19:02
+ * @LastEditTime: 2024-03-22 10:24:38
  * @FilePath: /web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -38,7 +38,7 @@ export default ({ posts, loading }: Props) => {
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage
                         src={item?.properties?.Icon?.url}
-                        alt=""
+                        alt={item?.properties?.Title?.title[0]?.plain_text}
                         className="mr-4 inline-block h-16 w-16 object-cover rounded-full"
                       />
                       <div className="flex flex-col">
@@ -59,10 +59,10 @@ export default ({ posts, loading }: Props) => {
                           length: item?.properties?.Rating?.number,
                         }).map((_, idx: number) => (
                           // eslint-disable-next-line @next/next/no-img-element
-                          <img
+                          <LazyLoadImage
                             key={idx}
                             src="/star.svg"
-                            alt=""
+                            alt="indie hacker tools star"
                             className="mr-1.5 inline-block w-4 flex-none"
                           />
                         ))}
