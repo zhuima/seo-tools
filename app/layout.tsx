@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-21 13:58:35
+ * @LastEditTime: 2024-03-22 17:08:55
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -10,6 +10,8 @@
  */
 import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
+import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import ScrollToTop from "./components/ToTop";
 import Footer from "./components/Footer";
@@ -73,8 +75,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" type="image/png" sizes="16x16" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
       </head>
+      {/* Clarity Script */}
+      <Script strategy="lazyOnload" id="clarity-script">
+        {`
+          (function(c,l,a,r,i,t,y){
+                  c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                  t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                  y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "l7rjuiarul");
+        `}
+      </Script>
       <body className={inter.className}>
         <main>
           <Header />
@@ -83,6 +95,9 @@ export default function RootLayout({
           <ScrollToTop />
         </main>
       </body>
+      <GoogleAnalytics
+        gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID ?? ""}
+      />
     </html>
   );
 }
