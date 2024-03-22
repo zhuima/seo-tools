@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 10:15:30
- * @FilePath: /gpts-works/web/app/components/GptsList/index.tsx
+ * @LastEditTime: 2024-03-22 10:19:02
+ * @FilePath: /web/app/components/GptsList/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -42,9 +42,9 @@ export default ({ posts, loading }: Props) => {
                         className="mr-4 inline-block h-16 w-16 object-cover rounded-full"
                       />
                       <div className="flex flex-col">
-                        <h6 className="text-base font-semibold">
+                        <h4 className="text-base font-semibold">
                           {item?.properties?.Title?.title[0]?.plain_text}
-                        </h6>
+                        </h4>
                         <p className="text-sm text-[#636262]">
                           {item?.properties.Title?.title[0]?.plain_text}
                         </p>
