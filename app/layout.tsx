@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 17:08:55
+ * @LastEditTime: 2024-03-22 17:26:53
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://chuhai.tools",
     siteName: "Chuhai Tools - 独立开发者出海技术栈和工具",
-    images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+    images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
   },
   twitter: {
     card: "summary_large_image",
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     description:
       "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
     site: "https://chuhai.tools",
-    images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+    images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
   },
 };
 
