@@ -6,6 +6,8 @@ import { Gpts } from "../types/gpts";
 import { GetPostsParams } from "../types/params";
 // 函数用于获取数据库中的所有条目
 export const getAllPosts = async (params: GetPostsParams) => {
+  let allItems: any[] = [];
+  let cursor: string | null | undefined = undefined;
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
 
   console.log("server params", params);
@@ -36,16 +38,25 @@ export const getAllPosts = async (params: GetPostsParams) => {
     ],
   });
 
-  const totalCount = await notion.databases.query({
-    database_id: databaseId,
-  });
+  do {
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      start_cursor: cursor,
+    });
+    // Append current page's results to the array
+    allItems = allItems.concat(response.results);
+
+    // Update cursor for the next page
+    cursor = response.next_cursor;
+  } while (cursor);
 
   const allPosts = posts.results;
 
   return respData({
     rows: allPosts,
     count: allPosts.length,
-    totalCount: totalCount.results.length,
+    // totalCount: totalCount.results.length,
+    totalCount: allItems,
   });
 };
 
