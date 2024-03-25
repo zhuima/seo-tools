@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 10:24:38
+ * @LastEditTime: 2024-03-25 16:20:05
  * @FilePath: /web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -33,7 +33,12 @@ export default ({ posts, loading }: Props) => {
             {posts?.map((item: Items, idx: number) => {
               console.log("item --->", item);
               return (
-                <Link href={`/tools/${item.id}`} target="_self" key={idx}>
+                <Link
+                  href={`/tools/${item.id}`}
+                  as={`/tools/about-${item.properties.Slug.rich_text[0].plain_text}`}
+                  target="_self"
+                  key={idx}
+                >
                   <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage

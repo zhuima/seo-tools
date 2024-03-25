@@ -2,12 +2,107 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-15 11:18:41
- * @FilePath: /gpts-works/web/app/types/gpts.d.ts
+ * @LastEditTime: 2024-03-25 17:57:45
+ * @FilePath: /web/app/types/gpts.d.ts
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
+
+interface Post {
+  metadata: PageMetadata;
+  markdown: MdStringObject;
+}
+
+export interface PageMetadata {
+  id: string;
+  lastEditTime: string;
+  title: string;
+  description: string;
+  link: string;
+  tags: string;
+}
+
+export interface Item {
+  object: "page";
+  id: string;
+  created_time: string;
+  last_edited_time: string;
+  created_by: {
+    object: "user";
+    id: string;
+  };
+  last_edited_by: {
+    object: "user";
+    id: string;
+  };
+  cover: null | any; // 根据实际情况确定数据类型
+  icon: null | any; // 根据实际情况确定数据类型
+  parent: {
+    type: "database_id";
+    database_id: string;
+  };
+  archived: boolean;
+  properties: {
+    Link: {
+      id: string;
+      type: "url";
+      url: string;
+    };
+    Rating: {
+      id: string;
+      type: "number";
+      number: number;
+    };
+    Description: {
+      id: string;
+      type: "rich_text";
+      rich_text: any[]; // 根据实际情况确定数据类型
+    };
+    IsFree: {
+      id: string;
+      type: "checkbox";
+      checkbox: boolean;
+    };
+    Tags: {
+      id: string;
+      type: "multi_select";
+      multi_select: { id: string; name: string }[]; // 根据实际情况确定数据类型
+    };
+    Icon: {
+      id: string;
+      type: "url";
+      url: string;
+    };
+    Slug: {
+      id: string;
+      type: "rich_text";
+      rich_text: any[]; // 根据实际情况确定数据类型
+    };
+    Date: {
+      id: string;
+      type: "date";
+      date: any; // 根据实际情况确定数据类型
+    };
+    IsFire: {
+      id: string;
+      type: "checkbox";
+      checkbox: boolean;
+    };
+    Title: {
+      id: string;
+      type: "title";
+      title: any[]; // 根据实际情况确定数据类型
+    };
+  };
+  url: string;
+  public_url: null | any; // 根据实际情况确定数据类型
+}
+
+interface BlogPost {
+  metadata: Metadata;
+  markdown: string;
+}
 
 export interface Items {
   object: string;

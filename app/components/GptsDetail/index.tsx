@@ -1,16 +1,29 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import type { Metadata, ResolvingMetadata } from "next";
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { BsChatDots } from "react-icons/bs";
-import { Items } from "@/app/types/gpts";
-import Preview from "./Preview";
-import { getGptsTools } from "@/app/services/gpts";
+import { Item, Items, Post } from "@/app/types/gpts";
 import moment from "moment";
 import GptsList from "../GptsList";
+import Preview from "./Preview";
 
 interface Props {
-  post: Items;
+  post: Post;
+}
+
+export async function generateMetadata(
+  { post }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // read route params
+
+  return {
+    title: `Chuhai Tools - ${post.metadata.title}`,
+    description: post.metadata.description,
+  };
 }
 
 export default ({ post }: Props) => {
@@ -49,8 +62,8 @@ export default ({ post }: Props) => {
   };
 
   useEffect(() => {
-    fetchPosts(post.properties.Tags.multi_select[0].name);
-  }, [post.properties.Tags.multi_select]);
+    fetchPosts(post.metadata.tags);
+  }, [post.metadata.tags]);
 
   return (
     <section>
@@ -121,7 +134,7 @@ export default ({ post }: Props) => {
                     className="ml-2 text-md font-medium text-gray-500 hover:text-gray-700"
                     aria-current="page"
                   >
-                    {post?.properties?.Title.title[0].plain_text}
+                    {post.metadata.title}
                   </Link>
                 </div>
               </li>
@@ -133,17 +146,17 @@ export default ({ post }: Props) => {
             <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1">
               <div className="mr-1 h-2 w-2 rounded-full bg-black"></div>
               <p className="text-sm">
-                Created at {moment(post.last_edited_time).fromNow()}
+                Created at {moment(post.metadata.lastEditTime).fromNow()}
               </p>
             </div>
             <p className="text-sm text-[#808080] sm:text-xl">
-              Created by {post.properties.Title.title[0].plain_text}
+              Created by {post.metadata.title}
             </p>
-            <h1 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
-              {post?.properties?.Title.title[0].plain_text}
-            </h1>
+            <h2 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
+              {post.metadata.title}
+            </h2>
             <p className="text-sm text-[#808080] sm:text-xl">
-              {post?.properties?.Description.rich_text[0].plain_text}
+              {post.metadata.description}
             </p>
             <div className="mb-8 mt-8 h-px w-full bg-black"></div>
             {/* <div className="mb-6 flex flex-col gap-2 text-sm text-[#808080] sm:text-base lg:mb-8">
@@ -176,7 +189,7 @@ export default ({ post }: Props) => {
 
             <div className="flex flex-col gap-4 font-semibold sm:flex-row">
               <Link
-                href={post.properties ? post.properties.Link.url : "#"}
+                href={post ? post.metadata.link : "#"}
                 target="_blank"
                 className="rounded-md px-3.5 py-2 m-1 overflow-hidden relative group cursor-pointer border-2 font-medium border-indigo-600 text-indigo-600 text-white"
               >
@@ -194,13 +207,16 @@ export default ({ post }: Props) => {
             </div>
           </div>
           <div className="min-h-[530px] overflow-hidden rounded-md bg-[#f2f2f7]">
-            {/* <Preview gpts={post} /> */}
-            <img
-              className="h-full w-full object-cover object-center"
-              src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
-              alt="indie hacker tools"
-              loading="lazy"
-            />
+            {post.markdown.parent ? (
+              <Preview post={post} />
+            ) : (
+              <img
+                className="h-full w-full object-cover object-center"
+                src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
+                alt="indie hacker tools"
+                loading="lazy"
+              />
+            )}
           </div>
         </div>
       </div>

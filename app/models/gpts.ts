@@ -6,7 +6,6 @@ const notion = new Client({
 });
 
 import { Gpts, Items } from "@/app/types/gpts";
-import { isGptsSensitive } from "@/app/services/gpts";
 
 export async function createTable() {
   const res = await sql`CREATE TABLE gpts (
@@ -175,10 +174,6 @@ function formatGpts(row: QueryResultRow): Gpts | undefined {
     gpts.detail = JSON.parse(JSON.stringify(row.detail));
   } catch (e) {
     console.log("parse gpts detail failed: ", e);
-  }
-
-  if (isGptsSensitive(gpts)) {
-    return;
   }
 
   return gpts;

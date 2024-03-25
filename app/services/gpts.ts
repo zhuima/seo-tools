@@ -1,9 +1,19 @@
 import notion from "@/app/utils/notionClient";
-import { Items } from "@/app/types/gpts";
+import { NotionToMarkdown } from "notion-to-md";
+
+import { Item, Items, Post, PageMetadata } from "@/app/types/gpts";
 import { respData, respErr } from "@/app/utils/resp";
 import { Tags } from "../types/tags";
 import { Gpts } from "../types/gpts";
 import { GetPostsParams } from "../types/params";
+import {
+  DatabaseObjectResponse,
+  PageObjectResponse,
+  PartialDatabaseObjectResponse,
+  PartialPageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
+
+const n2m = new NotionToMarkdown({ notionClient: notion });
 // 函数用于获取数据库中的所有条目
 export const getAllPosts = async (params: GetPostsParams) => {
   let allItems: any[] = [];
@@ -197,6 +207,131 @@ export const searchPosts = async (question: string) => {
   }
 };
 
+export async function findByUuid(uuid: string): Promise<Items | undefined> {
+  const res = await notion.pages.retrieve({ page_id: uuid });
+  return res as Items | undefined;
+}
+
+// 使用数据库查询来查找具有特定slug的页面
+// export async function findBySlug(slug: string): Promise<Items | undefined> {
+//   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+//   const response = await notion.databases.query({
+//     database_id: databaseId,
+//     filter: {
+//       property: "Slug",
+//       formula: {
+//         string: {
+//           equals: slug,
+//         },
+//       },
+//     },
+//   });
+
+//   // 假设只有一个页面匹配slug，否则根据实际情况处理响应
+//   const page = response.results[0];
+//   if (page) {
+//     const postId = page.id; // 页面ID
+//     // 根据页面ID检索页面内容
+//     const postContent = await notion.pages.retrieve({ page_id: postId });
+//     return postContent as Items | undefined;
+//   }
+
+//   return undefined;
+// }
+
+export async function findBySlug(slug: string): Promise<Post | undefined> {
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+  const response = await notion.databases.query({
+    database_id: databaseId,
+    filter: {
+      property: "Slug",
+      formula: {
+        string: {
+          equals: slug,
+        },
+      },
+    },
+  });
+
+  // 假设只有一个页面匹配slug，否则根据实际情况处理响应
+  const page = response.results[0] as Item;
+
+  console.log("page ----> server", page);
+  if (page) {
+    const postId = page.id; // 页面ID
+
+    // const metadata = {
+    //   id: page.id,
+    //   lastEditTime: page?.last_edited_time,
+    //   title: page.properties.Title.title[0]?.plain_text,
+    //   description: page.properties.Description.rich_text[0].plain_text,
+    //   link: page.properties.Link.url,
+    //   tags: page.properties.Tags.multi_select[0].name,
+    // };
+    const metadata = getPageMetaData(page);
+    const mdblocks = await n2m.pageToMarkdown(postId);
+    const mdString = n2m.toMarkdownString(mdblocks);
+    return {
+      metadata,
+      markdown: mdString,
+    };
+  }
+}
+
+const getPageMetaData = (post: Item): PageMetadata => {
+  return {
+    id: post.id,
+    lastEditTime: post.last_edited_time,
+    title: post.properties.Title.title[0].plain_text,
+    description: post.properties.Description.rich_text[0].plain_text,
+    link: post.properties.Link.url,
+    tags: post.properties.Tags.multi_select[0].name,
+  };
+};
+
+// export const findBySlug = async (slug: string): Promise<Item> => {
+//   try {
+//     console.log("question", slug);
+//     const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+
+//     const posts = await notion.databases.query({
+//       database_id: databaseId,
+//       filter: {
+//         property: "Slug",
+//         formula: {
+//           string: {
+//             equals: slug,
+//           },
+//         },
+//       },
+
+//       sorts: [
+//         {
+//           property: "Date",
+//           direction: "descending",
+//         },
+//       ],
+//     });
+
+//     const totalCount = await notion.databases.query({
+//       database_id: databaseId,
+//     });
+
+//     const allPosts = posts.results[0];
+
+//     console.log("allposts", posts);
+//     return allPosts;
+//     // return respData({
+//     //   rows: allPosts,
+//     //   count: allPosts.length,
+//     //   totalCount: totalCount.results.length,
+//     // });
+//   } catch (e) {
+//     console.log("request gpts search failed: ", e);
+//     throw e; // Rethrow the error to allow the calling function to handle it
+//   }
+// };
+
 export const searchSamePosts = async (tags: string) => {
   try {
     console.log("question", tags);
@@ -276,90 +411,3 @@ export const searchSamePosts = async (tags: string) => {
 //     return [];
 //   }
 // };
-
-export const searchGpts = async (question: string): Promise<Gpts[]> => {
-  const uri = `${process.env.INDEX_API_BASE_URI}/gpts/search`;
-  const data = {
-    question: question,
-  };
-
-  try {
-    const resp = await fetch(uri, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.INDEX_API_KEY}`,
-      },
-      body: JSON.stringify(data),
-    });
-    const res = await resp.json();
-    if (res.data) {
-      return res.data.filter((gpts: Gpts) => !isGptsSensitive(gpts));
-    }
-  } catch (e) {
-    console.log("request gpts search failed: ", e);
-  }
-
-  return [];
-};
-
-export function isGptsSensitive(gpts: Gpts): boolean {
-  const sensitiveKeywords = process.env.SENSITIVE_KEYWORDS || "";
-  const keywordsArr = sensitiveKeywords.split(",");
-  for (let i = 0, l = keywordsArr.length; i < l; i++) {
-    const keyword = keywordsArr[i].trim();
-    if (
-      (gpts.name && gpts.name.includes(keyword)) ||
-      (gpts.author_name && gpts.author_name.includes(keyword)) ||
-      (gpts.description && gpts.description.includes(keyword))
-    ) {
-      console.log("gpt is sensitive: ", gpts.uuid, gpts.name, keyword);
-      return true;
-    }
-  }
-
-  return false;
-}
-
-export function gptGptsPromptStarters(gpts: Gpts): string[] | undefined {
-  if (gpts.detail) {
-    try {
-      const v = gpts.detail;
-      return v["data"]["gizmo"]["display"]["prompt_starters"];
-    } catch (e) {
-      console.log("parse gpts detail failed: ", e);
-    }
-  }
-
-  return;
-}
-
-export function getGptsWelcomeMessage(gpts: Gpts): string | undefined {
-  if (gpts.detail) {
-    try {
-      const v = gpts.detail;
-      return v["data"]["gizmo"]["display"]["welcome_message"];
-    } catch (e) {
-      console.log("parse gpts detail failed: ", e);
-    }
-  }
-
-  return;
-}
-
-export function getGptsTools(gpts: Gpts): string[] | undefined {
-  if (gpts.detail) {
-    try {
-      const v = gpts.detail;
-      let tools: string[] = [];
-      v["data"]["tools"].forEach((tool: any) => {
-        tools.push(tool["type"]);
-      });
-      return tools;
-    } catch (e) {
-      console.log("parse gpts detail failed: ", e);
-    }
-  }
-
-  return;
-}
