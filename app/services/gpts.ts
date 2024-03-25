@@ -56,7 +56,7 @@ export const getAllPosts = async (params: GetPostsParams) => {
     rows: allPosts,
     count: allPosts.length,
     // totalCount: totalCount.results.length,
-    totalCount: allItems,
+    totalCount: allItems.length,
   });
 };
 
