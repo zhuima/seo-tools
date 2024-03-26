@@ -1,4 +1,4 @@
 User-Agent: *
 Allow: /
 
-Sitemap: https://chuhai.tools/sitemap.xml
+Sitemap: https://seo.chuhai.tools/sitemap.xml

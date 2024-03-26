@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2023-07-07 16:33:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-25 18:44:02
- * @FilePath: /web/app/sitemap.ts
+ * @LastEditTime: 2024-03-26 15:56:13
+ * @FilePath: /seo-tools/app/sitemap.ts
  * @Description:
  *
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.
@@ -13,7 +13,7 @@
 import { getAllPostsWhioutFilter } from "@/app/services/gpts";
 import { Item, Items, Post, PageMetadata } from "@/app/types/gpts";
 
-const URL = "https://chuhai.tools/";
+const URL = "https://seo.chuhai.tools/";
 
 export default async function sitemap() {
   const links: string[] = [];
