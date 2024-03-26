@@ -23,7 +23,7 @@ export default () => {
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [tabValue, setTabValue] = useState("前端");
+  const [tabValue, setTabValue] = useState("web开发模版🔥");
 
   const fetchPosts = async (tab: string) => {
     const params = {

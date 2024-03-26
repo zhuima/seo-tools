@@ -270,6 +270,8 @@ export async function findBySlug(slug: string): Promise<Post | undefined> {
     // };
     const metadata = getPageMetaData(page);
     const mdblocks = await n2m.pageToMarkdown(postId);
+    console.log("Markdown Content:", mdblocks);
+
     const mdString = n2m.toMarkdownString(mdblocks);
     return {
       metadata,
@@ -282,6 +284,7 @@ const getPageMetaData = (post: Item): PageMetadata => {
   return {
     id: post.id,
     lastEditTime: post.last_edited_time,
+    slug: post.properties.Slug?.rich_text?.[0]?.plain_text,
     title: post.properties.Title.title[0].plain_text,
     description: post.properties.Description.rich_text[0].plain_text,
     link: post.properties.Link.url,

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-25 17:57:45
+ * @LastEditTime: 2024-03-26 11:03:25
  * @FilePath: /web/app/types/gpts.d.ts
  * @Description:
  *
@@ -16,6 +16,7 @@ interface Post {
 
 export interface PageMetadata {
   id: string;
+  slug: string;
   lastEditTime: string;
   title: string;
   description: string;

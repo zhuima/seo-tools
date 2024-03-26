@@ -11,8 +11,10 @@
   "dependencies": {
     "@next/third-parties": "^14.1.4",
     "@notionhq/client": "^2.2.14",
+    "@tailwindcss/typography": "^0.5.10",
     "@vercel/postgres": "^0.5.1",
     "@zilliz/milvus2-sdk-node": "^2.3.3",
+    "clsx": "^2.1.0",
     "daisyui": "^4.4.2",
     "langchain": "^0.0.186",
     "moment": "^2.29.4",
@@ -24,7 +26,10 @@
     "react-lazy-load-image-component": "^1.6.0",
     "react-loading-skeleton": "^3.4.0",
     "react-markdown": "^9.0.1",
-    "react-syntax-highlighter": "^15.5.0"
+    "react-syntax-highlighter": "^15.5.0",
+    "rehype-raw": "^7.0.0",
+    "remark-gfm": "^4.0.0",
+    "tailwind-merge": "^2.2.2"
   },
   "devDependencies": {
     "@types/node": "^20",

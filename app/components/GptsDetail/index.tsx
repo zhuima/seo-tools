@@ -1,6 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import type { Metadata, ResolvingMetadata } from "next";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -12,18 +11,6 @@ import Preview from "./Preview";
 
 interface Props {
   post: Post;
-}
-
-export async function generateMetadata(
-  { post }: Props,
-  parent: ResolvingMetadata
-): Promise<Metadata> {
-  // read route params
-
-  return {
-    title: `Chuhai Tools - ${post.metadata.title}`,
-    description: post.metadata.description,
-  };
 }
 
 export default ({ post }: Props) => {
@@ -141,24 +128,25 @@ export default ({ post }: Props) => {
             </ol>
           </nav>
         </div>
-        <div className="grid gap-12 sm:gap-20 lg:grid-cols-2">
+        {/* <div className="grid gap-12 sm:gap-20 lg:grid-cols-2"> */}
+        <div className="w-full">
           <div className="flex flex-col items-start gap-2">
             <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1">
               <div className="mr-1 h-2 w-2 rounded-full bg-black"></div>
               <p className="text-sm">
-                Created at {moment(post.metadata.lastEditTime).fromNow()}
+                Updated at {moment(post.metadata.lastEditTime).fromNow()}
               </p>
             </div>
-            <p className="text-sm text-[#808080] sm:text-xl">
+            {/* <p className="text-sm text-[#808080] sm:text-xl">
               Created by {post.metadata.title}
-            </p>
+            </p> */}
             <h2 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
               {post.metadata.title}
             </h2>
-            <p className="text-sm text-[#808080] sm:text-xl">
+            {/* <p className="text-sm text-[#808080] sm:text-xl">
               {post.metadata.description}
-            </p>
-            <div className="mb-8 mt-8 h-px w-full bg-black"></div>
+            </p> */}
+            {/* <div className="mb-8 mt-8 h-px w-full bg-black"></div> */}
             {/* <div className="mb-6 flex flex-col gap-2 text-sm text-[#808080] sm:text-base lg:mb-8">
               <p className="font-medium">Capabilities</p>
               <p>
@@ -206,7 +194,18 @@ export default ({ post }: Props) => {
               </Link>
             </div>
           </div>
-          <div className="min-h-[530px] overflow-hidden rounded-md bg-[#f2f2f7]">
+          {post.markdown.parent ? (
+            <Preview post={post} />
+          ) : (
+            <img
+              className="h-full w-full object-cover object-center"
+              src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
+              alt="indie hacker tools"
+              loading="lazy"
+            />
+          )}
+
+          {/* <div className="min-h-[530px] overflow-hidden rounded-md ">
             {post.markdown.parent ? (
               <Preview post={post} />
             ) : (
@@ -217,7 +216,7 @@ export default ({ post }: Props) => {
                 loading="lazy"
               />
             )}
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="w-full text-center">
