@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:06:19
+ * @LastEditTime: 2024-03-26 16:16:59
  * @FilePath: /seo-tools/app/layout.tsx
  * @Description:
  *
@@ -53,14 +53,14 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://seo.chuhai.tools",
     siteName: "SEO Tools - Awesome Hackers Tools ",
-    images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
+    images: "https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png",
   },
   twitter: {
     card: "summary_large_image",
     title: "SEO Tools - Awesome Hackers Tools ",
     description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
     site: "https://seo.chuhai.tools",
-    images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
+    images: "https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png",
   },
 };
 
