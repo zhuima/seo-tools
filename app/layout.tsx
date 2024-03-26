@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 17:26:53
- * @FilePath: /web/app/layout.tsx
+ * @LastEditTime: 2024-03-26 16:06:19
+ * @FilePath: /seo-tools/app/layout.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -22,9 +22,8 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-  description:
-    "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+  title: "SEO Tools - Awesome Hackers Tools ",
+  description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
   keywords: [
     "技术出海",
     "工具出海",
@@ -41,7 +40,7 @@ export const metadata: Metadata = {
     "出海第一步，搞定工具库",
   ],
   alternates: {
-    canonical: "https://chuhai.tools",
+    canonical: "https://seo.chuhai.tools",
   },
   icons: {
     icon: "/favicon.ico",
@@ -49,20 +48,18 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-    description:
-      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+    title: "SEO Tools - Awesome Hackers Tools ",
+    description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
     type: "website",
-    url: "https://chuhai.tools",
-    siteName: "Chuhai Tools - 独立开发者出海技术栈和工具",
+    url: "https://seo.chuhai.tools",
+    siteName: "SEO Tools - Awesome Hackers Tools ",
     images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-    description:
-      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
-    site: "https://chuhai.tools",
+    title: "SEO Tools - Awesome Hackers Tools ",
+    description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
+    site: "https://seo.chuhai.tools",
     images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
   },
 };

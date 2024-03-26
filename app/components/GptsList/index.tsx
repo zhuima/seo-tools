@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-25 16:20:05
- * @FilePath: /web/app/components/GptsList/index.tsx
+ * @LastEditTime: 2024-03-26 16:02:32
+ * @FilePath: /seo-tools/app/components/GptsList/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -67,7 +67,7 @@ export default ({ posts, loading }: Props) => {
                           <LazyLoadImage
                             key={idx}
                             src="/star.svg"
-                            alt="indie hacker tools star"
+                            alt="Hacker SEO Tools star"
                             className="mr-1.5 inline-block w-4 flex-none"
                           />
                         ))}

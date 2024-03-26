@@ -200,7 +200,7 @@ export default ({ post }: Props) => {
             <img
               className="h-full w-full object-cover object-center"
               src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
-              alt="indie hacker tools"
+              alt="Hacker SEO Tools"
               loading="lazy"
             />
           )}
@@ -212,7 +212,7 @@ export default ({ post }: Props) => {
               <img
                 className="h-full w-full object-cover object-center"
                 src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
-                alt="indie hacker tools"
+                alt="Hacker SEO Tools"
                 loading="lazy"
               />
             )}

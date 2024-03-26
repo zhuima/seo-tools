@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 13:47:20
- * @FilePath: /gpts-works/web/app/components/Brand/index.tsx
+ * @LastEditTime: 2024-03-26 16:00:34
+ * @FilePath: /seo-tools/app/components/Brand/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -23,13 +23,13 @@ export default ({ count }: Props) => {
       <div className="mx-auto w-full max-w-7xl px-4 mt-12 md:mt-24">
         <div className="mx-auto w-full max-w-6xl text-center">
           <h2 className="text-3xl font-bold md:text-7xl text-primary">
-            Indie Hacker Tools
+            Hacker SEO Tools
           </h2>
           <p className="mt-4 mb-4 md:mt-12 md:mb-8 text:lg md:text-4xl">
             <span className="text-primary font-bold  max-w-fit">
               {count || <Skeleton width={70} inline />}
             </span>{" "}
-            Awesome Indie Hacker Tools
+            Awesome Hacker SEO Tools
           </p>
         </div>
       </div>

@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 10:16:13
- * @FilePath: /web/app/components/Footer/index.tsx
+ * @LastEditTime: 2024-03-26 16:01:41
+ * @FilePath: /seo-tools/app/components/Footer/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -98,11 +98,11 @@ export default () => {
                 />
               </svg> */}
               {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
-              Indie Hacker Tools
+              Hacker SEO Tools
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
-              Find fantastic indie hacker tools all over the world.
+              Find fantastic hacker SEO tools all over the world.
             </p>
 
             <ul className="mt-8 flex gap-6">
@@ -296,15 +296,15 @@ export default () => {
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link
                     href="https://github.com/weijunext/indie-hacker-tools"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    indie hacker tools{" "}
+                    Hacker SEO Tools{" "}
                   </Link>
-                </li>
+                </li> */}
 
                 {/* <li>
                   <Link

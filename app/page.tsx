@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 13:43:34
- * @FilePath: /gpts-works/web/app/page.tsx
+ * @LastEditTime: 2024-03-26 16:03:12
+ * @FilePath: /seo-tools/app/page.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -64,7 +64,7 @@ export default () => {
       <Search setPosts={setPosts} setLoading={setLoading} />
       <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
         <Link
-          href="https://github.com/weijunext/indie-hacker-tools"
+          href="https://github.com/zhuima/seo-tools"
           target="_target"
           className="inline-block text-sm text-primary mx-2 mt-4"
         >
