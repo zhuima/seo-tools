@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:01:41
+ * @LastEditTime: 2024-03-26 17:06:46
  * @FilePath: /seo-tools/app/components/Footer/index.tsx
  * @Description:
  *
@@ -296,25 +296,25 @@ export default () => {
                   </Link>
                 </li>
 
-                {/* <li>
+                <li>
                   <Link
-                    href="https://github.com/weijunext/indie-hacker-tools"
+                    href="https://github.com/serpapi/awesome-seo-tools"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    Hacker SEO Tools{" "}
+                    Awesome SEO Tools{" "}
                   </Link>
-                </li> */}
+                </li>
 
-                {/* <li>
+                <li>
                   <Link
-                    href="#"
+                    href="https://chuhai.tools/"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    Accounts Review{" "}
+                    Indie Hacker Tools{" "}
                   </Link>
-                </li> */}
+                </li>
               </ul>
             </div>
 
