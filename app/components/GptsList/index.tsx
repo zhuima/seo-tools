@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-25 16:20:05
+ * @LastEditTime: 2024-03-27 11:28:07
  * @FilePath: /web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -35,7 +35,7 @@ export default ({ posts, loading }: Props) => {
               return (
                 <Link
                   href={`/tools/${item.id}`}
-                  as={`/tools/about-${item.properties.Slug.rich_text[0].plain_text}`}
+                  as={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
                   target="_self"
                   key={idx}
                 >

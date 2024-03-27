@@ -198,8 +198,8 @@ export default ({ post }: Props) => {
             <Preview post={post} />
           ) : (
             <img
-              className="h-full w-full object-cover object-center"
-              src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
+              className="mt-4 h-full w-full object-cover object-center"
+              src="https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png"
               alt="indie hacker tools"
               loading="lazy"
             />
