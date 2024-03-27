@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:03:41
+ * @LastEditTime: 2024-03-27 17:06:13
  * @FilePath: /seo-tools/app/components/Header/index.tsx
  * @Description:
  *
@@ -79,7 +79,7 @@ export default () => {
             </li>
           </ul>
         </div>
-        {/* <a href="https://www.buymeacoffee.com/idoubi" target="_blank">
+        <Link href="https://www.buymeacoffee.com/zhuima" target="_blank">
           <svg
             width="27"
             height="39"
@@ -97,7 +97,7 @@ export default () => {
               fill="#0D0C22"
             ></path>
           </svg>
-        </a> */}
+        </Link>
       </div>
     </header>
   );
