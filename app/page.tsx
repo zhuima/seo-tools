@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:03:12
+ * @LastEditTime: 2024-03-27 10:34:35
  * @FilePath: /seo-tools/app/page.tsx
  * @Description:
  *
@@ -23,7 +23,7 @@ export default () => {
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [tabValue, setTabValue] = useState("web开发模版🔥");
+  const [tabValue, setTabValue] = useState("一体化SEO工具🔥");
 
   const fetchPosts = async (tab: string) => {
     const params = {
