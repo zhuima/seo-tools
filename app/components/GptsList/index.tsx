@@ -34,8 +34,7 @@ export default ({ posts, loading }: Props) => {
               console.log("item --->", item);
               return (
                 <Link
-                  href={`/tools/${item.id}`}
-                  as={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
+                  href={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
                   target="_self"
                   key={idx}
                 >
