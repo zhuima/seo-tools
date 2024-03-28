@@ -72,6 +72,8 @@ export const getAllPosts = async (params: GetPostsParams) => {
 
 export const getAllPostsWhioutFilter = async () => {
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
+  let allItems: any[] = [];
+  let cursor: string | null | undefined = undefined;
 
   const posts = await notion.databases.query({
     database_id: databaseId,
@@ -93,6 +95,19 @@ export const getAllPostsWhioutFilter = async () => {
       },
     ],
   });
+
+  do {
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      start_cursor: cursor,
+    });
+    // Append current page's results to the array
+    allItems = allItems.concat(response.results);
+
+    // Update cursor for the next page
+    cursor = response.next_cursor;
+  } while (cursor);
+
   const allPosts = posts.results;
 
   return respData({
