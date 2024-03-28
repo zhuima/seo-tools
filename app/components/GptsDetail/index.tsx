@@ -140,9 +140,9 @@ export default ({ post }: Props) => {
             {/* <p className="text-sm text-[#808080] sm:text-xl">
               Created by {post.metadata.title}
             </p> */}
-            <h2 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
+            <h1 className="mb-6 text-4xl font-bold md:text-6xl lg:mb-8">
               {post.metadata.title}
-            </h2>
+            </h1>
             {/* <p className="text-sm text-[#808080] sm:text-xl">
               {post.metadata.description}
             </p> */}

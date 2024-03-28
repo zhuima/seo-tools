@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-27 17:07:30
+ * @LastEditTime: 2024-03-28 14:50:55
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -21,7 +21,7 @@ export default () => {
   return (
     <header className="mx-auto w-full max-w-7xl px-4 md:px-10 mt-8 md:mt-12">
       <div className="flex items-center">
-        <h1 className="text-lg md:text-3xl font-medium ">
+        <div className="text-lg md:text-3xl font-medium ">
           <Link
             className="bg-cover bg-center px-3 py-3 md:px-4 md:py-4 m text-white cursor-pointer"
             href="/"
@@ -33,7 +33,7 @@ export default () => {
             chuhai.tools
             {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
           </Link>
-        </h1>
+        </div>
 
         <div className="flex-1">
           <ul className="hidden md:flex float-right text-lg text-slate-700 mr-4 items-center">
