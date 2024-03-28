@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:00:34
+ * @LastEditTime: 2024-03-28 14:53:03
  * @FilePath: /seo-tools/app/components/Brand/index.tsx
  * @Description:
  *
@@ -22,9 +22,9 @@ export default ({ count }: Props) => {
     <section className="relatve">
       <div className="mx-auto w-full max-w-7xl px-4 mt-12 md:mt-24">
         <div className="mx-auto w-full max-w-6xl text-center">
-          <h2 className="text-3xl font-bold md:text-7xl text-primary">
+          <h1 className="text-3xl font-bold md:text-7xl text-primary">
             Hacker SEO Tools
-          </h2>
+          </h1>
           <p className="mt-4 mb-4 md:mt-12 md:mb-8 text:lg md:text-4xl">
             <span className="text-primary font-bold  max-w-fit">
               {count || <Skeleton width={70} inline />}
