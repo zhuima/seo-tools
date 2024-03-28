@@ -13,6 +13,8 @@
 import { getAllPostsWhioutFilter } from "@/app/services/gpts";
 import { Item, Items, Post, PageMetadata } from "@/app/types/gpts";
 
+export const revalidate = 60;
+
 const URL = "https://chuhai.tools/";
 
 export default async function sitemap() {
@@ -29,7 +31,9 @@ export default async function sitemap() {
   console.log("allPosts for sitemap", allPosts);
 
   allPosts.map((entry: Items) => {
-    links.push(`tools/about-${entry.properties.Slug?.rich_text?.[0]?.plain_text}`);
+    links.push(
+      `tools/about-${entry.properties.Slug?.rich_text?.[0]?.plain_text}`
+    );
   });
 
   // [("", "sitemap.xml", "robots.txt")].map((item) => {
