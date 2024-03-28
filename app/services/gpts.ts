@@ -75,44 +75,43 @@ export const getAllPostsWhioutFilter = async () => {
   let allItems: any[] = [];
   let cursor: string | null | undefined = undefined;
 
-  const posts = await notion.databases.query({
-    database_id: databaseId,
-    filter: {
-      or: [
-        { property: "Title", rich_text: { is_not_empty: true } },
-        {
-          property: "Tags",
-          multi_select: {
-            is_not_empty: true,
+  do {
+    const posts = await notion.databases.query({
+      database_id: databaseId,
+      filter: {
+        or: [
+          { property: "Title", rich_text: { is_not_empty: true } },
+          {
+            property: "Tags",
+            multi_select: {
+              is_not_empty: true,
+            },
           },
+        ],
+      },
+      sorts: [
+        {
+          property: "Date",
+          direction: "descending",
         },
       ],
-    },
-    sorts: [
-      {
-        property: "Date",
-        direction: "descending",
-      },
-    ],
-  });
-
-  do {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      start_cursor: cursor,
+      start_cursor: cursor, // 在此使用 cursor
     });
+
+    // const response = await notion.databases.query({
+    //   database_id: databaseId,
+    //   start_cursor: cursor,
+    // });
     // Append current page's results to the array
-    allItems = allItems.concat(response.results);
+    allItems = allItems.concat(posts.results);
 
     // Update cursor for the next page
-    cursor = response.next_cursor;
+    cursor = posts.next_cursor;
   } while (cursor);
 
-  const allPosts = posts.results;
-
   return respData({
-    rows: allPosts,
-    count: allPosts.length,
+    rows: allItems,
+    count: allItems.length,
   });
 };
 
