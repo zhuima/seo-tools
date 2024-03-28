@@ -34,11 +34,9 @@ export default ({ posts, loading }: Props) => {
               console.log("item --->", item);
               return (
                 <Link
-                  href={`/tools/${item.id}`}
-                  as={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
+                  href={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
                   target="_self"
                   key={idx}
-                  rel="canonical"
                 >
                   <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
