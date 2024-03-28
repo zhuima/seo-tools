@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-27 14:08:22
+ * @LastEditTime: 2024-03-28 16:09:38
  * @FilePath: /seo-tools/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -38,6 +38,7 @@ export default ({ posts, loading }: Props) => {
                   as={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
                   target="_self"
                   key={idx}
+                  rel="canonical"
                 >
                   <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
