@@ -197,12 +197,17 @@ export default ({ post }: Props) => {
           {post.markdown.parent ? (
             <Preview post={post} />
           ) : (
-            <img
-              className="mt-4 h-full w-full object-cover object-center"
-              src="https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png"
-              alt="Hacker SEO Tools"
-              loading="lazy"
-            />
+            <>
+              <h3 className="mt-4 text-sm text-[#808080] sm:text-xl">
+                {post.metadata.description}
+              </h3>
+              <img
+                className="mt-4 h-full w-full object-cover object-center"
+                src="https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png"
+                alt="Hacker SEO Tools"
+                loading="lazy"
+              />
+            </>
           )}
 
           {/* <div className="min-h-[530px] overflow-hidden rounded-md ">
