@@ -11,6 +11,7 @@
 import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Script from "next/script";
+import { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 import ScrollToTop from "./components/ToTop";
@@ -91,7 +92,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main>
           <Header />
-          {children}
+          <Suspense>{children}</Suspense>
           <Footer />
           <ScrollToTop />
         </main>
