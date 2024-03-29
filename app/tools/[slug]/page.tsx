@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 17:48:32
+ * @LastEditTime: 2024-03-29 11:43:16
  * @FilePath: /seo-tools/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -58,9 +58,9 @@ export async function generateMetadata({
         "面向海外用户开发产品",
         "出海第一步，搞定工具库",
       ],
-      alternates: {
-        canonical: "https://seo.chuhai.tools",
-      },
+      // alternates: {
+      //   canonical: "https://seo.chuhai.tools",
+      // },
       icons: {
         icon: "/favicon.ico",
         shortcut: "/favicon-16x16.ico",
@@ -86,8 +86,14 @@ export async function generateMetadata({
   return {
     title: `Chuhai Tools - ${post.metadata.title}`,
     description: post.metadata.description,
-    alternates: {
-      canonical: "https://chuhai.tools/about-" + post.metadata.slug,
+    // alternates: {
+    //   canonical: "https://chuhai.tools/about-" + post.metadata.slug,
+    // },
+    keywords: [post.metadata.description],
+    icons: {
+      icon: "/favicon.ico",
+      shortcut: "/favicon-16x16.ico",
+      apple: "/apple-touch-icon.png",
     },
     openGraph: {
       title: `about-${post.metadata.title}`,
