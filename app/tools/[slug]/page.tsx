@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-29 11:43:16
+ * @LastEditTime: 2024-03-29 11:47:47
  * @FilePath: /seo-tools/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -84,7 +84,7 @@ export async function generateMetadata({
     };
   }
   return {
-    title: `Chuhai Tools - ${post.metadata.title}`,
+    title: `SEO Tools - ${post.metadata.title}`,
     description: post.metadata.description,
     // alternates: {
     //   canonical: "https://chuhai.tools/about-" + post.metadata.slug,
@@ -99,7 +99,7 @@ export async function generateMetadata({
       title: `about-${post.metadata.title}`,
       description: post.metadata.description,
       type: "website",
-      url: "https://chuhai.tools/about-" + post.metadata.slug,
+      url: "https://seo.chuhai.tools/about-" + post.metadata.slug,
       siteName: post.metadata.title,
       images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
     },
@@ -107,7 +107,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `about-${post.metadata.title}`,
       description: post.metadata.description,
-      site: "https://chuhai.tools/about-" + post.metadata.slug,
+      site: "https://seo.chuhai.tools/about-" + post.metadata.slug,
       images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
     },
   };
