@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 10:16:13
+ * @LastEditTime: 2024-03-29 15:56:34
  * @FilePath: /web/app/components/Footer/index.tsx
  * @Description:
  *
@@ -239,7 +239,15 @@ export default () => {
                     ChatNext{" "}
                   </Link>
                 </li>
-
+                <li>
+                  <Link
+                    href="https://seo.chuhai.tools/"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
+                    {" "}
+                    Hacker SEO Tools{" "}
+                  </Link>
+                </li>
                 {/* <li>
                   <Link
                     href="#"
