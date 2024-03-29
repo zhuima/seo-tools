@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 16:16:59
+ * @LastEditTime: 2024-03-29 15:45:27
  * @FilePath: /seo-tools/app/layout.tsx
  * @Description:
  *
@@ -12,7 +12,7 @@ import "./globals.css";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import Script from "next/script";
 import { GoogleAnalytics } from "@next/third-parties/google";
-
+import { Suspense } from "react";
 import ScrollToTop from "./components/ToTop";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -87,7 +87,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main>
           <Header />
-          {children}
+          <Suspense>{children}</Suspense>
           <Footer />
           <ScrollToTop />
         </main>

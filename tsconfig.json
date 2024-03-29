@@ -35,7 +35,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/components/GptsDetail/Preview.tsxk"
-  ],
+, "app/components/Tab/index copy.tsxbak"  ],
   "exclude": [
     "node_modules",
     "extension"

@@ -7,6 +7,7 @@ import { Dispatch, SetStateAction } from "react";
 
 import { Tags } from "@/app/types/tags";
 import { tabMap } from "@/app/config/tabMap";
+
 interface Props {
   tabValue: string;
   setTabValue: Dispatch<SetStateAction<string>>;
@@ -28,9 +29,6 @@ export default ({ tabValue, setTabValue }: Props) => {
   //   },
   // ];
 
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
 
   const [tabs, setTabs] = useState([]);
   const [tabsCount, setTabsCount] = useState(0);
@@ -59,24 +57,24 @@ export default ({ tabValue, setTabValue }: Props) => {
     fetchTags(tabValue);
   }, [tabValue]);
 
-  // 单独处理 URL 参数的逻辑
-  useEffect(() => {
-    const handleURLParams = () => {
-      const params = new URLSearchParams(searchParams);
+  // // 单独处理 URL 参数的逻辑
+  // useEffect(() => {
+  //   const handleURLParams = () => {
+  //     const params = new URLSearchParams(searchParams);
 
-      if (tabValue && tabValue !== "一体化SEO工具") {
-        params.set("query", tabMap[tabValue]);
-        // 使用 next/navigation 中的方法来更新 URL
-        replace(`${pathname}?${params.toString()}`);
-      } else {
-        params.delete("query");
-        // 当 tabValue 等于 'web开发模版🔥' 时，设置路径为根目录 '/'
-        replace("/", undefined);
-      }
-    };
+  //     if (tabValue && tabValue !== "一体化SEO工具") {
+  //       params.set("query", tabMap[tabValue]);
+  //       // 使用 next/navigation 中的方法来更新 URL
+  //       replace(`${pathname}?${params.toString()}`);
+  //     } else {
+  //       params.delete("query");
+  //       // 当 tabValue 等于 'web开发模版🔥' 时，设置路径为根目录 '/'
+  //       replace("/", undefined);
+  //     }
+  //   };
 
-    handleURLParams();
-  }, [tabValue, searchParams, pathname, replace]);
+  //   handleURLParams();
+  // }, [tabValue, searchParams, pathname, replace]);
 
   console.log("tabs", tabs, tabsCount, loading);
   return (
@@ -98,7 +96,8 @@ export default ({ tabValue, setTabValue }: Props) => {
                 }`}
                 onClick={() => setTabValue(tab.name)}
               >
-                {tab.name == "一体化SEO工具" ? "一体化SEO工具🔥" : tab.name}
+                {/* {tab.name == "一体化SEO工具" ? "一体化SEO工具🔥" : tab.name} */}
+                {tab.name}
               </a>
             );
           })}
