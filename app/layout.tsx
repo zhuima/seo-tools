@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-22 17:26:53
+ * @LastEditTime: 2024-03-29 11:31:02
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -18,6 +18,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+// import { siteConfig } from "@/config/site";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -40,9 +41,9 @@ export const metadata: Metadata = {
     "面向海外用户开发产品",
     "出海第一步，搞定工具库",
   ],
-  alternates: {
-    canonical: "https://chuhai.tools",
-  },
+  // alternates: {
+  //   canonical: "https://chuhai.tools",
+  // },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.ico",
