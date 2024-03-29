@@ -18,6 +18,7 @@ interface Props {
 }
 
 export default ({ setPosts, setLoading }: Props) => {
+
   const [inputDisabled, setInputDisabled] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [content, setContent] = useState("");

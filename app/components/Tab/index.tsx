@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
 
 import { Tags } from "@/app/types/tags";
+import { tabMap } from "@/app/config/tabMap";
 
 interface Props {
   tabValue: string;
@@ -26,6 +28,10 @@ export default ({ tabValue, setTabValue }: Props) => {
   //     title: "Random",
   //   },
   // ];
+
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
   const [tabs, setTabs] = useState([]);
   const [tabsCount, setTabsCount] = useState(0);
@@ -54,6 +60,25 @@ export default ({ tabValue, setTabValue }: Props) => {
     fetchTags(tabValue);
   }, [tabValue]);
 
+  // 单独处理 URL 参数的逻辑
+  useEffect(() => {
+    const handleURLParams = () => {
+      const params = new URLSearchParams(searchParams);
+
+      if (tabValue && tabValue !== "web开发模版") {
+        params.set("query", tabMap[tabValue]);
+        // 使用 next/navigation 中的方法来更新 URL
+        replace(`${pathname}?${params.toString()}`);
+      } else {
+        params.delete("query");
+        // 当 tabValue 等于 'web开发模版🔥' 时，设置路径为根目录 '/'
+        replace("/", undefined);
+      }
+    };
+
+    handleURLParams();
+  }, [tabValue, searchParams, pathname, replace]);
+
   console.log("tabs", tabs, tabsCount, loading);
   return (
     <section className="relative mt-4">
@@ -74,7 +99,7 @@ export default ({ tabValue, setTabValue }: Props) => {
                 }`}
                 onClick={() => setTabValue(tab.name)}
               >
-                {tab.name}
+                {tab.name == "web开发模版" ? "web开发模版🔥" : tab.name}
               </a>
             );
           })}

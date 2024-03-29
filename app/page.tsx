@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 13:43:34
- * @FilePath: /gpts-works/web/app/page.tsx
+ * @LastEditTime: 2024-03-29 14:20:13
+ * @FilePath: /web/app/page.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -23,7 +23,7 @@ export default () => {
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [tabValue, setTabValue] = useState("web开发模版🔥");
+  const [tabValue, setTabValue] = useState("web开发模版");
 
   const fetchPosts = async (tab: string) => {
     const params = {
