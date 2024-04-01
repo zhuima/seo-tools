@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-29 15:45:27
+ * @LastEditTime: 2024-04-01 11:15:44
  * @FilePath: /seo-tools/app/layout.tsx
  * @Description:
  *
@@ -73,6 +73,24 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+        <Script
+          id="schema-organization"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "WebSite",
+              name: "Hacker SEO Tools",
+              url: "https://seo.chuhai.tools/",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://seo.chuhai.tools/?query={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </head>
       {/* Clarity Script */}
       <Script strategy="lazyOnload" id="clarity-script">
