@@ -64,7 +64,6 @@ export default ({ tabValue, setTabValue }: Props) => {
   useEffect(() => {
     const handleURLParams = () => {
       const params = new URLSearchParams(searchParams);
-
       if (tabValue && tabValue !== "web开发模版") {
         params.set("query", tabMap[tabValue]);
         // 使用 next/navigation 中的方法来更新 URL
@@ -89,8 +88,7 @@ export default ({ tabValue, setTabValue }: Props) => {
         >
           {tabs.map((tab: Tags, idx: number) => {
             return (
-              <a
-                role="tab"
+              <button
                 key={idx}
                 className={` ${
                   tabValue === tab.name
@@ -100,7 +98,7 @@ export default ({ tabValue, setTabValue }: Props) => {
                 onClick={() => setTabValue(tab.name)}
               >
                 {tab.name == "web开发模版" ? "web开发模版🔥" : tab.name}
-              </a>
+              </button>
             );
           })}
         </div>

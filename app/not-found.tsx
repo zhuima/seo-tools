@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-02-27 10:55:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-19 14:56:39
- * @FilePath: /gpts-works/web/app/not-found.tsx
+ * @LastEditTime: 2024-04-01 17:43:48
+ * @FilePath: /web/app/not-found.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -43,7 +43,11 @@ const NotFound = () => {
               />
             </svg>
 
-            <Link href="/" className="text-white">
+            <Link
+              href="/"
+              className="text-white"
+              // text="back to home for Indie Hacker Tools"
+            >
               返回首页
             </Link>
           </button>
@@ -54,7 +58,7 @@ const NotFound = () => {
         <Image
           className="w-full max-w-lg lg:mx-auto"
           src="https://merakiui.com/images/components/illustration.svg"
-          alt=""
+          alt="404 illustration for Indie Hacker Tools"
           width={500}
           height={500}
           priority={true}

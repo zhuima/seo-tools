@@ -12,6 +12,7 @@ import {
   PartialDatabaseObjectResponse,
   PartialPageObjectResponse,
 } from "@notionhq/client/build/src/api-endpoints";
+import { tabMap } from "@/app/config/tabMap";
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
 // 函数用于获取数据库中的所有条目
@@ -428,3 +429,15 @@ export const searchSamePosts = async (tags: string) => {
 //     return [];
 //   }
 // };
+
+// 获取值对应的键的函数
+// 获取值对应的键的函数
+export function getKeyByValue(
+  object: typeof tabMap,
+  value: string | null
+): string | undefined {
+  if (value === null) {
+    return undefined;
+  }
+  return Object.keys(object).find((key) => object[key] === value);
+}

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-01 11:07:38
+ * @LastEditTime: 2024-04-01 18:48:12
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -110,7 +110,18 @@ export default function RootLayout({
       <body className={inter.className}>
         <main>
           <Header />
-          <Suspense>{children}</Suspense>
+          <Suspense
+          //             fallback={
+          //               <div
+          //                 className="loader border-t-2 rounded-full border-yellow-500 bg-yellow-300 animate-spin
+          // aspect-square w-8 flex justify-center items-center text-yellow-700"
+          //               >
+          //                 €
+          //               </div>
+          //             }
+          >
+            {children}
+          </Suspense>
           <Footer />
           <ScrollToTop />
         </main>

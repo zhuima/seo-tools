@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-29 14:20:13
+ * @LastEditTime: 2024-04-01 18:26:49
  * @FilePath: /web/app/page.tsx
  * @Description:
  *
@@ -10,6 +10,8 @@
  */
 "use client";
 import Link from "next/link";
+import { useSearchParams, usePathname, useRouter } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import Brand from "./components/Brand";
 import { Items } from "./types/gpts";
@@ -17,13 +19,19 @@ import GptsList from "./components/GptsList";
 import ProductHunt from "./components/ProductHunt";
 import Search from "./components/Search";
 import Tab from "./components/Tab";
+import { getKeyByValue } from "./services/gpts";
+import { tabMap } from "@/app/config/tabMap";
 
 export default () => {
   const [posts, setPosts] = useState<Items[]>([]);
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [tabValue, setTabValue] = useState("web开发模版");
+  const searchParams = useSearchParams();
+
+  const queryKey = getKeyByValue(tabMap, searchParams.get("query"));
+
+  const [tabValue, setTabValue] = useState(queryKey || "web开发模版");
 
   const fetchPosts = async (tab: string) => {
     const params = {
@@ -67,6 +75,7 @@ export default () => {
           href="https://github.com/weijunext/indie-hacker-tools"
           target="_target"
           className="inline-block text-sm text-primary mx-2 mt-4"
+          title="Submit your Tools for indie hacker tools"
         >
           <h3>Submit your Tools 👉</h3>
         </Link>
@@ -75,6 +84,7 @@ export default () => {
           href="https://tally.so/r/w7WWja"
           target="_target"
           className="inline-block text-sm text-primary mx-2 mt-4"
+          title="Submit your Tally for indie hacker tools"
         >
           <h3>Submit your Tally 👉</h3>
         </Link>
