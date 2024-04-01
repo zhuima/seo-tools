@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-29 11:31:02
+ * @LastEditTime: 2024-04-01 11:07:38
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -78,6 +78,24 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico" />
+        <Script
+          id="schema-organization"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org/",
+              "@type": "WebSite",
+              name: "Indie Hacker Tools",
+              url: "https://chuhai.tools/",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://chuhai.tools/?query={search_term_string}",
+                "query-input": "required name=search_term_string",
+              },
+            }),
+          }}
+        />
       </head>
       {/* Clarity Script */}
       <Script strategy="lazyOnload" id="clarity-script">
