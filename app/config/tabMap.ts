@@ -27,4 +27,5 @@ export const tabMap: TabMap = {
   图片视频素材: "image-and-video-assets",
   录屏: "screen-recording",
   部署与托管: "deployment-and-hosting",
+  协议生成: "protocol-generation",
 };
