@@ -441,3 +441,19 @@ export function getKeyByValue(
   }
   return Object.keys(object).find((key) => object[key] === value);
 }
+
+export function getPageView(url: string, hostname: string, referrer: string) {
+  return fetch("https://analytics.chuhai.tools/api/visit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      url,
+      hostname,
+      referrer,
+      pv: true,
+      uv: true,
+    }),
+  });
+}

@@ -2,6 +2,8 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import { BsChatDots } from "react-icons/bs";
 import { Item, Items, Post } from "@/app/types/gpts";
@@ -15,6 +17,8 @@ interface Props {
 
 export default ({ post }: Props) => {
   // const tools = getGptsTools(post);
+  const [pageView, setPageView] = useState(0);
+  const pathname = usePathname();
 
   console.log("postgpts details", post);
   const [posts, setPosts] = useState<Items[]>([]);
@@ -52,6 +56,36 @@ export default ({ post }: Props) => {
     fetchPosts(post.metadata.tags);
   }, [post.metadata.tags]);
 
+  const fetchPageView = async (pathname: string) => {
+    const params = {
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathname}`, //pathname,
+      hostname: `${process.env.NEXT_PUBLIC_WEBSITE_URL}`,
+      referrer: "",
+    };
+
+    setLoading(true);
+    const resp = await fetch("/api/pageview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params),
+    });
+    setLoading(false);
+
+    if (resp.ok) {
+      const res = await resp.json();
+      if (res.data) {
+        setPageView(res.data.pv);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchPageView(pathname);
+  }, [pathname]);
+
+  console.log("post pv view", pageView);
   return (
     <section>
       <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
@@ -131,11 +165,12 @@ export default ({ post }: Props) => {
         {/* <div className="grid gap-12 sm:gap-20 lg:grid-cols-2"> */}
         <div className="w-full">
           <div className="flex flex-col items-start gap-2">
-            <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1">
+            <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1 space-x-4">
               <div className="mr-1 h-2 w-2 rounded-full bg-black"></div>
               <p className="text-sm">
                 Updated at {moment(post.metadata.lastEditTime).fromNow()}
               </p>
+              <p className="italic text-base opacity-80">👀 {pageView}</p>
             </div>
             {/* <p className="text-sm text-[#808080] sm:text-xl">
               Created by {post.metadata.title}

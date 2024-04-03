@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 14:28:47
+ * @LastEditTime: 2024-04-03 16:12:34
  * @FilePath: /web/app/components/GptsDetail/Preview.tsx
  * @Description:
  *
@@ -30,9 +30,9 @@ interface CodeBlockProps {
 }
 
 export default ({ post }: Props) => {
-  console.log("post markdown----> ", post.markdown);
+  // console.log("post markdown----> ", post.markdown);
   const formattedMarkdown = post.markdown.parent.replace(/\n/g, "  \n");
-  console.log("after format post markdown----> ", formattedMarkdown);
+  // console.log("after format post markdown----> ", formattedMarkdown);
 
   return (
     <div className="w-full list-decimal h-full relative">
