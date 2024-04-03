@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-29 11:33:22
+ * @LastEditTime: 2024-04-03 10:48:55
  * @FilePath: /web/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -36,60 +36,32 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const slug = params.slug.split("about-")[1];
-
   const post = await getData(slug);
-  // read route params
-  if (!post) {
-    return {
-      title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-      description:
-        "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
-      keywords: [
-        "技术出海",
-        "工具出海",
-        "品牌出海",
-        "独立开发者",
-        "科技出海",
-        "独立开发者出海技术栈和工具",
-        "独立开发者出海工具",
-        "独立开发者出海技术栈",
-        "出海营销",
-        "独立开发者出海",
-        "独立开发者出海业务",
-        "面向海外用户开发产品",
-        "出海第一步，搞定工具库",
-      ],
-      // alternates: {
-      //   canonical: "https://chuhai.tools",
-      // },
-      icons: {
-        icon: "/favicon.ico",
-        shortcut: "/favicon-16x16.ico",
-        apple: "/apple-touch-icon.png",
-      },
-      openGraph: {
-        title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-        description:
-          "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
-        type: "website",
-        url: "https://chuhai.tools",
-        siteName: "Chuhai Tools - 独立开发者出海技术栈和工具",
-        images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: "Chuhai Tools - 独立开发者出海技术栈和工具",
-        description:
-          "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
-        site: "https://chuhai.tools",
-        images: "https://img.techrk1688.eu.org/file/cefff46f0a29ce378b110.png",
-      },
-    };
-  }
+
+  if (!post) return {};
+
   return {
-    title: `Chuhai Tools - ${post.metadata.title}`,
-    description: post.metadata.description,
-    keywords: [post.metadata.description],
+    title:
+      `${post?.metadata.title} - 独立开发者出海技术栈和工具` ||
+      "Chuhai Tools - 独立开发者出海技术栈和工具",
+    description:
+      post?.metadata.description ||
+      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+    keywords: [post?.metadata.description] || [
+      "技术出海",
+      "工具出海",
+      "品牌出海",
+      "独立开发者",
+      "科技出海",
+      "独立开发者出海技术栈和工具",
+      "独立开发者出海工具",
+      "独立开发者出海技术栈",
+      "出海营销",
+      "独立开发者出海",
+      "独立开发者出海业务",
+      "面向海外用户开发产品",
+      "出海第一步，搞定工具库",
+    ],
     icons: {
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.ico",
@@ -98,21 +70,64 @@ export async function generateMetadata({
     // alternates: {
     //   canonical: "https://chuhai.tools/about-" + post.metadata.slug,
     // },
+    // openGraph: {
+    //   title: `about-${post.metadata.title}`,
+    //   description: post.metadata.description,
+    //   type: "website",
+    //   url: "https://chuhai.tools/about-" + post.metadata.slug,
+    //   siteName: post.metadata.title,
+    //   images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+    // },
+
     openGraph: {
-      title: `about-${post.metadata.title}`,
-      description: post.metadata.description,
+      title: `about ${post?.metadata.title}`,
+      description: post?.metadata.description,
+      url: "https://chuhai.tools/about-" + post?.metadata.slug,
+      siteName: post?.metadata.title,
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
+          width: 800,
+          height: 600,
+        },
+        {
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
+          width: 1800,
+          height: 1600,
+          alt: `about ${post?.metadata.title} for Chuhai Tools - 独立开发者出海技术栈和工具`,
+        },
+      ],
+      locale: "en_US",
       type: "website",
-      url: "https://chuhai.tools/about-" + post.metadata.slug,
-      siteName: post.metadata.title,
-      images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
     },
+
     twitter: {
       card: "summary_large_image",
-      title: `about-${post.metadata.title}`,
-      description: post.metadata.description,
-      site: "https://chuhai.tools/about-" + post.metadata.slug,
-      images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+      title: `about ${post?.metadata.title}`,
+      description: post?.metadata.description,
+      site: "https://chuhai.tools/about-" + post?.metadata.slug,
+      images: [
+        {
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
+          width: 800,
+          height: 600,
+        },
+        {
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
+          width: 1800,
+          height: 1600,
+          alt: `about ${post?.metadata.title} for Chuhai Tools - 独立开发者出海技术栈和工具`,
+        },
+      ],
     },
+
+    // twitter: {
+    //   card: "summary_large_image",
+    //   title: `about-${post.metadata.title}`,
+    //   description: post.metadata.description,
+    //   site: "https://chuhai.tools/about-" + post.metadata.slug,
+    //   images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
+    // },
   };
 }
 
