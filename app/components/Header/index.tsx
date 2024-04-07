@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-28 14:50:55
+ * @LastEditTime: 2024-04-07 17:07:34
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -64,6 +64,7 @@ export default () => {
                 href="https://github.com/zhuima"
                 target="_blank"
                 className="hover:text-[#2752f4]"
+                aria-label="GitHub"
               >
                 <BsGithub className="text-xl" />
               </Link>
@@ -73,13 +74,18 @@ export default () => {
                 href="https://x.com/ilovek8s"
                 target="_blank"
                 className="hover:text-[#2752f4]"
+                aria_label="Twitter"
               >
                 <BsTwitter className="text-xl" />
               </Link>
             </li>
           </ul>
         </div>
-        <Link href="https://www.buymeacoffee.com/zhuima" target="_blank">
+        <Link
+          href="https://www.buymeacoffee.com/zhuima"
+          target="_blank"
+          aria-label="Buy me a coffee"
+        >
           <svg
             width="27"
             height="39"

@@ -77,7 +77,7 @@ const Home = () => {
           className="inline-block text-sm text-primary mx-2 mt-4"
           title="Submit your Tools for indie hacker tools"
         >
-          <h3>Submit your Tools 👉</h3>
+          <h2>Submit your Tools 👉</h2>
         </Link>
         <span className="inline-block text-sm text-slate-300 mx-2 mt-4">|</span>
         <Link
@@ -86,7 +86,7 @@ const Home = () => {
           className="inline-block text-sm text-primary mx-2 mt-4"
           title="Submit your Tally for indie hacker tools"
         >
-          <h3>Submit your Tally 👉</h3>
+          <h2>Submit your Tally 👉</h2>
         </Link>
       </div>
       <Tab tabValue={tabValue} setTabValue={setTabValue} />
