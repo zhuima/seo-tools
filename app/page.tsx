@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 14:46:54
+ * @LastEditTime: 2024-04-07 16:20:56
  * @FilePath: /web/app/page.tsx
  * @Description:
  *
@@ -11,6 +11,6 @@
 
 import Home from "@/app/components/Home";
 
-export default () => {
+export default async () => {
   return <Home />;
 };

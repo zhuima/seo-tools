@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 15:08:03
+ * @LastEditTime: 2024-04-07 16:05:17
  * @FilePath: /web/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -23,11 +23,20 @@ async function getData(slug: string) {
   if (!slug) {
     return;
   }
-
   const post = await findBySlug(slug);
-
   return post;
 }
+
+// export async function generateStaticParams({
+//   params,
+// }: {
+//   params: { slug: string };
+// }) {
+//   const posts = await findBySlug(params.slug);
+//   return posts.map((post) => ({
+//     slug: `about-${post.metadata.slug}`,
+//   }));
+// }
 
 export async function generateMetadata({
   params,

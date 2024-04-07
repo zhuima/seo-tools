@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-01 18:48:12
+ * @LastEditTime: 2024-04-07 16:40:26
  * @FilePath: /web/app/layout.tsx
  * @Description:
  *
@@ -14,9 +14,10 @@ import Script from "next/script";
 import { Suspense } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
-import ScrollToTop from "./components/ToTop";
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import ScrollToTop from "@/app/components/ToTop";
+import LoadingSpinner from "@/app/components/LoadingSpinner";
+import Footer from "@/app/components/Footer";
+import Header from "@/app/components/Header";
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 // import { siteConfig } from "@/config/site";
@@ -110,18 +111,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <main>
           <Header />
-          <Suspense
-          //             fallback={
-          //               <div
-          //                 className="loader border-t-2 rounded-full border-yellow-500 bg-yellow-300 animate-spin
-          // aspect-square w-8 flex justify-center items-center text-yellow-700"
-          //               >
-          //                 €
-          //               </div>
-          //             }
-          >
-            {children}
-          </Suspense>
+          <Suspense fallback={<LoadingSpinner />}>{children}</Suspense>
           <Footer />
           <ScrollToTop />
         </main>
