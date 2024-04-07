@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 16:05:17
+ * @LastEditTime: 2024-04-07 18:28:19
  * @FilePath: /web/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -17,8 +17,7 @@ import { Items } from "@/app/types/posts";
 import PostsDetail from "@/app/components/PostsDetail";
 import Image from "next/image";
 import extensionSrc from "@/public/extension.png";
-
-import { findBySlug } from "@/app/services/posts";
+import { findBySlug, getAllSlugs } from "@/app/services/posts";
 async function getData(slug: string) {
   if (!slug) {
     return;
@@ -27,16 +26,12 @@ async function getData(slug: string) {
   return post;
 }
 
-// export async function generateStaticParams({
-//   params,
-// }: {
-//   params: { slug: string };
-// }) {
-//   const posts = await findBySlug(params.slug);
-//   return posts.map((post) => ({
-//     slug: `about-${post.metadata.slug}`,
-//   }));
-// }
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs();
+  return slugs.map((slug) => ({
+    slug: `about-${slug}`,
+  }));
+}
 
 export async function generateMetadata({
   params,

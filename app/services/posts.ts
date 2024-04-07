@@ -164,6 +164,39 @@ export const getAllTags = async () => {
   });
 };
 
+export async function getAllSlugs(): Promise<{ slug: string }[]> {
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID";
+  let allSlugs: { slug: string }[] = [];
+  let cursor: string | null | undefined = undefined;
+
+  do {
+    const response = await notion.databases.query({
+      database_id: databaseId,
+      filter: {
+        property: "Slug",
+        formula: {
+          string: {
+            is_not_empty: true,
+          },
+        },
+      },
+      start_cursor: cursor,
+    });
+
+    // 提取每个页面的Slug属性,并添加到allSlugs数组中
+    allSlugs = allSlugs.concat(
+      response.results.map((page) => ({
+        slug: (page as any).properties?.Slug?.rich_text[0]?.plain_text,
+      }))
+    );
+
+    // 更新cursor以获取下一页
+    cursor = response.next_cursor;
+  } while (cursor);
+
+  return allSlugs;
+}
+
 export const searchPosts = async (question: string) => {
   try {
     console.log("question", question);

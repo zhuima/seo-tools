@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 16:29:25
+ * @LastEditTime: 2024-04-07 19:06:00
  * @FilePath: /web/app/components/Home/index.tsx
  * @Description:
  *
@@ -10,7 +10,7 @@
  */
 "use client";
 import Link from "next/link";
-
+import { useCallback, useRef } from "react";
 import React, { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import Brand from "@/app/components/Brand";
@@ -33,7 +33,19 @@ const Home = () => {
 
   const [tabValue, setTabValue] = useState(queryKey || "web开发模版");
 
-  const fetchPosts = async (tab: string) => {
+  const postDataCache = useRef<{
+    [key: string]: { data: Items[]; count: number; totalCount: number };
+  }>({});
+
+  const fetchPosts = useCallback(async (tab: string) => {
+    // 先检查缓存中是否有数据
+    if (postDataCache.current[tab]) {
+      const { data, count, totalCount } = postDataCache.current[tab];
+      setCurrentPostsCount(count);
+      setTotalPostsCount(totalCount);
+      return data;
+    }
+
     const params = {
       last_id: 0,
       limit: 50,
@@ -54,16 +66,27 @@ const Home = () => {
     if (resp.ok) {
       const res = await resp.json();
       if (res.data) {
+        // 将数据缓存到 postDataCache
+        postDataCache.current[tab] = {
+          data: res.data.rows,
+          count: res.data.count,
+          totalCount: res.data.totalCount,
+        };
         setCurrentPostsCount(res.data.count);
         setTotalPostsCount(res.data.totalCount);
-        setPosts(res.data.rows);
+        return res.data.rows;
       }
     }
-  };
+    return [];
+  }, []);
 
   useEffect(() => {
-    fetchPosts(tabValue);
-  }, [tabValue]);
+    const fetchAndSetPosts = async () => {
+      const posts = await fetchPosts(tabValue);
+      setPosts(posts);
+    };
+    fetchAndSetPosts();
+  }, [fetchPosts, tabValue]);
 
   return (
     <>
