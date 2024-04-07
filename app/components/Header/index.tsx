@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 17:07:34
+ * @LastEditTime: 2024-04-07 17:22:18
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -74,7 +74,7 @@ export default () => {
                 href="https://x.com/ilovek8s"
                 target="_blank"
                 className="hover:text-[#2752f4]"
-                aria_label="Twitter"
+                aria-label="Twitter"
               >
                 <BsTwitter className="text-xl" />
               </Link>
