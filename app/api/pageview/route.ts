@@ -1,6 +1,16 @@
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-04-03 15:45:40
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-04-07 15:03:28
+ * @FilePath: /web/app/api/pageview/route.ts
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 import { respData, respErr } from "@/app/utils/resp";
 
-import { getPageView } from "@/app/services/gpts";
+import { getPageView } from "@/app/services/posts";
 
 export async function POST(req: Request) {
   try {

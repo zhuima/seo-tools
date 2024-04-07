@@ -1,11 +1,10 @@
 import notion from "@/app/utils/notionClient";
 import { NotionToMarkdown } from "notion-to-md";
 
-import { Item, Items, Post, PageMetadata } from "@/app/types/gpts";
+import { Item, Items, Post, PageMetadata } from "@/app/types/posts";
 import { respData, respErr } from "@/app/utils/resp";
-import { Tags } from "../types/tags";
-import { Gpts } from "../types/gpts";
-import { GetPostsParams } from "../types/params";
+import { Tags } from "@/app/types/tags";
+import { GetPostsParams } from "@/app/types/params";
 import {
   DatabaseObjectResponse,
   PageObjectResponse,
@@ -217,7 +216,7 @@ export const searchPosts = async (question: string) => {
       totalCount: totalCount.results.length,
     });
   } catch (e) {
-    console.log("request gpts search failed: ", e);
+    console.log("request posts search failed: ", e);
     throw e; // Rethrow the error to allow the calling function to handle it
   }
 };
@@ -226,33 +225,6 @@ export async function findByUuid(uuid: string): Promise<Items | undefined> {
   const res = await notion.pages.retrieve({ page_id: uuid });
   return res as Items | undefined;
 }
-
-// 使用数据库查询来查找具有特定slug的页面
-// export async function findBySlug(slug: string): Promise<Items | undefined> {
-//   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
-//   const response = await notion.databases.query({
-//     database_id: databaseId,
-//     filter: {
-//       property: "Slug",
-//       formula: {
-//         string: {
-//           equals: slug,
-//         },
-//       },
-//     },
-//   });
-
-//   // 假设只有一个页面匹配slug，否则根据实际情况处理响应
-//   const page = response.results[0];
-//   if (page) {
-//     const postId = page.id; // 页面ID
-//     // 根据页面ID检索页面内容
-//     const postContent = await notion.pages.retrieve({ page_id: postId });
-//     return postContent as Items | undefined;
-//   }
-
-//   return undefined;
-// }
 
 export async function findBySlug(slug: string): Promise<Post | undefined> {
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
@@ -307,49 +279,6 @@ const getPageMetaData = (post: Item): PageMetadata => {
   };
 };
 
-// export const findBySlug = async (slug: string): Promise<Item> => {
-//   try {
-//     console.log("question", slug);
-//     const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
-
-//     const posts = await notion.databases.query({
-//       database_id: databaseId,
-//       filter: {
-//         property: "Slug",
-//         formula: {
-//           string: {
-//             equals: slug,
-//           },
-//         },
-//       },
-
-//       sorts: [
-//         {
-//           property: "Date",
-//           direction: "descending",
-//         },
-//       ],
-//     });
-
-//     const totalCount = await notion.databases.query({
-//       database_id: databaseId,
-//     });
-
-//     const allPosts = posts.results[0];
-
-//     console.log("allposts", posts);
-//     return allPosts;
-//     // return respData({
-//     //   rows: allPosts,
-//     //   count: allPosts.length,
-//     //   totalCount: totalCount.results.length,
-//     // });
-//   } catch (e) {
-//     console.log("request gpts search failed: ", e);
-//     throw e; // Rethrow the error to allow the calling function to handle it
-//   }
-// };
-
 export const searchSamePosts = async (tags: string) => {
   try {
     console.log("question", tags);
@@ -390,45 +319,10 @@ export const searchSamePosts = async (tags: string) => {
       totalCount: totalCount.results.length,
     });
   } catch (e) {
-    console.log("request gpts search failed: ", e);
+    console.log("request posts search failed: ", e);
     throw e; // Rethrow the error to allow the calling function to handle it
   }
 };
-// export const getGptsFromFile = async (): Promise<Gpts[]> => {
-//   try {
-//     const dataFile = process.env.GPTS_DATA_FILE;
-//     if (!dataFile) {
-//       return [];
-//     }
-
-//     const data = fs.readFileSync(dataFile, "utf8");
-//     const jsonData = JSON.parse(data);
-
-//     let gpts: Gpts[] = [];
-//     jsonData.map((v: any) => {
-//       gpts.push({
-//         uuid: v["data"]["gizmo"]["id"],
-//         org_id: v["data"]["gizmo"]["organization_id"],
-//         name: v["data"]["gizmo"]["display"]["name"],
-//         description: v["data"]["gizmo"]["display"]["description"],
-//         avatar_url: v["data"]["gizmo"]["display"]["profile_picture_url"],
-//         short_url: v["data"]["gizmo"]["short_url"],
-//         author_id: v["data"]["gizmo"]["author"]["user_id"],
-//         author_name: v["data"]["gizmo"]["author"]["display_name"],
-//         created_at: v["created_at"],
-//         updated_at: v["data"]["gizmo"]["updated_at"],
-//         detail: JSON.stringify(v),
-//         properties: undefined,
-//         id: undefined,
-//       });
-//     });
-
-//     return gpts;
-//   } catch (err) {
-//     console.error("Error loading JSON file:", err);
-//     return [];
-//   }
-// };
 
 // 获取值对应的键的函数
 // 获取值对应的键的函数

@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-03 16:12:34
- * @FilePath: /web/app/components/GptsDetail/Preview.tsx
+ * @LastEditTime: 2024-04-07 15:12:32
+ * @FilePath: /web/app/components/PostsDetail/Preview.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -16,9 +16,9 @@ import rehypeRaw from "rehype-raw";
 import gfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
-import { Item, Items, Post } from "@/app/types/gpts";
-import { cn } from "../../utils/lib";
-import { Callout } from "./callout";
+import { Item, Items, Post } from "@/app/types/posts";
+import { cn } from "@/app/utils/lib";
+import { Callout } from "@/app/components/PostsDetail/callout";
 
 interface Props {
   post: Post;

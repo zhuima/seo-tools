@@ -1,3 +1,14 @@
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-03-14 14:25:32
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-04-07 15:14:33
+ * @FilePath: /web/app/components/ProductHunt/index.tsx
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
+/* eslint-disable @next/next/no-img-element */
 export default () => {
   return (
     <div className="mb-4 mx-auto text-center">

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-03 16:06:34
+ * @LastEditTime: 2024-04-07 15:08:03
  * @FilePath: /web/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -13,13 +13,12 @@ import Link from "next/link";
 import type { Metadata, ResolvingMetadata } from "next";
 import { usePathname } from "next/navigation";
 import { BsDownload } from "react-icons/bs";
-import { Items } from "@/app/types/gpts";
-import GptsDetail from "@/app/components/GptsDetail";
+import { Items } from "@/app/types/posts";
+import PostsDetail from "@/app/components/PostsDetail";
 import Image from "next/image";
 import extensionSrc from "@/public/extension.png";
-// import { findByUuid } from "@/app/models/gpts";
 
-import { findBySlug } from "@/app/services/gpts";
+import { findBySlug } from "@/app/services/posts";
 async function getData(slug: string) {
   if (!slug) {
     return;
@@ -132,20 +131,16 @@ export async function generateMetadata({
 }
 
 export default async ({ params }: { params: { slug: string } }) => {
-
   const slug = params.slug.split("about-")[1];
 
   const post = await getData(slug);
 
   console.log("post data", post);
 
-
-
-
   return (
     <section className="relatve">
       <div className="mx-auto w-full max-w-7xl px-5 py-2">
-        {post && <GptsDetail post={post} />}
+        {post && <PostsDetail post={post} />}
       </div>
     </section>
   );

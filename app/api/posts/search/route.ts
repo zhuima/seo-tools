@@ -1,7 +1,6 @@
 import { respData, respErr } from "@/app/utils/resp";
 
-import { getRowsByName } from "@/app/models/gpts";
-import { searchPosts } from "@/app/services/gpts";
+import { searchPosts } from "@/app/services/posts";
 
 export async function POST(req: Request) {
   try {

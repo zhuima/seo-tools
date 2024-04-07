@@ -6,10 +6,10 @@ import { usePathname } from "next/navigation";
 
 import { useEffect, useState } from "react";
 import { BsChatDots } from "react-icons/bs";
-import { Item, Items, Post } from "@/app/types/gpts";
+import { Item, Items, Post } from "@/app/types/posts";
 import moment from "moment";
-import GptsList from "../GptsList";
-import Preview from "./Preview";
+import PostsList from "@/app/components/PostsList";
+import Preview from "@/app/components/PostsDetail/Preview";
 
 interface Props {
   post: Post;
@@ -20,7 +20,7 @@ export default ({ post }: Props) => {
   const [pageView, setPageView] = useState(0);
   const pathname = usePathname();
 
-  console.log("postgpts details", post);
+  console.log("posts details", post);
   const [posts, setPosts] = useState<Items[]>([]);
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
@@ -33,7 +33,7 @@ export default ({ post }: Props) => {
 
     console.log("tab ----:", tags);
     setLoading(true);
-    const resp = await fetch("/api/gpts/random", {
+    const resp = await fetch("/api/posts/random", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -264,7 +264,7 @@ export default ({ post }: Props) => {
         <h2 className="mx-auto font-bold text-3xl mt-8 mb-4">
           Other Tools you may like
         </h2>
-        <GptsList posts={posts} loading={loading} />
+        <PostsList posts={posts} loading={loading} />
       </div>
     </section>
   );

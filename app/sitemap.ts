@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2023-07-07 16:33:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-27 11:27:44
+ * @LastEditTime: 2024-04-07 15:06:40
  * @FilePath: /web/app/sitemap.ts
  * @Description:
  *
@@ -10,12 +10,10 @@
  */
 // app/sitemap.js
 // https://claritydev.net/blog/nextjs-dynamic-sitemap-pages-app-directory
-import { getAllPostsWhioutFilter } from "@/app/services/gpts";
-import { Item, Items, Post, PageMetadata } from "@/app/types/gpts";
+import { getAllPostsWhioutFilter } from "@/app/services/posts";
+import { Item, Items, Post, PageMetadata } from "@/app/types/posts";
 
 export const revalidate = 60;
-
-const URL = "https://chuhai.tools/";
 
 export default async function sitemap() {
   const links: string[] = [];
@@ -42,7 +40,7 @@ export default async function sitemap() {
 
   links.push();
   const routes = links.map((route) => ({
-    url: `${URL}${route}`,
+    url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/${route}`,
     lastModified: new Date().toISOString().split("T")[0],
   }));
 

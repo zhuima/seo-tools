@@ -10,7 +10,7 @@ import {
   useState,
 } from "react";
 
-import { Items } from "@/app/types/gpts";
+import { Items } from "@/app/types/posts";
 
 interface Props {
   setPosts: Dispatch<SetStateAction<Items[]>>;
@@ -18,7 +18,6 @@ interface Props {
 }
 
 export default ({ setPosts, setLoading }: Props) => {
-
   const [inputDisabled, setInputDisabled] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [content, setContent] = useState("");
@@ -39,7 +38,7 @@ export default ({ setPosts, setLoading }: Props) => {
 
   const handleSubmit = async (question: string) => {
     try {
-      const uri = "/api/gpts/search";
+      const uri = "/api/posts/search";
       const params = {
         question: question,
       };

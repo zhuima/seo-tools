@@ -39,7 +39,7 @@ export default ({ tabValue, setTabValue }: Props) => {
 
   const fetchTags = async (tab: string) => {
     setLoading(true);
-    const resp = await fetch("/api/gpts/tags", {
+    const resp = await fetch("/api/posts/tags", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

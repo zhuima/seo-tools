@@ -3,7 +3,7 @@
  * @Date: 2024-03-26 14:00:25
  * @LastEditors: zhuima zhuima314@gmail.com
  * @LastEditTime: 2024-03-26 14:04:47
- * @FilePath: /web/app/components/GptsDetail/callout.tsx
+ * @FilePath: /web/app/components/PostsDetail/callout.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.

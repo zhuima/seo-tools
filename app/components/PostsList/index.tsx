@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-27 11:28:07
+ * @LastEditTime: 2024-04-07 15:00:11
  * @FilePath: /web/app/components/GptsList/index.tsx
  * @Description:
  *
@@ -10,7 +10,7 @@
  */
 "use client";
 
-import { Items } from "@/app/types/gpts";
+import { Items } from "@/app/types/posts";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Link from "next/link";
 import moment from "moment";
