@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:28:17
+ * @LastEditTime: 2024-04-16 17:52:39
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -35,8 +35,8 @@ export default () => {
             {/* chuhai.tools */}
             {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
             <Image
-              src="/logo2.svg"
-              alt="Indie Hacker Tools"
+              src="/logo.svg"
+              alt="logo for chuhai.tools - Indie Hacker Tools"
               width={118}
               height={108}
               style={{ maxWidth: "118px", height: "108px" }}
