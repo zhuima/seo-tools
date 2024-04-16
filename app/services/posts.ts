@@ -112,6 +112,8 @@ export const getAllPostsWhioutFilter = async () => {
   return respData({
     rows: allItems,
     count: allItems.length,
+    // totalCount: totalCount.results.length,
+    totalCount: allItems.length,
   });
 };
 
@@ -304,11 +306,11 @@ const getPageMetaData = (post: Item): PageMetadata => {
   return {
     id: post.id,
     lastEditTime: post.last_edited_time,
-    slug: post.properties.Slug?.rich_text?.[0]?.plain_text,
-    title: post.properties.Title?.title?.[0]?.plain_text,
-    description: post.properties.Description?.rich_text?.[0]?.plain_text,
-    link: post.properties.Link?.url,
-    tags: post.properties.Tags?.multi_select?.[0]?.name,
+    slug: post.properties?.Slug?.rich_text?.[0]?.plain_text,
+    title: post.properties?.Title?.title?.[0]?.plain_text,
+    description: post.properties?.Description?.rich_text?.[0]?.plain_text,
+    link: post.properties?.Link?.url,
+    tags: post.properties?.Tags?.multi_select?.[0]?.name,
   };
 };
 

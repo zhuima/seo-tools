@@ -88,13 +88,17 @@ export default ({ post }: Props) => {
   console.log("post pv view", pageView);
   return (
     <section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5  md:px-10 md:py-6 lg:py-8">
         <div className="w-full mb-4 text-lg">
           <nav className="flex" aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-2">
               <li>
                 <div>
-                  <Link className="text-gray-400 hover:text-gray-500" href="/">
+                  <Link
+                    className="text-gray-400 hover:text-gray-500"
+                    href="/"
+                    prefetch
+                  >
                     <svg
                       stroke="currentColor"
                       fill="none"
@@ -210,7 +214,7 @@ export default ({ post }: Props) => {
               </p>
             </div> */}
 
-            <div className="flex flex-col gap-4 font-semibold sm:flex-row">
+            <div className="flex flex-col gap-4 font-semibold sm:flex-row mb-4 ">
               <Link
                 href={post ? post.metadata.link : "#"}
                 target="_blank"
@@ -223,7 +227,7 @@ export default ({ post }: Props) => {
                   Try in your next project 👉
                 </p> */}
                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-primary top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease">
+                <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease ">
                   Try in your next project 👉
                 </span>
               </Link>

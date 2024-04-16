@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2023-07-07 16:33:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 15:06:40
+ * @LastEditTime: 2024-04-15 17:15:34
  * @FilePath: /web/app/sitemap.ts
  * @Description:
  *
@@ -30,7 +30,7 @@ export default async function sitemap() {
 
   allPosts.map((entry: Items) => {
     links.push(
-      `tools/about-${entry.properties.Slug?.rich_text?.[0]?.plain_text}`
+      `tools/about-${entry.properties?.Slug?.rich_text?.[0]?.plain_text}`
     );
   });
 

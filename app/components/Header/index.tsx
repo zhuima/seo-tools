@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 17:22:18
+ * @LastEditTime: 2024-04-16 17:28:17
  * @FilePath: /web/app/components/Header/index.tsx
  * @Description:
  *
@@ -11,7 +11,7 @@
  */
 "use client";
 import Link from "next/link";
-
+import Image from "next/image";
 import { BsGithub, BsTwitter } from "react-icons/bs";
 
 import { usePathname } from "next/navigation";
@@ -19,19 +19,28 @@ import { usePathname } from "next/navigation";
 export default () => {
   const pathname = usePathname();
   return (
-    <header className="mx-auto w-full max-w-7xl px-4 md:px-10 mt-8 md:mt-12">
+    <header className="mx-auto w-full max-w-7xl px-4 md:px-10 h-[120px]">
       <div className="flex items-center">
-        <div className="text-lg md:text-3xl font-medium ">
+        <div className="font-medium ">
           <Link
-            className="bg-cover bg-center px-3 py-3 md:px-4 md:py-4 m text-white cursor-pointer"
+            className="bg-cover bg-center px-3  md:px-4  text-white cursor-pointer"
             href="/"
             target="_self"
-            style={{
-              backgroundImage: "url('/brand.svg')",
-            }}
+            // style={{
+            //   backgroundImage: "url('/logo.svg')",
+            //   backgroundSize: "cover",
+            // }}
+            prefetch
           >
-            chuhai.tools
+            {/* chuhai.tools */}
             {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+            <Image
+              src="/logo2.svg"
+              alt="Indie Hacker Tools"
+              width={118}
+              height={108}
+              style={{ maxWidth: "118px", height: "108px" }}
+            />
           </Link>
         </div>
 

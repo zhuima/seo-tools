@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 15:00:11
- * @FilePath: /web/app/components/GptsList/index.tsx
+ * @LastEditTime: 2024-04-16 17:19:24
+ * @FilePath: /web/app/components/PostsList/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -30,37 +30,46 @@ export default ({ posts, loading }: Props) => {
       <div className="mx-auto max-w-7xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
         {!loading ? (
           <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
-            {posts?.map((item: Items, idx: number) => {
+            {posts?.map((item: any, idx: number) => {
               console.log("item --->", item);
               return (
                 <Link
-                  href={`/tools/about-${item.properties.Slug?.rich_text?.[0]?.plain_text}`}
+                  href={`/tools/about-${
+                    item.Slug?.rich_text?.[0]?.plain_text ||
+                    item.properties?.Slug?.rich_text?.[0]?.plain_text
+                  }`}
                   target="_self"
                   key={idx}
                 >
                   <div className="relative mb-6 gap-6 overflow-hidden rounded-2xl border border-solid border-[#7e7e7e] bg-white p-8">
                     <div className="mb-4 flex flex-row">
                       <LazyLoadImage
-                        src={item?.properties?.Icon?.url}
-                        alt={item?.properties?.Title?.title[0]?.plain_text}
+                        src={item?.Icon?.url || item?.properties?.Icon?.url}
+                        alt={
+                          item?.Title?.title[0]?.plain_text ||
+                          item?.properties?.Title?.title[0]?.plain_text
+                        }
                         className="mr-4 inline-block h-16 w-16 object-cover rounded-full"
                       />
                       <div className="flex flex-col">
                         <h4 className="text-base font-semibold">
-                          {item?.properties?.Title?.title[0]?.plain_text}
+                          {item?.Title?.title[0]?.plain_text ||
+                            item?.properties?.Title?.title[0]?.plain_text}
                         </h4>
                         <p className="text-sm text-[#636262]">
-                          {item?.properties.Title?.title[0]?.plain_text}
+                          {item?.Title?.title[0]?.plain_text ||
+                            item?.properties?.Title?.title[0]?.plain_text}
                         </p>
                       </div>
                     </div>
                     <p className="mb-4 text-sm text-[#636262]">
-                      {item?.properties?.Description?.rich_text[0]?.plain_text}
+                      {item?.Description?.rich_text[0]?.plain_text ||
+                        item?.properties?.Description?.rich_text[0]?.plain_text}
                     </p>
                     <div className="flex items-center">
-                      {item?.properties?.Rating?.number &&
+                      {item?.Rating?.number &&
                         Array.from({
-                          length: item?.properties?.Rating?.number,
+                          length: item?.Rating?.number,
                         }).map((_, idx: number) => (
                           // eslint-disable-next-line @next/next/no-img-element
                           <LazyLoadImage
@@ -76,7 +85,8 @@ export default ({ posts, loading }: Props) => {
                         {moment(item?.created_time).fromNow()}
                       </p>
                     </div>
-                    {item?.properties?.IsFree.checkbox ? (
+                    {item?.IsFree?.checkbox ||
+                    item?.properties?.IsFree?.checkbox ? (
                       <span
                         className={`absolute right-0  top-0 rounded-bl-md rounded-tr-md bg-red-500 p-1 text-white dark:border-r dark:border-t dark:border-gray-200
               dark:bg-red-700`}
@@ -87,7 +97,8 @@ export default ({ posts, loading }: Props) => {
                       ""
                     )}
 
-                    {item?.properties?.IsFire.checkbox ? (
+                    {item?.IsFire?.checkbox ||
+                    item?.properties?.IsFire?.checkbox ? (
                       <span
                         className={`absolute right-0 top-0 rounded-bl-md rounded-tr-md text-2xl`}
                       >
