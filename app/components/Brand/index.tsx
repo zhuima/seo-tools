@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:40:36
+ * @LastEditTime: 2024-04-17 10:10:10
  * @FilePath: /web/app/components/Brand/index.tsx
  * @Description:
  *
@@ -20,7 +20,7 @@ interface Props {
 export default ({ count }: Props) => {
   return (
     <section className="relatve">
-      <div className="mx-auto w-full max-w-7xl px-4 mt-12 md:mt-24">
+      <div className="mx-auto w-full max-w-7xl px-4 mt-8 md:mt-16">
         <div className="mx-auto w-full max-w-6xl text-center">
           <h1 className="text-3xl font-bold md:text-7xl text-orange-500">
             Indie Hacker Tools

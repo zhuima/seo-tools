@@ -21,28 +21,26 @@ export default () => {
   return (
     <header className="mx-auto w-full max-w-7xl px-4 md:px-10 h-[120px]">
       <div className="flex items-center">
-        <div className="font-medium ">
-          <Link
-            className="bg-cover bg-center px-3  md:px-4  text-white cursor-pointer"
-            href="/"
-            target="_self"
-            // style={{
-            //   backgroundImage: "url('/logo.svg')",
-            //   backgroundSize: "cover",
-            // }}
-            prefetch
-          >
-            {/* chuhai.tools */}
-            {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
-            <Image
-              src="/logo.svg"
-              alt="logo for chuhai.tools - Indie Hacker Tools"
-              width={118}
-              height={108}
-              style={{ maxWidth: "118px", height: "108px" }}
-            />
-          </Link>
-        </div>
+        <Link
+          className="bg-cover bg-center px-3  md:px-4  text-white cursor-pointer"
+          href="/"
+          target="_self"
+          // style={{
+          //   backgroundImage: "url('/logo.svg')",
+          //   backgroundSize: "cover",
+          // }}
+          prefetch
+        >
+          {/* chuhai.tools */}
+          {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+          <Image
+            src="/logo.svg"
+            alt="logo for chuhai.tools - Indie Hacker Tools"
+            width={118}
+            height={108}
+            style={{ maxWidth: "118px", height: "108px" }}
+          />
+        </Link>
 
         <div className="flex-1">
           <ul className="hidden md:flex float-right text-lg text-slate-700 mr-4 items-center">
