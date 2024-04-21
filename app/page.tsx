@@ -2,14 +2,27 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 16:20:56
+ * @LastEditTime: 2024-04-21 08:09:55
  * @FilePath: /web/app/page.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
 
+import type { Viewport } from "next";
+
 import Home from "@/app/components/Home";
+
+// https://github.com/tailwindlabs/tailwindcss/issues/1193
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+  minimumScale: 1,
+  // Also supported by less commonly used
+  // interactiveWidget: 'resizes-visual',
+};
 
 export default async () => {
   return <Home />;
