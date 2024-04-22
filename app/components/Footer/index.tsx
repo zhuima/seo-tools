@@ -231,6 +231,16 @@ export default () => {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
+                    href="https://xiaobaot.best/"
+                    target="_blank"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
+                    {" "}
+                    小报童专栏甄选{" "}
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="https://chat.ruankao.eu.org/"
                     target="_blank"
                     className="text-gray-700 transition hover:opacity-75"
