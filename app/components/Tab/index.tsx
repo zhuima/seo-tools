@@ -123,7 +123,7 @@ export default ({ tabValue, setTabValue }: Props) => {
                 key={idx}
                 className={` ${
                   tabValue === tab
-                    ? "bg-yellow-500 border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
+                    ? "bg-yellow-700 border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                     : "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                 }`}
                 onClick={() => setTabValue(tab)}
