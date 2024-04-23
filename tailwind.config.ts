@@ -1,3 +1,13 @@
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-03-26 10:46:17
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-04-23 15:41:51
+ * @FilePath: /seo/tailwind.config.ts
+ * @Description: 
+ * 
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved. 
+ */
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -24,6 +34,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui"), require("@tailwindcss/typography")],
+  plugins: [ require("@tailwindcss/typography")],
 };
 export default config;
