@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:41:54
- * @FilePath: /web/app/components/Home/index.tsx
+ * @LastEditTime: 2024-04-23 11:00:47
+ * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -35,7 +35,7 @@ const Home = () => {
 
   const queryKey = getKeyByValue(tabMap, searchParams.get("query"));
 
-  const [tabValue, setTabValue] = useState(queryKey || "web开发模版");
+  const [tabValue, setTabValue] = useState(queryKey || "一体化SEO工具");
 
   const postDataCache = useRef<{
     [key: string]: { data: Items[]; count: number; totalCount: number };
@@ -112,7 +112,7 @@ const Home = () => {
         <Link
           href="https://github.com/weijunext/indie-hacker-tools"
           target="_target"
-          className="inline-block text-sm text-orange-500 mx-2 mt-4"
+          className="inline-block text-sm text-yellow-600 mx-2 mt-4"
           title="Submit your Tools for indie hacker tools"
         >
           <h2>Submit your Tools 👉</h2>
@@ -121,7 +121,7 @@ const Home = () => {
         <Link
           href="https://tally.so/r/w7WWja"
           target="_target"
-          className="inline-block text-sm text-orange-500 mx-2 mt-4"
+          className="inline-block text-sm text-yellow-600 mx-2 mt-4"
           title="Submit your Tally for indie hacker tools"
         >
           <h2>Submit your Tally 👉</h2>

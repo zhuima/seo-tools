@@ -38,7 +38,7 @@ const ScrollToTop = () => {
           onClick={goToTop}
           className="fixed bottom-[10%] right-0 z-50 m-5 sm:bottom-[7%] sm:m-0"
         >
-          <IoIosArrowUp className="rounded-md bg-zinc-950 text-[50px] text-white shadow-lg dark:bg-zinc-50 dark:text-zinc-950 md:mr-10" />
+          <IoIosArrowUp className="rounded-md bg-yellow-950 text-[50px] text-white shadow-lg dark:bg-zinc-50 dark:text-zinc-950 md:mr-10" />
         </button>
       )}
     </>

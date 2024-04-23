@@ -97,7 +97,7 @@ export default ({ tabValue, setTabValue }: Props) => {
   useEffect(() => {
     const handleURLParams = () => {
       const params = new URLSearchParams(searchParams);
-      if (tabValue && tabValue !== "web开发模版") {
+      if (tabValue && tabValue !== "一体化SEO工具") {
         params.set("query", tabMap[tabValue]);
         // 使用 next/navigation 中的方法来更新 URL
         replace(`${pathname}?${params.toString()}`);
@@ -123,12 +123,12 @@ export default ({ tabValue, setTabValue }: Props) => {
                 key={idx}
                 className={` ${
                   tabValue === tab
-                    ? "bg-orange-700 border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
+                    ? "bg-yellow-600 border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                     : "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                 }`}
                 onClick={() => setTabValue(tab)}
               >
-                {tab == "web开发模版" ? "web开发模版🔥" : tab}
+                {tab == "一体化SEO工具" ? "一体化SEO工具🔥" : tab}
               </button>
             );
           })}

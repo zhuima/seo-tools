@@ -76,7 +76,7 @@ export default ({ setPosts, setLoading }: Props) => {
           <input
             type="text"
             className="flex-1 px-4 py-3 border-2 border-primary bg-white rounded-lg text-sm"
-            placeholder="keyword for searching Tools"
+            placeholder="keyword for seo Tools"
             ref={inputRef}
             value={content}
             disabled={inputDisabled}

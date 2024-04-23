@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 18:28:19
- * @FilePath: /web/app/tools/[slug]/page.tsx
+ * @LastEditTime: 2024-04-23 10:50:52
+ * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -45,11 +45,11 @@ export async function generateMetadata({
 
   return {
     title:
-      `${post?.metadata.title} - 独立开发者出海技术栈和工具` ||
-      "Chuhai Tools - 独立开发者出海技术栈和工具",
+      `${post?.metadata.title} - SEO Tools - Awesome Hackers Tools` ||
+      "SEO Tools - Awesome Hackers Tools",
     description:
       post?.metadata.description ||
-      "出海第一步，搞定技术栈, 聚合全网独立开发者出海技术栈和工具, 技术出海相关的技术实践经验、合规解读、方案选型等",
+      "收集全网最全的SEO工具，助力运营人员和独立开发者",
     keywords: [post?.metadata.description] || [
       "技术出海",
       "工具出海",
@@ -70,22 +70,10 @@ export async function generateMetadata({
       shortcut: "/favicon-16x16.ico",
       apple: "/apple-touch-icon.png",
     },
-    // alternates: {
-    //   canonical: "https://chuhai.tools/about-" + post.metadata.slug,
-    // },
-    // openGraph: {
-    //   title: `about-${post.metadata.title}`,
-    //   description: post.metadata.description,
-    //   type: "website",
-    //   url: "https://chuhai.tools/about-" + post.metadata.slug,
-    //   siteName: post.metadata.title,
-    //   images: "https://img.techrk1688.eu.org/file/1366731e13b3bc1da508f.png",
-    // },
-
     openGraph: {
       title: `about ${post?.metadata.title}`,
       description: post?.metadata.description,
-      url: "https://chuhai.tools/about-" + post?.metadata.slug,
+      url: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
       siteName: post?.metadata.title,
       images: [
         {
@@ -97,7 +85,7 @@ export async function generateMetadata({
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
           width: 1800,
           height: 1600,
-          alt: `about ${post?.metadata.title} for Chuhai Tools - 独立开发者出海技术栈和工具`,
+          alt: `about ${post?.metadata.title} for SEO Tools - Awesome Hackers Tools`,
         },
       ],
       locale: "en_US",
@@ -108,7 +96,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: `about ${post?.metadata.title}`,
       description: post?.metadata.description,
-      site: "https://chuhai.tools/about-" + post?.metadata.slug,
+      site: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
@@ -119,7 +107,7 @@ export async function generateMetadata({
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}`, // Dynamic og route
           width: 1800,
           height: 1600,
-          alt: `about ${post?.metadata.title} for Chuhai Tools - 独立开发者出海技术栈和工具`,
+          alt: `about ${post?.metadata.title} for SEO Tools - Awesome Hackers Tools`,
         },
       ],
     },

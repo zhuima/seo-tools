@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:43:41
- * @FilePath: /web/app/components/Footer/index.tsx
+ * @LastEditTime: 2024-04-23 10:38:54
+ * @FilePath: /seo/app/components/Footer/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -49,7 +49,7 @@ export default () => {
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <div className="text-orange-500 font-bold">
+            <div className="text-yellow-600 font-bold">
               {/* <svg
                 className="h-8"
                 viewBox="0 0 118 24"
@@ -98,11 +98,11 @@ export default () => {
                 />
               </svg> */}
               {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
-              Indie Hacker Tools
+              Hacker SEO Tools
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
-              Find fantastic indie hacker tools all over the world.
+              Find fantastic hacker SEO tools all over the world.
             </p>
 
             <ul className="mt-8 flex gap-6">
@@ -237,6 +237,16 @@ export default () => {
                   >
                     {" "}
                     小报童专栏甄选{" "}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="https://chuhai.tools/"
+                    target="_blank"
+                    className="text-gray-700 transition hover:opacity-75"
+                  >
+                    {" "}
+                    Indie Hacker Tools{" "}
                   </Link>
                 </li>
                 <li>
@@ -421,7 +431,15 @@ export default () => {
         </div>
 
         <p className="text-xs text-gray-500">
-          &copy; {new Date().getFullYear()}. chuhai.tools. All rights reserved.
+          &copy; {new Date().getFullYear()}.{" "}
+          <Link
+            href="/"
+            target="_self"
+            className="text-gray-700 transition hover:opacity-75"
+          >
+            seo.chuhai.tools{" "}
+          </Link>
+          . All rights reserved.
         </p>
       </div>
     </footer>
