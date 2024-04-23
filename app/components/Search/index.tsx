@@ -75,7 +75,7 @@ export default ({ setPosts, setLoading }: Props) => {
         <div className="flex items-center relative">
           <input
             type="text"
-            className="px-3 py-3 bg-white text-sm  border-2  border-yellow-400 shadow-sm  placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-yellow-700 focus:ring-yellow-700 block w-full rounded-lg sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            className="px-3 py-3 bg-white text-sm  border-2  border-yellow-700 shadow-sm  placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-yellow-700 focus:ring-yellow-700 block w-full rounded-lg sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
             placeholder="keyword for seo Tools"
             ref={inputRef}
             value={content}
