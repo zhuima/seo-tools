@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-01 18:54:01
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 16:17:52
+ * @LastEditTime: 2024-04-23 16:34:27
  * @FilePath: /seo/app/api/og/route.tsx
  * @Description:
  *
@@ -44,7 +44,7 @@ export async function GET(req: NextRequest) {
         }}
       >
         <div tw="flex">
-          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8 max-w-xs">
+          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8 ">
             <h2 tw="flex flex-col text-6xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left ml-40 text-font-bold">
               <span tw="text-white text-8xl ">{postTitle}</span>
               <span tw="mt-5 text-orange-500 text-5xl whitespace-normal break-all">

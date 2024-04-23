@@ -77,12 +77,12 @@ export async function generateMetadata({
       siteName: post?.metadata.title,
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&${post?.metadata.description}`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
           width: 800,
           height: 600,
         },
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&${post?.metadata.description}`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
           width: 1800,
           height: 1600,
           alt: `about ${post?.metadata.title} for SEO Tools - Awesome Hackers Tools`,
@@ -99,12 +99,12 @@ export async function generateMetadata({
       site: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&${post?.metadata.description}`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
           width: 800,
           height: 600,
         },
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&${post?.metadata.description}`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
           width: 1800,
           height: 1600,
           alt: `about ${post?.metadata.title} for SEO Tools - Awesome Hackers Tools`,
