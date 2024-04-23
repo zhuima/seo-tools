@@ -44,10 +44,12 @@ export async function GET(req: NextRequest) {
         }}
       >
         <div tw="flex">
-          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8">
+          <div tw="flex flex-col md:flex-row w-full py-12 px-4 md:items-center justify-between p-8 max-w-xs">
             <h2 tw="flex flex-col text-6xl sm:text-4xl font-bold tracking-tight text-gray-900 text-left ml-40 text-font-bold">
               <span tw="text-white text-8xl ">{postTitle}</span>
-              <span tw="mt-5 text-orange-500 text-5xl">{subTitle}</span>
+              <span tw="mt-5 text-orange-500 text-5xl whitespace-normal break-all">
+                {subTitle}
+              </span>
             </h2>
             {/* <div tw="mt-8 flex md:mt-0">
               <div tw="flex rounded-md shadow">
