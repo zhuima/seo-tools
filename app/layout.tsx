@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 10:48:27
+ * @LastEditTime: 2024-04-23 11:32:27
  * @FilePath: /seo/app/layout.tsx
  * @Description:
  *
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "出海第一步，搞定工具库",
   ],
   // alternates: {
-  //   canonical: "https://chuhai.tools",
+  //   canonical: "https://seo.chuhai.tools",
   // },
   icons: {
     icon: "/favicon.ico",

@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-02-27 10:55:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-01 17:43:48
- * @FilePath: /web/app/not-found.tsx
+ * @LastEditTime: 2024-04-23 11:32:53
+ * @FilePath: /seo/app/not-found.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.

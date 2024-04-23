@@ -3,8 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:52:39
- * @FilePath: /web/app/components/Header/index.tsx
+ * @LastEditTime: 2024-04-23 13:40:01
+ * @FilePath: /seo/app/components/Header/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -22,7 +22,7 @@ export default () => {
     <header className="mx-auto w-full max-w-7xl px-4 md:px-10 h-[120px]">
       <div className="flex items-center">
         <Link
-          className="bg-cover bg-center px-3  md:px-4  text-white cursor-pointer"
+          className="bg-cover bg-center px-3 py-3 md:px-4  text-white cursor-pointer"
           href="/"
           target="_self"
           // style={{
@@ -36,9 +36,9 @@ export default () => {
           <Image
             src="/logo.svg"
             alt="logo for chuhai.tools - Indie Hacker Tools"
-            width={118}
+            width={138}
             height={108}
-            style={{ maxWidth: "118px", height: "108px" }}
+            style={{ maxWidth: "138px", height: "108px" }}
           />
         </Link>
 

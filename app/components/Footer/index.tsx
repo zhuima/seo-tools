@@ -3,8 +3,13 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 10:38:54
+<<<<<<< HEAD
+ * @LastEditTime: 2024-04-23 11:45:12
  * @FilePath: /seo/app/components/Footer/index.tsx
+=======
+ * @LastEditTime: 2024-03-26 17:06:46
+ * @FilePath: /seo-tools/app/components/Footer/index.tsx
+>>>>>>> d9285bb9b07a41cc73c457609775edcbbcc4a3ce
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.

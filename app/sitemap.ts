@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2023-07-07 16:33:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-15 17:15:34
- * @FilePath: /web/app/sitemap.ts
+ * @LastEditTime: 2024-04-23 11:52:17
+ * @FilePath: /seo/app/sitemap.ts
  * @Description:
  *
  * Copyright (c) 2023 by ${git_name_email}, All Rights Reserved.

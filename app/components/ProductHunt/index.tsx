@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-07 15:14:33
- * @FilePath: /web/app/components/ProductHunt/index.tsx
+ * @LastEditTime: 2024-04-23 11:27:41
+ * @FilePath: /seo/app/components/ProductHunt/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
