@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-02-26 10:38:26
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-02-26 11:00:58
- * @FilePath: /next-web-nav/components/scroll-to-top-button.tsx
+ * @LastEditTime: 2024-04-23 14:05:10
+ * @FilePath: /seo/app/components/ToTop/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -38,7 +38,7 @@ const ScrollToTop = () => {
           onClick={goToTop}
           className="fixed bottom-[10%] right-0 z-50 m-5 sm:bottom-[7%] sm:m-0"
         >
-          <IoIosArrowUp className="rounded-md bg-yellow-950 text-[50px] text-white shadow-lg dark:bg-zinc-50 dark:text-zinc-950 md:mr-10" />
+          <IoIosArrowUp className="rounded-md bg-yellow-500 text-[50px] text-white shadow-lg dark:bg-zinc-50 dark:text-zinc-950 md:mr-10" />
         </button>
       )}
     </>
