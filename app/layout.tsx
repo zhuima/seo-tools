@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 11:32:27
+ * @LastEditTime: 2024-04-23 18:57:10
  * @FilePath: /seo/app/layout.tsx
  * @Description:
  *
@@ -85,7 +85,7 @@ export default function RootLayout({
               "@context": "https://schema.org/",
               "@type": "WebSite",
               name: "Indie Hacker Tools",
-              url: "https://chuhai.tools/",
+              url: "https://seo.chuhai.tools/",
               potentialAction: {
                 "@type": "SearchAction",
                 target: "https://chuhai.tools/?query={search_term_string}",
