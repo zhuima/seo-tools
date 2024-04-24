@@ -66,7 +66,7 @@ export default () => {
                 GPTs
               </a>
             </li> */}
-            <li className="mx-4">
+            {/* <li className="mx-4">
               <Link
                 href="https://github.com/zhuima"
                 target="_blank"
@@ -84,6 +84,17 @@ export default () => {
                 aria-label="Twitter"
               >
                 <BsTwitter className="text-xl" />
+              </Link>
+            </li> */}
+
+            <li className="mx-4">
+              <Link
+                href="https://xiaobaot.best"
+                target="_blank"
+                className="hover:text-[#2752f4]"
+                aria-label="Twitter"
+              >
+                小报童专栏甄选
               </Link>
             </li>
           </ul>
