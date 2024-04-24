@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 13:40:01
+ * @LastEditTime: 2024-04-24 10:46:42
  * @FilePath: /seo/app/components/Header/index.tsx
  * @Description:
  *
@@ -98,7 +98,7 @@ export default () => {
                   <span className="w-6 h-6 text-gray-700 fill-current">
                     小报童专栏甄选
                   </span>
-                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full">
+                  <span className="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2  rounded-full">
                     🔥
                   </span>
                 </span>
