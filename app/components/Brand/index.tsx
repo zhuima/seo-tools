@@ -29,7 +29,7 @@ export default ({ count }: Props) => {
             <span className="text-yellow-700 font-bold  max-w-fit">
               {count || <Skeleton width={70} inline />}
             </span>{" "}
-            wesome Hacker SEO Tools
+            Awesome Hacker SEO Tools
           </p>
         </div>
       </div>

@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-24 11:02:27
+ * @LastEditTime: 2024-06-03 19:07:37
  * @FilePath: /seo/app/components/Header/index.tsx
  * @Description:
  *
@@ -43,7 +43,7 @@ export default () => {
         </Link>
 
         <div className="flex-1">
-          <ul className="hidden md:flex float-right text-lg text-slate-700 mr-4 items-center">
+          <ul className=" md:flex float-right text-lg text-slate-700 mr-4 items-center">
             {/* <li className="mx-4">
               <Link
                 href="/extension"
@@ -92,7 +92,7 @@ export default () => {
                 href="https://xiaobaot.best"
                 target="_blank"
                 className="hover:text-[#2752f4]"
-                aria-label="xiaobaot.best"
+                aria-label="seo.chuhai.tools"
               >
                 <span className="relative inline-block">
                   <span className="w-6 h-6 text-gray-700 fill-current">

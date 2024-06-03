@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-28 16:09:38
- * @FilePath: /seo-tools/app/components/GptsList/index.tsx
+ * @LastEditTime: 2024-06-03 19:02:38
+ * @FilePath: /seo/app/components/GptsList/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
