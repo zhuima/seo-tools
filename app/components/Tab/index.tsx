@@ -126,7 +126,11 @@ export default ({ tabValue, setTabValue }: Props) => {
                     ? "bg-orange-500 font-bold border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                     : "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
                 }`}
-                onClick={() => setTabValue(tab)}
+                // onClick={() => setTabValue(tab)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  setTabValue(tab);
+                }}
               >
                 {tab == "All in One SEO" ? "All in One SEO🔥" : tab}
               </button>
