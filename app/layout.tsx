@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 18:57:10
+ * @LastEditTime: 2024-06-04 12:23:02
  * @FilePath: /seo/app/layout.tsx
  * @Description:
  *
@@ -25,34 +25,39 @@ import type { Metadata } from "next";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "SEO Tools - Awesome Hackers Tools ",
-  description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
+  title: "Essential SEO Tools for SEO Pros in 2024",
+  description:
+    "seo.chuhai.tools offers comprehensive online SEO analysis tools to boost website rankings. It includes a wide range of SEO tools such as keyword research, website auditing, link analysis, and more, tailored for professional SEO experts and website owners. Quickly detect website health issues, identify and fix SEO problems, and improve search engine visibility. Free to use, with real-time analysis reports, this platform is your ultimate companion for website SEO optimization.",
   keywords: [
-    "技术出海",
-    "工具出海",
-    "品牌出海",
-    "独立开发者",
-    "科技出海",
-    "独立开发者出海技术栈和工具",
-    "独立开发者出海工具",
-    "独立开发者出海技术栈",
-    "出海营销",
-    "独立开发者出海",
-    "独立开发者出海业务",
-    "面向海外用户开发产品",
-    "出海第一步，搞定工具库",
+    "seo tools",
+    "seo analysis tools",
+    "website seo checker",
+    "seo audit tools",
+    "on-page seo tools",
+    "keyword research tools",
+    "free seo tools for small business",
+    "best seo tools for agencies",
+    "top on-page seo analysis tools",
+    "local seo tools for google maps",
+    "seo services",
+    "seo company",
+    "seo agency",
+    "seo consultant",
+    "seo tools usa",
+    "seo analysis tools uk",
+    "best seo tools in canada",
   ],
-  // alternates: {
-  //   canonical: "https://seo.chuhai.tools",
-  // },
+  alternates: {
+    canonical: "https://seo.chuhai.tools",
+  },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.ico",
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "SEO Tools - Awesome Hackers Tools ",
-    description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
+    title: "Essential SEO Tools for SEO Pros in 2024",
+    description: "Essential SEO Tools for SEO Pros in 2024",
     type: "website",
     url: "https://seo.chuhai.tools",
     siteName: "SEO Tools - Awesome Hackers Tools ",
@@ -60,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "SEO Tools - Awesome Hackers Tools ",
-    description: "收集全网最全的SEO工具，助力运营人员和独立开发者",
+    title: "Essential SEO Tools for SEO Pros in 2024",
+    description: "Essential SEO Tools for SEO Pros in 2024",
     site: "https://seo.chuhai.tools",
     images: "https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png",
   },

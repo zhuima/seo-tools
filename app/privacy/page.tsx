@@ -1,103 +1,100 @@
-export default () => {
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-05-27 14:37:43
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-06-04 12:24:57
+ * @FilePath: /seo/app/privacy/page.tsx
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
+import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "private policy | Essential SEO Tools for SEO Pros in 2024",
+  description:
+    "seo.chuhai.tools offers comprehensive online SEO analysis tools to boost website rankings. It includes a wide range of SEO tools such as keyword research, website auditing, link analysis, and more, tailored for professional SEO experts and website owners. Quickly detect website health issues, identify and fix SEO problems, and improve search engine visibility. Free to use, with real-time analysis reports, this platform is your ultimate companion for website SEO optimization.",
+  keywords: [
+    "seo tools",
+    "seo analysis tools",
+    "website seo checker",
+    "seo audit tools",
+    "on-page seo tools",
+    "keyword research tools",
+    "free seo tools for small business",
+    "best seo tools for agencies",
+    "top on-page seo analysis tools",
+    "local seo tools for google maps",
+    "seo services",
+    "seo company",
+    "seo agency",
+    "seo consultant",
+    "seo tools usa",
+    "seo analysis tools uk",
+    "best seo tools in canada",
+  ],
+  alternates: {
+    canonical: "https://seo.chuhai.tools/privacy",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon-16x16.ico",
+    apple: "/apple-touch-icon.png",
+  },
+  openGraph: {
+    title: "Essential SEO Tools for SEO Pros in 2024",
+    description: "private policy for seo.chuhai.tools. ",
+    type: "website",
+    url: "https://seo.chuhai.tools/privacy",
+    siteName: "Awesome Hackers Tools",
+    images: "https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Essential SEO Tools for SEO Pros in 2024",
+    description: "private policy for seo.chuhai.tools. ",
+    site: "https://seo.chuhai.tools/privacy",
+    images: "https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png",
+  },
+};
+
+export default async () => {
   return (
-    <div className="max-w-xl mx-auto prose break-words dark:prose-invert light py-8 leading-loose">
-      <p>
-        <strong>Privacy Policy for GPTs Works</strong>
-      </p>
-      <p>Effective Date: 2023/11/11</p>
-      <p>
-        This Privacy Policy describes how we collects, uses, and discloses
-        information through our Google Chrome Extension, GPTs Works.
-      </p>
-      <p>
-        <strong>1. Information Collection</strong>
-      </p>
-      <p>
-        When you use our Extension, we may collect the following types of
-        information:
-      </p>
-      <ul>
-        <li>
-          <strong>Personal Information</strong>: This may include your name,
-          email address, and any other information you provide when using our
-          Extension.
-        </li>
-        <li>
-          <strong>Browsing Data</strong>: We may collect information related to
-          the websites you visit and how you interact with content while using
-          our Extension.
-        </li>
-        <li>
-          <strong>Usage Data</strong>: This includes information about how you
-          use our Extension, such as the features you use and the time spent on
-          the Extension.
-        </li>
-      </ul>
-      <p>
-        <strong>2. Use of Information</strong>
-      </p>
-      <p>The information we collect is used for the following purposes:</p>
-      <ul>
-        <li>To provide, maintain, and improve the Extension.</li>
-        <li>To respond to your inquiries and provide customer support.</li>
-        <li>
-          To conduct research and analysis to enhance the functionality of our
-          Extension.
-        </li>
-        <li>For any other purpose with your consent.</li>
-      </ul>
-      <p>
-        <strong>3. Information Sharing</strong>
-      </p>
-      <p>
-        We may share your information with third parties in the following
-        situations:
-      </p>
-      <ul>
-        <li>
-          <strong>With Service Providers</strong>: We may share your information
-          with third-party service providers who perform services on our behalf.
-        </li>
-        <li>
-          <strong>For Legal Reasons</strong>: We may disclose your information
-          if required by law or if we believe it’s necessary to prevent fraud or
-          other illegal activities.
-        </li>
-        <li>
-          <strong>In Business Transfers</strong>: If we are involved in a
-          merger, acquisition, or sale of assets, your information may be
-          transferred as part of that transaction.
-        </li>
-      </ul>
-      <p>
-        <strong>4. Data Security</strong>
-      </p>
-      <p>
-        We take reasonable measures to protect your information from
-        unauthorized access, use, or disclosure.
-      </p>
-      <p>
-        <strong>5. Children’s Privacy</strong>
-      </p>
-      <p>
-        Our Extension is not intended for children under the age of 13, and we
-        do not knowingly collect information from children under 13.
-      </p>
-      <p>
-        <strong>6. Changes to This Privacy Policy</strong>
-      </p>
-      <p>
-        We may update this Privacy Policy from time to time. We will notify you
-        of any changes by posting the new Privacy Policy on this page.
-      </p>
-      <p>
-        <strong>7. Contact Us</strong>
-      </p>
-      <p>
-        If you have any questions about this Privacy Policy, please contact us
-        at me@idoubi.cc.
-      </p>
-      <hr />
-    </div>
+    <section>
+      <div className="mx-auto w-full max-w-6xl px-5  md:px-10 md:py-6 lg:py-8">
+        <h1 className="mb-6 text-center text-3xl font-bold text-orange-500">
+          private policy for Awesome Hackers Tools
+        </h1>
+        <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+          last updated: May 27, 2024
+        </p>
+        <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+          This Privacy Policy describes our policies and procedures for
+          collecting, using, and disclosing your information when you use the
+          Service, and informs you about your privacy rights and how the law
+          protects you.
+        </p>
+        <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+          We use your personal data to provide and improve the Service. By using
+          the Service, you agree to the collection and use of information in
+          accordance with this Privacy Policy. This Privacy Policy was created
+          with the help of the Free Privacy Policy Generator.
+        </p>
+        <h2 className="mb-4 text-2xl font-bold">
+          1. About Information Collection
+        </h2>{" "}
+        <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+          {" "}
+          This site does not collect any personal information.{" "}
+        </p>{" "}
+        <h2 className="mb-4 text-2xl font-bold">2. Contact Us</h2>{" "}
+        <p className="mb-6 text-neutral-700 dark:text-neutral-300">
+          {" "}
+          By visiting this page on our website:{" "}
+          <Link href="https://tally.so/r/w7WWja">Feedback</Link>{" "}
+        </p>
+      </div>
+    </section>
   );
 };

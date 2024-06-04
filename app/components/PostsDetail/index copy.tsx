@@ -2,21 +2,24 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+
 import { useEffect, useState } from "react";
 import { BsChatDots } from "react-icons/bs";
-import { Item, Items, Post } from "@/app/types/gpts";
+import { Item, Items, Post } from "@/app/types/posts";
 import moment from "moment";
-import GptsList from "../GptsList";
-import Preview from "./Preview";
-
+import PostsList from "@/app/components/PostsList";
+import Preview from "@/app/components/PostsDetail/Preview";
+import { tabMap } from "@/app/config/tabMap";
 interface Props {
   post: Post;
 }
 
 export default ({ post }: Props) => {
-  // const tools = getGptsTools(post);
+  const [pageView, setPageView] = useState(0);
+  const pathname = usePathname();
 
-  console.log("postgpts details", post);
+  console.log("posts details", post);
   const [posts, setPosts] = useState<Items[]>([]);
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
@@ -29,7 +32,7 @@ export default ({ post }: Props) => {
 
     console.log("tab ----:", tags);
     setLoading(true);
-    const resp = await fetch("/api/gpts/random", {
+    const resp = await fetch("/api/posts/random", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -52,15 +55,50 @@ export default ({ post }: Props) => {
     fetchPosts(post.metadata.tags);
   }, [post.metadata.tags]);
 
+  const fetchPageView = async (pathname: string) => {
+    const params = {
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}${pathname}`, //pathname,
+      hostname: `${process.env.NEXT_PUBLIC_WEBSITE_URL}`,
+      referrer: "",
+    };
+
+    setLoading(true);
+    const resp = await fetch("/api/pageview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(params),
+    });
+    setLoading(false);
+
+    if (resp.ok) {
+      const res = await resp.json();
+      if (res.data) {
+        setPageView(res.data.pv);
+      }
+    }
+  };
+
+  useEffect(() => {
+    fetchPageView(pathname);
+  }, [pathname]);
+
+  console.log("post pv view", pageView);
+  const tabSlug = tabMap[post.metadata.tags[0]];
   return (
     <section>
-      <div className="mx-auto w-full max-w-7xl px-5 py-12 md:px-10 md:py-16 lg:py-20">
+      <div className="mx-auto w-full max-w-7xl px-5  md:px-10 md:py-6 lg:py-8">
         <div className="w-full mb-4 text-lg">
           <nav className="flex" aria-label="Breadcrumb">
             <ol role="list" className="flex items-center space-x-2">
               <li>
                 <div>
-                  <Link className="text-gray-400 hover:text-gray-500" href="/">
+                  <Link
+                    className="text-gray-400 hover:text-gray-500"
+                    href="/"
+                    prefetch
+                  >
                     <svg
                       stroke="currentColor"
                       fill="none"
@@ -96,7 +134,7 @@ export default ({ post }: Props) => {
                   <Link
                     className="ml-2 text-md font-medium text-gray-500 hover:text-gray-700"
                     aria-current="page"
-                    href="#"
+                    href={`?query=${tabSlug}`}
                   >
                     tools
                   </Link>
@@ -131,11 +169,12 @@ export default ({ post }: Props) => {
         {/* <div className="grid gap-12 sm:gap-20 lg:grid-cols-2"> */}
         <div className="w-full">
           <div className="flex flex-col items-start gap-2">
-            <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1">
+            <div className="flex items-center rounded-md bg-[#c4c4c4] px-3 py-1 space-x-4">
               <div className="mr-1 h-2 w-2 rounded-full bg-black"></div>
               <p className="text-sm">
                 Updated at {moment(post.metadata.lastEditTime).fromNow()}
               </p>
+              <p className="italic text-base opacity-80">👀 {pageView}</p>
             </div>
             {/* <p className="text-sm text-[#808080] sm:text-xl">
               Created by {post.metadata.title}
@@ -175,7 +214,7 @@ export default ({ post }: Props) => {
               </p>
             </div> */}
 
-            <div className="flex flex-col gap-4 font-semibold sm:flex-row">
+            <div className="flex flex-col gap-4 font-semibold sm:flex-row mb-4 ">
               <Link
                 href={post ? post.metadata.link : "#"}
                 target="_blank"
@@ -188,7 +227,7 @@ export default ({ post }: Props) => {
                   Try in your next project 👉
                 </p> */}
                 <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 bg-primary top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-                <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease">
+                <span className="relative text-indigo-600 transition duration-300 group-hover:text-white ease ">
                   Try in your next project 👉
                 </span>
               </Link>
@@ -201,10 +240,11 @@ export default ({ post }: Props) => {
               <h3 className="mt-4 text-sm text-[#808080] sm:text-xl">
                 {post.metadata.description}
               </h3>
+
               <img
                 className="mt-4 h-full w-full object-cover object-center"
                 src="https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png"
-                alt="Hacker SEO Tools"
+                alt="indie hacker tools"
                 loading="lazy"
               />
             </>
@@ -217,7 +257,7 @@ export default ({ post }: Props) => {
               <img
                 className="h-full w-full object-cover object-center"
                 src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
-                alt="Hacker SEO Tools"
+                alt="indie hacker tools"
                 loading="lazy"
               />
             )}
@@ -228,7 +268,7 @@ export default ({ post }: Props) => {
         <h2 className="mx-auto font-bold text-3xl mt-8 mb-4">
           Other Tools you may like
         </h2>
-        <GptsList posts={posts} loading={loading} />
+        <PostsList posts={posts} loading={loading} />
       </div>
     </section>
   );

@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-03-26 11:03:25
- * @FilePath: /web/app/types/gpts.d.ts
+ * @LastEditTime: 2024-06-04 11:53:31
+ * @FilePath: /seo/app/types/posts.d.ts
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -22,6 +22,10 @@ export interface PageMetadata {
   description: string;
   link: string;
   tags: string;
+  coverImage: string;
+  icon: string;
+  isFree: boolean;
+  demo: string;
 }
 
 export interface Item {
@@ -45,6 +49,16 @@ export interface Item {
   };
   archived: boolean;
   properties: {
+    CoverImage: {
+      id: string;
+      type: "url";
+      url: string;
+    };
+    Demo: {
+      id: string;
+      type: "url";
+      url: string;
+    };
     Link: {
       id: string;
       type: "url";

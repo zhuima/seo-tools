@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-15 16:30:09
- * @FilePath: /web/app/api/posts/all/route.ts
+ * @LastEditTime: 2024-06-04 11:36:13
+ * @FilePath: /seo/app/api/posts/all/route.ts
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -37,7 +37,7 @@ export async function POST(req: Request) {
 
     console.log("api router params", params);
     // const entries = await getAllPosts(params);
-    const entries = await getAllPostsWhioutFilter();
+    const entries = await getAllPosts(params);
     console.log("get all posts: ", entries);
     return entries;
   } catch (e) {

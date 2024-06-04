@@ -2,8 +2,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-16 17:19:24
- * @FilePath: /web/app/components/PostsList/index.tsx
+ * @LastEditTime: 2024-06-04 11:38:08
+ * @FilePath: /seo/app/components/PostsList/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -27,7 +27,7 @@ export default ({ posts, loading }: Props) => {
 
   return (
     <section className="relative">
-      <div className="mx-auto max-w-7xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
+      <div className="mx-auto max-w-6xl px-5 py-4 md:px-10 md:py-4 lg:py-4">
         {!loading ? (
           <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
             {posts?.map((item: any, idx: number) => {

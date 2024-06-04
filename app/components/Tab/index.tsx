@@ -115,7 +115,7 @@ export default ({ tabValue, setTabValue }: Props) => {
   console.log("tabs", tabs, tabsCount, loading);
   return (
     <section className="relative mt-4">
-      <div className="mx-auto max-w-7xl px-2 py-4 md:px-8 md:py-4 text-center">
+      <div className="mx-auto max-w-6xl px-2 py-4 md:px-8 md:py-4 text-center">
         <div className="mx-auto flex flex-wrap justify-start gap-2">
           {tabs.map((tab: string, idx: number) => {
             return (

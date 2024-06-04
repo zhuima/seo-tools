@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-04-23 11:00:47
+ * @LastEditTime: 2024-06-04 12:42:49
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -53,6 +53,7 @@ const Home = () => {
     const params = {
       last_id: 0,
       limit: 50,
+      tab: tabValue,
     };
 
     setLoading(true);
@@ -110,7 +111,7 @@ const Home = () => {
       <Search setPosts={setPosts} setLoading={setLoading} />
       <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
         <Link
-          href="https://github.com/weijunext/indie-hacker-tools"
+          href="https://tally.so/r/mYOZMB"
           target="_target"
           className="inline-block text-sm text-yellow-700 mx-2 mt-4"
           title="Submit your Tools for indie hacker tools"

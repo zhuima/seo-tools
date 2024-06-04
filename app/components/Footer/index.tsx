@@ -3,13 +3,8 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
-<<<<<<< HEAD
- * @LastEditTime: 2024-04-23 14:04:35
+ * @LastEditTime: 2024-06-04 12:34:28
  * @FilePath: /seo/app/components/Footer/index.tsx
-=======
- * @LastEditTime: 2024-03-26 17:06:46
- * @FilePath: /seo-tools/app/components/Footer/index.tsx
->>>>>>> d9285bb9b07a41cc73c457609775edcbbcc4a3ce
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
@@ -329,7 +324,7 @@ export default () => {
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link
                     href="https://github.com/weijunext/indie-hacker-tools"
                     className="text-gray-700 transition hover:opacity-75"
@@ -337,7 +332,7 @@ export default () => {
                     {" "}
                     indie hacker tools{" "}
                   </Link>
-                </li>
+                </li> */}
 
                 {/* <li>
                   <Link
@@ -393,15 +388,15 @@ export default () => {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <Link
-                    href="#"
+                    href="privacy"
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    Accessibility{" "}
+                    Private Policy{" "}
                   </Link>
                 </li>
 
-                <li>
+                {/* <li>
                   <Link
                     href="#"
                     className="text-gray-700 transition hover:opacity-75"
@@ -429,7 +424,7 @@ export default () => {
                     {" "}
                     Hiring Statistics{" "}
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
           </div>

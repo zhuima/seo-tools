@@ -15,61 +15,50 @@ import { tabMap } from "@/app/config/tabMap";
 
 const n2m = new NotionToMarkdown({ notionClient: notion });
 // 函数用于获取数据库中的所有条目
+// 函数用于获取数据库中的所有条目
 export const getAllPosts = async (params: GetPostsParams) => {
   let allItems: any[] = [];
   let cursor: string | null | undefined = undefined;
-  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
-
-  console.log("server params", params);
-  const posts = await notion.databases.query({
-    database_id: databaseId,
-    filter: {
-      and: [
-        {
-          property: "Tags",
-          multi_select: {
-            contains: params.tab,
-          },
-        },
-        {
-          property: "Tags",
-          multi_select: {
-            is_not_empty: true,
-          },
-        },
-      ],
-    },
-
-    sorts: [
-      {
-        property: "Date",
-        direction: "descending",
-      },
-    ],
-  });
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID";
 
   do {
     const response = await notion.databases.query({
       database_id: databaseId,
       start_cursor: cursor,
+      filter: {
+        and: [
+          {
+            property: "Tags",
+            multi_select: {
+              contains: params.tab,
+            },
+          },
+          {
+            property: "Tags",
+            multi_select: {
+              is_not_empty: true,
+            },
+          },
+        ],
+      },
+      sorts: [
+        {
+          property: "Date",
+          direction: "descending",
+        },
+      ],
     });
-    // Append current page's results to the array
-    allItems = allItems.concat(response.results);
 
-    // Update cursor for the next page
+    allItems = allItems.concat(response.results);
     cursor = response.next_cursor;
   } while (cursor);
 
-  const allPosts = posts.results;
-
   return respData({
-    rows: allPosts,
-    count: allPosts.length,
-    // totalCount: totalCount.results.length,
+    rows: allItems,
+    count: allItems.length,
     totalCount: allItems.length,
   });
 };
-
 export const getAllPostsWhioutFilter = async () => {
   const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
   let allItems: any[] = [];
@@ -80,12 +69,16 @@ export const getAllPostsWhioutFilter = async () => {
       database_id: databaseId,
       filter: {
         or: [
-          { property: "Title", rich_text: { is_not_empty: true } },
           {
-            property: "Tags",
-            multi_select: {
-              is_not_empty: true,
-            },
+            or: [
+              { property: "Title", rich_text: { is_not_empty: true } },
+              {
+                property: "Tags",
+                multi_select: {
+                  is_not_empty: true,
+                },
+              },
+            ],
           },
         ],
       },
@@ -119,49 +112,40 @@ export const getAllPostsWhioutFilter = async () => {
 
 // 函数用于从数据库条目中收集所有标签// 函数用于从数据库条目中收集所有标签
 export const getAllTags = async () => {
-  const entries = await getAllPostsWhioutFilter();
-  // const allTags = new Set<string>();
-  // 创建一个 Set 来存储标签名称
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID";
   const uniqueTagNames = new Set<string>();
   const allTags: Tags[] = [];
 
-  const postsData = await entries.json();
-  // 如果你的数据结构不止 results，需要根据实际情况修改
-  const allPosts = postsData.data.rows;
-
-  allPosts.forEach((entry: Items) => {
-    const tagsProperty = entry.properties.Tags;
-
-    // if (tagsProperty && tagsProperty.multi_select) {
-    //   tagsProperty.multi_select.forEach((tag) => {
-    //     allTags.add(tag.name);
-    //   });
-
-    tagsProperty.multi_select.forEach((tag: any) => {
-      // const tagObject: Tags = {
-      //   id: tag.id,
-      //   name: tag.name,
-      //   color: tag.color,
-      // };
-      // allTags.push(tagObject);
-
-      // 检查标签名称是否已经存在于 Set 中，如果不存在，则将其添加到 Set 和 tagsArray 中
-      if (!uniqueTagNames.has(tag.name)) {
-        uniqueTagNames.add(tag.name);
-
-        // 将标签转换成目标接口 Tags 的对象，并添加到 tagsArray 中
-        const tagObject: Tags = {
-          id: tag.id,
-          name: tag.name,
-          color: tag.color,
-        };
-        allTags.push(tagObject);
-      }
-    });
+  const response = await notion.databases.retrieve({
+    database_id: databaseId,
   });
 
+  const properties = response.properties;
+
+  // 遍历所有属性
+  for (const [key, value] of Object.entries(properties)) {
+    // 检查属性是否为多选类型
+    if (value.type === "multi_select") {
+      // 遍历该属性的所有选项
+      value.multi_select.options.forEach((option: any) => {
+        // 检查标签名称是否已经存在于 Set 中，如果不存在，则将其添加到 Set 和 tagsArray 中
+        if (!uniqueTagNames.has(option.name)) {
+          uniqueTagNames.add(option.name);
+
+          // 将标签转换成目标接口 Tags 的对象，并添加到 tagsArray 中
+          const tagObject: Tags = {
+            id: option.id,
+            name: option.name,
+            color: option.color,
+          };
+          allTags.push(tagObject);
+        }
+      });
+    }
+  }
+
   return respData({
-    rows: Array.from(allTags),
+    rows: allTags,
     count: allTags.length,
   });
 };
@@ -256,6 +240,49 @@ export const searchPosts = async (question: string) => {
   }
 };
 
+export const searchPostsByTag = async (tag: string) => {
+  const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID";
+
+  try {
+    // console.log("Searching posts with tag:", tag);
+
+    // Run both queries concurrently
+    const [postsQuery, totalCountQuery] = await Promise.all([
+      notion.databases.query({
+        database_id: databaseId,
+        filter: {
+          property: "Tags",
+          multi_select: {
+            contains: tag,
+          },
+        },
+        sorts: [
+          {
+            property: "Date",
+            direction: "descending",
+          },
+        ],
+      }),
+      notion.databases.query({
+        database_id: databaseId,
+      }),
+    ]);
+
+    const allPosts = postsQuery.results;
+    const totalCount = totalCountQuery.results.length;
+
+    // Prepare response data
+    return respData({
+      rows: allPosts,
+      count: allPosts.length,
+      totalCount: totalCount,
+    });
+  } catch (error) {
+    console.error("Failed to search posts by tag:", error);
+    throw error; // Rethrow the error to allow the calling function to handle it
+  }
+};
+
 export async function findByUuid(uuid: string): Promise<Items | undefined> {
   const res = await notion.pages.retrieve({ page_id: uuid });
   return res as Items | undefined;
@@ -311,6 +338,10 @@ const getPageMetaData = (post: Item): PageMetadata => {
     description: post.properties?.Description?.rich_text?.[0]?.plain_text,
     link: post.properties?.Link?.url,
     tags: post.properties?.Tags?.multi_select?.[0]?.name,
+    icon: post.properties?.Icon?.url,
+    isFree: post.properties?.IsFree?.checkbox,
+    demo: post.properties?.Demo?.url,
+    coverImage: post.properties?.CoverImage?.url,
   };
 };
 
