@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:55:12
+ * @LastEditTime: 2024-06-04 14:46:21
  * @FilePath: /seo/app/layout.tsx
  * @Description:
  *
@@ -60,7 +60,7 @@ export const metadata: Metadata = {
     description: "Essential SEO Tools for SEO Pros in 2024",
     type: "website",
     url: "https://seo.chuhai.tools",
-    siteName: "SEO Tools - Awesome Hackers Tools ",
+    siteName: "Essential SEO Tools for SEO Pros in 2024",
     images: "https://img.techrk1688.eu.org/file/8c2f2fb7364e861288426.jpg",
   },
   twitter: {

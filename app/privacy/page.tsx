@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 14:37:43
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:24:57
+ * @LastEditTime: 2024-06-04 14:45:32
  * @FilePath: /seo/app/privacy/page.tsx
  * @Description:
  *
@@ -63,8 +63,8 @@ export default async () => {
   return (
     <section>
       <div className="mx-auto w-full max-w-6xl px-5  md:px-10 md:py-6 lg:py-8">
-        <h1 className="mb-6 text-center text-3xl font-bold text-gray-500">
-          private policy for Awesome Hackers Tools
+        <h1 className="mb-6 text-center text-3xl font-bold text-orange-500">
+          private policy for Essential SEO Tools for SEO Pros in 2024
         </h1>
         <p className="mb-6 text-neutral-700 dark:text-neutral-300">
           last updated: May 27, 2024

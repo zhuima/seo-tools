@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:55:40
+ * @LastEditTime: 2024-06-04 14:44:07
  * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -72,12 +72,12 @@ export async function generateMetadata({
       apple: "/apple-touch-icon.png",
     },
     alternates: {
-      canonical: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
+      canonical: "https://seo.chuhai.tools/tools/about-" + post?.metadata.slug,
     },
     openGraph: {
       title: `${post?.metadata.title} | Essential SEO Tools for SEO Pros in 2024`,
       description: post?.metadata.description,
-      url: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
+      url: "https://seo.chuhai.tools/tools/about-" + post?.metadata.slug,
       siteName: post?.metadata.title,
       images: [
         {
@@ -100,7 +100,7 @@ export async function generateMetadata({
       card: "summary_large_image",
       title: ` ${post?.metadata.title} | Essential SEO Tools for SEO Pros in 2024`,
       description: post?.metadata.description,
-      site: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
+      site: "https://seo.chuhai.tools/tools/about-" + post?.metadata.slug,
       images: [
         {
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
