@@ -97,7 +97,7 @@ export default ({ tabValue, setTabValue }: Props) => {
   useEffect(() => {
     const handleURLParams = () => {
       const params = new URLSearchParams(searchParams);
-      if (tabValue && tabValue !== "一体化SEO工具") {
+      if (tabValue && tabValue !== "All in One SEO") {
         params.set("query", tabMap[tabValue]);
         // 使用 next/navigation 中的方法来更新 URL
         replace(`${pathname}?${params.toString()}`);
@@ -128,7 +128,7 @@ export default ({ tabValue, setTabValue }: Props) => {
                 }`}
                 onClick={() => setTabValue(tab)}
               >
-                {tab == "一体化SEO工具" ? "一体化SEO工具🔥" : tab}
+                {tab == "All in One SEO" ? "All in One SEO🔥" : tab}
               </button>
             );
           })}

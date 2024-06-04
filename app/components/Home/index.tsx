@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:42:49
+ * @LastEditTime: 2024-06-04 13:12:37
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -35,7 +35,7 @@ const Home = () => {
 
   const queryKey = getKeyByValue(tabMap, searchParams.get("query"));
 
-  const [tabValue, setTabValue] = useState(queryKey || "一体化SEO工具");
+  const [tabValue, setTabValue] = useState(queryKey || "All in One SEO");
 
   const postDataCache = useRef<{
     [key: string]: { data: Items[]; count: number; totalCount: number };
