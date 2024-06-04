@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 14:49:33
+ * @LastEditTime: 2024-06-04 19:31:45
  * @FilePath: /seo/app/layout.tsx
  * @Description:
  *
@@ -27,7 +27,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Essential SEO Tools for SEO Pros in 2024",
   description:
-    "seo.chuhai.tools offers comprehensive online SEO analysis tools to boost website rankings. It includes a wide range of SEO tools such as keyword research, website auditing, link analysis, and more, tailored for professional SEO experts and website owners. Quickly detect website health issues, identify and fix SEO problems, and improve search engine visibility. Free to use, with real-time analysis reports, this platform is your ultimate companion for website SEO optimization.",
+    "SEO Awesome is a curated list of the best SEO Tools & Blogs in the internet. We are actively searching, and curating the coolest resources out there.",
   keywords: [
     "seo tools",
     "seo analysis tools",
@@ -47,9 +47,9 @@ export const metadata: Metadata = {
     "seo analysis tools uk",
     "best seo tools in canada",
   ],
-  alternates: {
-    canonical: "https://seo.chuhai.tools",
-  },
+  // alternates: {
+  //   canonical: `https://seo.chuhai.tools`,
+  // },
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-16x16.ico",
@@ -89,7 +89,7 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org/",
               "@type": "WebSite",
-              name: "Indie Hacker Tools",
+              name: "Essential SEO Tools for SEO Pros in 2024",
               url: "https://seo.chuhai.tools/",
               potentialAction: {
                 "@type": "SearchAction",

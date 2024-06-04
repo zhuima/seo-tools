@@ -4,7 +4,7 @@
  * @LastEditors: zhuima zhuima314@gmail.com
  * @LastEditTime: 2024-04-07 15:04:00
  * @FilePath: /web/app/api/posts/tags/route.ts
- * @Description:
+//  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
@@ -33,7 +33,7 @@ export async function POST(req: Request) {
     //   count: allPosts.length,
     // });
     const allTags = await getAllTags();
-    console.log("get all posts: ", allTags);
+    // console.log("get all posts: ", allTags);
     return allTags;
   } catch (e) {
     console.log("get all posts failed: ", e);

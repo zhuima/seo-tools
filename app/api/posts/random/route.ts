@@ -14,14 +14,14 @@ import { searchSamePosts } from "@/app/services/posts";
 export async function POST(req: Request) {
   try {
     const params = await req.json();
-
-    console.log("api router params", params);
+// 
+    // console.log("api router params", params);
 
     const tags = params.tags;
 
     const posts = await searchSamePosts(tags);
 
-    console.log("search all posts: ", posts);
+    // console.log("search all posts: ", posts);
     return posts;
   } catch (e) {
     console.log("get same posts failed: ", e);

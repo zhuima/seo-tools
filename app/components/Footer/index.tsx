@@ -19,7 +19,7 @@ export default () => {
     //     <div className="flex flex-row justify-between max-[767px]:flex-col max-[767px]:items-start">
     //       <div className="max-[767px]: w-full max-w-[560px] max-[991px]:mr-4 max-[991px]:flex-initial">
     //         <h2 className="text-3xl font-bold md:text-5xl">
-    //           Find fantastic indie hacker tools all over the world.
+    //           Find fantastic Essential SEO Tools for SEO Pros in 2024 all over the world.
     //         </h2>
     //       </div>
     //     </div>
@@ -97,7 +97,7 @@ export default () => {
                   fill="currentColor"
                 />
               </svg> */}
-              {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+              {/* <img src="/logo.png" alt="Essential SEO Tools for SEO Pros in 2024" max-w-xs /> */}
               Hacker SEO Tools
             </div>
 
@@ -246,7 +246,7 @@ export default () => {
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    Indie Hacker Tools{" "}
+                    Essential SEO Tools for SEO Pros in 2024{" "}
                   </Link>
                 </li>
                 <li>
@@ -330,7 +330,7 @@ export default () => {
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    indie hacker tools{" "}
+                    Essential SEO Tools for SEO Pros in 2024{" "}
                   </Link>
                 </li> */}
 

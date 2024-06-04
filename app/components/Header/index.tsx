@@ -32,10 +32,10 @@ export default () => {
           prefetch
         >
           {/* chuhai.tools */}
-          {/* <img src="/logo.png" alt="Indie Hacker Tools" max-w-xs /> */}
+          {/* <img src="/logo.png" alt="Essential SEO Tools for SEO Pros in 2024" max-w-xs /> */}
           <Image
             src="/logo.svg"
-            alt="logo for chuhai.tools - Indie Hacker Tools"
+            alt="logo for chuhai.tools - Essential SEO Tools for SEO Pros in 2024"
             width={138}
             height={108}
             style={{ maxWidth: "138px", height: "108px" }}

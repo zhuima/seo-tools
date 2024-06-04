@@ -35,10 +35,10 @@ export async function POST(req: Request) {
 
     const params = await req.json();
 
-    console.log("api router params", params);
+    // console.log("api router params", params);
     // const entries = await getAllPosts(params);
     const entries = await getAllPosts(params);
-    console.log("get all posts: ", entries);
+    // console.log("get all posts: ", entries);
     return entries;
   } catch (e) {
     console.log("get all posts failed: ", e);

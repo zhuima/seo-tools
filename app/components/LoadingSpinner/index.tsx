@@ -21,12 +21,12 @@ const index = () => {
         </div>
         <img
           src="/bgstar.svg"
-          alt="background left star for indie hacker tools"
+          alt="background left star for Essential SEO Tools for SEO Pros in 2024"
           className="absolute bottom-[auto] left-[auto] right-0 top-24 -z-10 inline-block max-[767px]:hidden"
         />
         <img
           src="/bgstar.svg"
-          alt="background star right for indie hacker tools"
+          alt="background star right for Essential SEO Tools for SEO Pros in 2024"
           className="absolute bottom-[auto] right-[auto] left-0 top-60 -z-10 inline-block max-[767px]:hidden"
         />
       </section>

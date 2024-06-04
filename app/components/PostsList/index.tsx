@@ -75,7 +75,7 @@ export default ({ posts, loading }: Props) => {
                           <LazyLoadImage
                             key={idx}
                             src="/star.svg"
-                            alt="indie hacker tools star"
+                            alt="Essential SEO Tools for SEO Pros in 2024 star"
                             className="mr-1.5 inline-block w-4 flex-none"
                           />
                         ))}

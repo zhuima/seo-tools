@@ -86,7 +86,7 @@ export default ({ post }: Props) => {
     fetchPageView(pathname);
   }, [pathname]);
 
-  console.log("post pv view", pageView, post);
+  // console.log("post pv view", pageView, post);
   const tabSlug = tabMap[post.metadata.tags];
   return (
     <>
@@ -414,7 +414,7 @@ export default ({ post }: Props) => {
                     <img
                       className="mt-4 h-full w-full object-cover object-center"
                       src="https://img.techrk1688.eu.org/file/8c2f2fb7364e861288426.jpg"
-                      alt="indie hacker tools"
+                      alt="Essential SEO Tools for SEO Pros in 2024"
                       loading="lazy"
                     />
                   </>
@@ -427,7 +427,9 @@ export default ({ post }: Props) => {
 
       {/* other tools */}
       <div className="w-full text-center">
-        <h2 className="mx-auto font-bold text-3xl mt-8 mb-4">猜你喜欢</h2>
+        <h2 className="mx-auto font-bold text-3xl mt-8 mb-4">
+          Other Tools you may like
+        </h2>
         <PostsList posts={posts} loading={loading} />
       </div>
     </>

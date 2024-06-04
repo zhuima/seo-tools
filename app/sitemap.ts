@@ -20,13 +20,13 @@ export default async function sitemap() {
 
   const entries = await getAllPostsWhioutFilter();
 
-  console.log("entries", entries);
+  // console.log("entries", entries);
 
   const postsData = await entries.json();
   // 如果你的数据结构不止 results，需要根据实际情况修改
   const allPosts = postsData.data.rows;
 
-  console.log("allPosts for sitemap", allPosts);
+  // console.log("allPosts for sitemap", allPosts);
 
   allPosts.map((entry: Items) => {
     links.push(

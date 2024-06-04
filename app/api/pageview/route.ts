@@ -16,8 +16,8 @@ export async function POST(req: Request) {
   try {
     const params = await req.json();
 
-    console.log("api router params", params);
-
+    // console.log("api router params", params);
+// 
     // const url,
     //   hostname,
     //   referrer = params;

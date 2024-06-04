@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 14:37:43
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 14:45:32
+ * @LastEditTime: 2024-06-04 18:06:52
  * @FilePath: /seo/app/privacy/page.tsx
  * @Description:
  *
@@ -14,7 +14,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "private policy | Essential SEO Tools for SEO Pros in 2024",
   description:
-    "seo.chuhai.tools offers comprehensive online SEO analysis tools to boost website rankings. It includes a wide range of SEO tools such as keyword research, website auditing, link analysis, and more, tailored for professional SEO experts and website owners. Quickly detect website health issues, identify and fix SEO problems, and improve search engine visibility. Free to use, with real-time analysis reports, this platform is your ultimate companion for website SEO optimization.",
+    "SEO Awesome is a curated list of the best SEO Tools & Blogs in the internet. We are actively searching, and curating the coolest resources out there.",
   keywords: [
     "seo tools",
     "seo analysis tools",

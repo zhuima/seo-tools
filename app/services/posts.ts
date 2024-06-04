@@ -305,7 +305,7 @@ export async function findBySlug(slug: string): Promise<Post | undefined> {
   // 假设只有一个页面匹配slug，否则根据实际情况处理响应
   const page = response.results[0] as Item;
 
-  console.log("page ----> server", page);
+  // console.log("page ----> server", page);
   if (page) {
     const postId = page.id; // 页面ID
 
@@ -319,7 +319,7 @@ export async function findBySlug(slug: string): Promise<Post | undefined> {
     // };
     const metadata = getPageMetaData(page);
     const mdblocks = await n2m.pageToMarkdown(postId);
-    console.log("Markdown Content:", mdblocks);
+    // console.log("Markdown Content:", mdblocks);
 
     const mdString = n2m.toMarkdownString(mdblocks);
     return {
@@ -347,7 +347,7 @@ const getPageMetaData = (post: Item): PageMetadata => {
 
 export const searchSamePosts = async (tags: string) => {
   try {
-    console.log("question", tags);
+    // console.log("question", tags);
     const databaseId = process.env.DATABASE_ID || "DEFAULT_DATABASE_ID"; // 使用默认值
 
     const posts = await notion.databases.query({
@@ -378,7 +378,7 @@ export const searchSamePosts = async (tags: string) => {
 
     const allPosts = posts.results;
 
-    console.log("allposts", posts);
+    // console.log("allposts", posts);
     return respData({
       rows: allPosts,
       count: allPosts.length,

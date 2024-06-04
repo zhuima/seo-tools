@@ -46,7 +46,7 @@ const NotFound = () => {
             <Link
               href="/"
               className="text-white"
-              // text="back to home for Indie Hacker Tools"
+              // text="back to home for Essential SEO Tools for SEO Pros in 2024"
             >
               返回首页
             </Link>
@@ -58,7 +58,7 @@ const NotFound = () => {
         <Image
           className="w-full max-w-lg lg:mx-auto"
           src="https://merakiui.com/images/components/illustration.svg"
-          alt="404 illustration for Indie Hacker Tools"
+          alt="404 illustration for Essential SEO Tools for SEO Pros in 2024"
           width={500}
           height={500}
           priority={true}

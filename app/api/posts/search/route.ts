@@ -6,14 +6,14 @@ export async function POST(req: Request) {
   try {
     const params = await req.json();
 
-    console.log("api router params", params);
+    // console.log("api router params", params);
 
     const question = params.question;
     // const posts = await searchPosts(question);
     // return respData({ data: posts });
 
     const posts = await searchPosts(question);
-    console.log("search all posts: ", posts);
+    // console.log("search all posts: ", posts);
     return posts;
   } catch (e) {
     console.log("search all posts failed: ", e);

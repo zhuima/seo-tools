@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 14:44:07
+ * @LastEditTime: 2024-06-04 19:36:05
  * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -131,7 +131,7 @@ export default async ({ params }: { params: { slug: string } }) => {
 
   const post = await getData(slug);
 
-  console.log("post data", post);
+  // console.log("post data", post);
 
   return (
     <section className="relatve">

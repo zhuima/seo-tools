@@ -19,7 +19,7 @@ export default ({ post }: Props) => {
   const [pageView, setPageView] = useState(0);
   const pathname = usePathname();
 
-  console.log("posts details", post);
+  // console.log("posts details", post);
   const [posts, setPosts] = useState<Items[]>([]);
   const [currentPostsCount, setCurrentPostsCount] = useState(0);
   const [totalPostsCount, setTotalPostsCount] = useState(0);
@@ -30,7 +30,7 @@ export default ({ post }: Props) => {
       tags: tags,
     };
 
-    console.log("tab ----:", tags);
+    // console.log("tab ----:", tags);
     setLoading(true);
     const resp = await fetch("/api/posts/random", {
       method: "POST",
@@ -84,7 +84,7 @@ export default ({ post }: Props) => {
     fetchPageView(pathname);
   }, [pathname]);
 
-  console.log("post pv view", pageView);
+  // console.log("post pv view", pageView);
   const tabSlug = tabMap[post.metadata.tags[0]];
   return (
     <section>
@@ -244,7 +244,7 @@ export default ({ post }: Props) => {
               <img
                 className="mt-4 h-full w-full object-cover object-center"
                 src="https://img.techrk1688.eu.org/file/8c2f2fb7364e861288426.jpg"
-                alt="indie hacker tools"
+                alt="Essential SEO Tools for SEO Pros in 2024"
                 loading="lazy"
               />
             </>
@@ -257,7 +257,7 @@ export default ({ post }: Props) => {
               <img
                 className="h-full w-full object-cover object-center"
                 src="https://img.techrk1688.eu.org/file/9fad9cc4e60011f8a64df.png"
-                alt="indie hacker tools"
+                alt="Essential SEO Tools for SEO Pros in 2024"
                 loading="lazy"
               />
             )}

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 14:17:56
+ * @LastEditTime: 2024-06-04 19:35:28
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -69,7 +69,7 @@ const Home = () => {
     if (resp.ok) {
       const res = await resp.json();
       if (res.data) {
-        console.log("res data", res.data);
+        // console.log("res data", res.data);
 
         res.data.rows.forEach((row: any) => {
           const tag = row.properties?.Tags?.multi_select?.[0]?.name;
@@ -115,7 +115,7 @@ const Home = () => {
           href="https://tally.so/r/mYOZMB"
           target="_target"
           className="inline-block text-sm text-orange-500 fond-bold mx-2 mt-4"
-          title="Submit your Tools for indie hacker tools"
+          title="Submit your Tools for Essential SEO Tools for SEO Pros in 2024"
         >
           <h2>Submit your Tools 👉</h2>
         </Link>
@@ -124,7 +124,7 @@ const Home = () => {
           href="https://tally.so/r/w7WWja"
           target="_target"
           className="inline-block text-sm text-orange-500 fond-bold mx-2 mt-4"
-          title="Submit your Tally for indie hacker tools"
+          title="Submit your Tally for Essential SEO Tools for SEO Pros in 2024"
         >
           <h2>Submit your Tally 👉</h2>
         </Link>
