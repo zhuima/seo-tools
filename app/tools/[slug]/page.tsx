@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:31:37
+ * @LastEditTime: 2024-06-04 12:55:40
  * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -70,6 +70,9 @@ export async function generateMetadata({
       icon: "/favicon.ico",
       shortcut: "/favicon-16x16.ico",
       apple: "/apple-touch-icon.png",
+    },
+    alternates: {
+      canonical: "https://seo.chuhai.tools/about-" + post?.metadata.slug,
     },
     openGraph: {
       title: `${post?.metadata.title} | Essential SEO Tools for SEO Pros in 2024`,

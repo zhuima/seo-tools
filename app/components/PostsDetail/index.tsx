@@ -398,7 +398,7 @@ export default ({ post }: Props) => {
           <div className="w-full max-w-2xl mx-auto mt-16 lg:max-w-none lg:mt-0 lg:col-span-4">
             <div className="pb-5 border-b border-gray-200">
               <h3 className="mt-10 scroll-m-20  pb-1 text-3xl font-semibold tracking-tight first:mt-0">
-                关于{post.metadata.title}
+                About {post.metadata.title}
               </h3>
             </div>
             <div className="py-3 prose text-gray-700 break-words xl:pt-6 xl:pb-0 prose-indigo max-w-none">

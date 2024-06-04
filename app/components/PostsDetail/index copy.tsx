@@ -243,7 +243,7 @@ export default ({ post }: Props) => {
 
               <img
                 className="mt-4 h-full w-full object-cover object-center"
-                src="https://img.techrk1688.eu.org/file/58063a1b4aa5756c5aff2.png"
+                src="https://img.techrk1688.eu.org/file/8c2f2fb7364e861288426.jpg"
                 alt="indie hacker tools"
                 loading="lazy"
               />
