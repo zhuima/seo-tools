@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 13:38:24
+ * @LastEditTime: 2024-06-04 14:17:56
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -22,6 +22,7 @@ import { getKeyByValue } from "@/app/services/posts";
 import { tabMap } from "@/app/config/tabMap";
 import PostsList from "@/app/components/PostsList";
 import Tab from "@/app/components/Tab";
+import ProductHunt from "@/app/components/ProductHunt";
 
 const Home = () => {
   const [posts, setPosts] = useState<Items[]>([]);
@@ -107,7 +108,7 @@ const Home = () => {
   return (
     <>
       <Brand count={totalPostsCount} />
-      {/* <ProductHunt /> */}
+      <ProductHunt />
       <Search setPosts={setPosts} setLoading={setLoading} />
       <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
         <Link
