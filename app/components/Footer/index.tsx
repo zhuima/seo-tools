@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:34:28
+ * @LastEditTime: 2024-06-04 13:35:32
  * @FilePath: /seo/app/components/Footer/index.tsx
  * @Description:
  *
@@ -49,7 +49,7 @@ export default () => {
       <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
           <div>
-            <div className="text-yellow-700 font-bold">
+            <div className="text-orange-500 font-bold">
               {/* <svg
                 className="h-8"
                 viewBox="0 0 118 24"

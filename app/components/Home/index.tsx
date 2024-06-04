@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 13:12:37
+ * @LastEditTime: 2024-06-04 13:38:24
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -113,7 +113,7 @@ const Home = () => {
         <Link
           href="https://tally.so/r/mYOZMB"
           target="_target"
-          className="inline-block text-sm text-yellow-700 mx-2 mt-4"
+          className="inline-block text-sm text-orange-500 fond-bold mx-2 mt-4"
           title="Submit your Tools for indie hacker tools"
         >
           <h2>Submit your Tools 👉</h2>
@@ -122,7 +122,7 @@ const Home = () => {
         <Link
           href="https://tally.so/r/w7WWja"
           target="_target"
-          className="inline-block text-sm text-yellow-700 mx-2 mt-4"
+          className="inline-block text-sm text-orange-500 fond-bold mx-2 mt-4"
           title="Submit your Tally for indie hacker tools"
         >
           <h2>Submit your Tally 👉</h2>

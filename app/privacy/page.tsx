@@ -63,7 +63,7 @@ export default async () => {
   return (
     <section>
       <div className="mx-auto w-full max-w-6xl px-5  md:px-10 md:py-6 lg:py-8">
-        <h1 className="mb-6 text-center text-3xl font-bold text-orange-500">
+        <h1 className="mb-6 text-center text-3xl font-bold text-gray-500">
           private policy for Awesome Hackers Tools
         </h1>
         <p className="mb-6 text-neutral-700 dark:text-neutral-300">
