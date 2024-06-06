@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2023-07-07 16:33:57
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 12:27:28
+ * @LastEditTime: 2024-06-06 13:55:45
  * @FilePath: /seo/app/sitemap.ts
  * @Description:
  *
@@ -12,11 +12,16 @@
 // https://claritydev.net/blog/nextjs-dynamic-sitemap-pages-app-directory
 import { getAllPostsWhioutFilter } from "@/app/services/posts";
 import { Item, Items, Post, PageMetadata } from "@/app/types/posts";
+import { tabMap } from "@/app/config/tabMap";
 
 export const revalidate = 60;
 
 export default async function sitemap() {
   const links: string[] = [];
+
+  Object.entries(tabMap).map(([key, value]) => {
+    links.push(`categories/${value}`);
+  });
 
   const entries = await getAllPostsWhioutFilter();
 
