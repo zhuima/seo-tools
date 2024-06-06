@@ -71,12 +71,12 @@ export async function generateMetadata({
       siteName: `${tabName}`,
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${tabName}&description=""`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${tabName}&description="Essential SEO Tools for SEO Pros in 2024"`, // Dynamic og route
           width: 800,
           height: 600,
         },
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${tabName}&description=""`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${tabName}&description="Essential SEO Tools for SEO Pros in 2024"`, // Dynamic og route
           width: 1800,
           height: 1600,
           alt: `${tabName}for Essential SEO Tools for SEO Pros in 2024`,
@@ -94,12 +94,12 @@ export async function generateMetadata({
       site: "https://seo.chuhai.tools/categories/" + slug,
       images: [
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=$${tabName}&description=""`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=$${tabName}&description="Essential SEO Tools for SEO Pros in 2024"`, // Dynamic og route
           width: 800,
           height: 600,
         },
         {
-          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=$${tabName}&description=""`, // Dynamic og route
+          url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=$${tabName}&description="Essential SEO Tools for SEO Pros in 2024"`, // Dynamic og route
           width: 1800,
           height: 1600,
           alt: `${tabName} for Essential SEO Tools for SEO Pros in 2024`,

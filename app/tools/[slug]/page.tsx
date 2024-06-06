@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 12:48:52
+ * @LastEditTime: 2024-06-06 13:44:23
  * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -45,10 +45,10 @@ export async function generateMetadata({
 
   return {
     title: `${post?.metadata.title} | Essential SEO Tools for SEO Pros in 2024`,
-    description:
-      "seo.chuhai.tools offers comprehensive online SEO analysis tools to boost website rankings. It includes a wide range of SEO tools such as keyword research, website auditing, link analysis, and more, tailored for professional SEO experts and website owners. Quickly detect website health issues, identify and fix SEO problems, and improve search engine visibility. Free to use, with real-time analysis reports, this platform is your ultimate companion for website SEO optimization.",
-    keywords: [post?.metadata.description] || [
+    description: `${post?.metadata.description}`,
+    keywords: [
       "seo tools",
+      "seo blog",
       "seo analysis tools",
       "website seo checker",
       "seo audit tools",
