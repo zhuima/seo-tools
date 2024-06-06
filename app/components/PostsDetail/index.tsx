@@ -123,7 +123,7 @@ export default ({ post }: Props) => {
                   <div className="flex items-center">
                     <Link
                       className="mr-2 text-sm font-medium text-gray-900"
-                      href={`/?query=${tabSlug}`}
+                      href={`/categories/${tabSlug}`}
                     >
                       Tools
                     </Link>
