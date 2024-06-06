@@ -29,7 +29,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const slug = params.slug;
 
-  const tabName = getKeyByValue(tabMap, slug) || "All in One SEO";
+  const tabName = getKeyByValue(tabMap, slug) || "On Page SEO";
   if (!slug) return {};
 
   return {
@@ -177,7 +177,7 @@ const CategoryPage = async ({ params }: { params: { slug: string } }) => {
       <Search query={query} />
       <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
         <Link
-          href="https://github.com/weijunext/indie-hacker-tools"
+          href="https://tally.so/r/mYOZMB"
           target="_target"
           className="inline-block text-sm text-orange-500 mx-2 mt-4"
           title="Submit your Tools for indie hacker tools"

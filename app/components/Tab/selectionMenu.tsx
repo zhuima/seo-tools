@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 12:46:03
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 11:37:02
+ * @LastEditTime: 2024-06-06 16:31:50
  * @FilePath: /seo/app/components/Tab/selectionMenu.tsx
  * @Description:
  *
@@ -43,7 +43,7 @@ const SelectionMenu = ({ selectedTag }: Props) => {
           scroll={false}
           prefetch
         >
-          Keyword Research
+          Keyword
         </Link>
         <Link
           className={`flex justify-center relative w-1/3 rounded-lg py-2 text-sm font-medium whitespace-nowrap focus:outline-none focus:ring-2 focus:ring-cool-indigo-300 focus:z-10 sm:w-1/3 sm:px-8 ml-0.5 ${
@@ -56,7 +56,7 @@ const SelectionMenu = ({ selectedTag }: Props) => {
           scroll={false}
           prefetch
         >
-          Technical SEO
+          Technical
         </Link>
       </div>
     </div>

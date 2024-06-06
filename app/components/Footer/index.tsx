@@ -3,7 +3,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 13:35:32
+ * @LastEditTime: 2024-06-06 16:26:17
  * @FilePath: /seo/app/components/Footer/index.tsx
  * @Description:
  *
@@ -102,7 +102,7 @@ export default () => {
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">
-              Find fantastic hacker SEO tools all over the world.
+              Essential SEO Tools for SEO Pros in 2024.
             </p>
 
             <ul className="mt-8 flex gap-6">
@@ -246,7 +246,7 @@ export default () => {
                     className="text-gray-700 transition hover:opacity-75"
                   >
                     {" "}
-                    Essential SEO Tools for SEO Pros in 2024{" "}
+                    indie hacker tools{" "}
                   </Link>
                 </li>
                 <li>

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 09:58:26
+ * @LastEditTime: 2024-06-06 16:27:08
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
@@ -29,7 +29,7 @@ const getAllPosts = async () => {
   const params = {
     last_id: 0,
     limit: 50,
-    tab: "All in One SEO",
+    tab: "On Page SEO",
   };
 
   const resp = await fetch(url, {
