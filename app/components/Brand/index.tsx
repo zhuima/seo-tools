@@ -29,7 +29,7 @@ export default ({ count }: Props) => {
             </span>
           </h1>
           <p className="max-w-md mx-auto mt-3 text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-            SEO Awesome is a curated list of the best SEO Tools & Blogs in the
+            Awesome SEO is a curated list of the best SEO Tools & Blogs in the
             internet. We are actively searching, and curating the coolest
             resources out there.
           </p>

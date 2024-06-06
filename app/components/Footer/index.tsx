@@ -98,7 +98,7 @@ export default () => {
                 />
               </svg> */}
               {/* <img src="/logo.png" alt="Essential SEO Tools for SEO Pros in 2024" max-w-xs /> */}
-              Hacker SEO Tools
+              Awesome SEO Tools
             </div>
 
             <p className="mt-4 max-w-xs text-gray-500">

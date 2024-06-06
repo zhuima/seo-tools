@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 11:49:02
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 16:56:31
+ * @LastEditTime: 2024-06-06 17:15:39
  * @FilePath: /seo/app/components/Tab/rightMenu.tsx
  * @Description:
  *
@@ -39,21 +39,11 @@ const RightDropdownMenu = ({ selectedTag }: Props) => {
   };
 
   // console.log("selectedTag from right menu", selectedTag);
-  let selectName = "";
-  // const selectName =
-  //   selectedTag && !selectedTag.startsWith("query")
-  //     ? getKeyByValue(tabMap, selectedTag)
-  //     : "Any Tools";
-
-  if (
-    selectedTag in ["all-in-one-seo-tool", "keyword-research", "technical-seo"]
-  ) {
-    selectName = "Any Tools";
-  } else if (selectedTag && !selectedTag.startsWith("query")) {
-    selectName = getKeyByValue(tabMap, selectedTag) || "Any Tools";
-  } else {
-    selectName = "Any Tools";
-  }
+  // let selectName = "";
+  const selectName =
+    selectedTag && !selectedTag.startsWith("query")
+      ? getKeyByValue(tabMap, selectedTag)
+      : "Any Tools";
 
   return (
     <div className="sm:w-1/2 lg:w-1/3">
