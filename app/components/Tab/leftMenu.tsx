@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 11:49:02
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 12:59:05
+ * @LastEditTime: 2024-06-06 16:44:46
  * @FilePath: /seo/app/components/Tab/leftMenu.tsx
  * @Description:
  *
@@ -31,7 +31,11 @@ const LeftDropdownMenu = ({ selectedTag }: Props) => {
   //   : "Trending";
 
   let selectName = "";
-  if (selectedTag === "keyword-research") {
+  if (
+    selectedTag in ["all-in-one-seo-tool", "keyword-research", "technical-seo"]
+  ) {
+    selectName = "Trending";
+  } else if (selectedTag === "keyword-research") {
     selectName = "Hot 🔥";
   } else if (selectedTag === "blog") {
     selectName = "Newest";
