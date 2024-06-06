@@ -190,7 +190,7 @@ export default ({ post }: Props) => {
                         src={post?.metadata.icon}
                       />
                     </Link>{" "}
-                    <div className="text-md">
+                    <div className="text-md whitespace-nowrap">
                       <span className="text-gray-600">From </span>
                       <Link
                         className="font-medium text-cool-indigo-600 hover:text-cool-indigo-500"
