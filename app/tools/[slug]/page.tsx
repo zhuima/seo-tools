@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 13:44:23
+ * @LastEditTime: 2024-06-06 13:48:57
  * @FilePath: /seo/app/tools/[slug]/page.tsx
  * @Description:
  *
@@ -87,8 +87,8 @@ export async function generateMetadata({
         },
         {
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
-          width: 1800,
-          height: 1600,
+          width: 800,
+          height: 600,
           alt: `${post?.metadata.title} for Essential SEO Tools for SEO Pros in 2024`,
         },
       ],
@@ -109,8 +109,8 @@ export async function generateMetadata({
         },
         {
           url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/og?title=${post?.metadata.title}&description=${post?.metadata.description}`, // Dynamic og route
-          width: 1800,
-          height: 1600,
+          width: 800,
+          height: 600,
           alt: `${post?.metadata.title} for Essential SEO Tools for SEO Pros in 2024`,
         },
       ],
