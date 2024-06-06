@@ -170,8 +170,8 @@ export default ({ post }: Props) => {
           {/* <!-- Product details --> */}
           <div className="w-full max-w-2xl mx-auto mt-14 sm:mt-16 lg:max-w-none lg:mt-0 lg:row-end-2 lg:row-span-2 lg:col-span-3">
             <div className="flex flex-col-reverse">
-              <div className="flex justify-between w-full lg:mt-10">
-                <div>
+              <div className="flex justify-between w-full items-start lg:mt-10">
+                <div className="flex-1 min-w-0">
                   <h1 className="text-2xl font-extrabold tracking-tight text-gray-900 sm:text-3xl">
                     {post.metadata.title}
                   </h1>
@@ -208,7 +208,7 @@ export default ({ post }: Props) => {
               </div>
             </div>
 
-            <p className="mt-6 leading-relaxed text-gray-700 text-17px">
+            <p className="mt-6 leading-relaxed text-gray-700 text-15px">
               {post.metadata.description}
             </p>
 

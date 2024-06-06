@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 11:49:02
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 17:15:39
+ * @LastEditTime: 2024-06-06 17:49:56
  * @FilePath: /seo/app/components/Tab/rightMenu.tsx
  * @Description:
  *
@@ -96,7 +96,7 @@ const RightDropdownMenu = ({ selectedTag }: Props) => {
                   <button
                     key={slug}
                     onClick={() => handleOptionSelect(slug)}
-                    className="block w-full text-left whitespace-nowrap cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-orange-400 hover:text-gray-900  text-sm"
+                    className="block w-full text-left  cursor-default select-none relative py-2 pl-3 pr-9 hover:bg-orange-400 hover:text-gray-900  text-sm"
                   >
                     {name}
                   </button>

@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-05-27 11:49:02
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-06 17:16:29
+ * @LastEditTime: 2024-06-06 17:49:41
  * @FilePath: /seo/app/components/Tab/leftMenu.tsx
  * @Description:
  *
@@ -26,9 +26,18 @@ const LeftDropdownMenu = ({ selectedTag }: Props) => {
   };
 
   console.log("selectedTag from left menu", selectedTag);
-  const selectName = selectedTag
-    ? getKeyByValue(tabMap, selectedTag)
-    : "Trending";
+  // const selectName = selectedTag
+  //   ? getKeyByValue(tabMap, selectedTag)
+  //   : "Trending";
+
+  let selectName = "";
+  if (selectedTag === "keyword-research") {
+    selectName = "Hot 🔥";
+  } else if (selectedTag === "blog") {
+    selectName = "Newest";
+  } else {
+    selectName = "Trending";
+  }
 
   return (
     <div className="sm:w-1/2 lg:w-1/3">
