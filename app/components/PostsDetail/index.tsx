@@ -218,7 +218,7 @@ export default ({ post }: Props) => {
                 target="_blank"
                 href={post.metadata.link}
               >
-                Get Tools
+                Explore Tools
               </Link>
               {post.metadata.demo && (
                 <Link

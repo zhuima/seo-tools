@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-23 11:22:14
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 13:17:55
+ * @LastEditTime: 2024-06-06 16:17:23
  * @FilePath: /seo/app/config/tabMap.ts
  * @Description:
  *
@@ -24,7 +24,7 @@ import { TabMap } from "@/app/types/tabmap";
 // };
 
 export const tabMap: TabMap = {
-  "All in One SEO": "all-in-one-seo-tool",
+  "On Page SEO": "all-in-one-seo-tool",
   Blog: "blog",
   "Keyword Research": "keyword-research",
   "Content Optimization": "content-optimization",
