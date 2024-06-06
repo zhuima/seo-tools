@@ -1,143 +1,46 @@
-"use client";
-
-import { useEffect, useState } from "react";
-import Link from "next/link";
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-05-22 15:00:30
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-06-06 12:08:39
+ * @FilePath: /seo/app/components/Tab/index.tsx
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 import { Dispatch, SetStateAction } from "react";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
-import { Item } from "@/app/types/posts";
+import Link from "next/link";
 
-import { Tags } from "@/app/types/tags";
-import { tabMap } from "@/app/config/tabMap";
+import LeftDropdownMenu from "./leftMenu";
+import RightDropdownMenu from "./rightMenu";
+import SelectionMenu from "./selectionMenu";
 
 interface Props {
-  tabValue: string;
-  setTabValue: Dispatch<SetStateAction<string>>;
+  selectedTag: string;
 }
 
-export async function generateStaticParams() {
-  // const resp = await fetch("/api/posts/tags", {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  // });
+const Tab = async function ({ selectedTag }: Props) {
+  // const tabs = await fetchTags();
 
-  // if (resp.ok) {
-  //   const res = await resp.json();
-  //   return res.data.rows.map((tab: Item) => ({
-  //     tabValue: tab.properties.Tags?.multi_select?.[0]?.name,
-  //   }));
-  // }
-  // return [];
-  return Object.entries(tabMap).map(([key, value]) => ({
-    tabValue: key, // 或者根据你实际需要的属性做调整
-  }));
-}
-
-export default ({ tabValue, setTabValue }: Props) => {
-  // const tabs: Tab[] = [
-  //   {
-  //     name: "hot",
-  //     title: "Featured 🔥",
-  //   },
-  //   {
-  //     name: "latest",
-  //     title: "Latest",
-  //   },
-  //   {
-  //     name: "random",
-  //     title: "Random",
-  //   },
-  // ];
-
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
-  const router = useRouter();
-
-  const [tabs, setTabs] = useState([]);
-  const [tabsCount, setTabsCount] = useState(0);
-  const [loading, setLoading] = useState(false);
-
-  const fetchTags = async () => {
-    setLoading(true);
-    // const resp = await fetch("/api/posts/tags", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // });
-
-    // setLoading(false);
-
-    // if (resp.ok) {
-    //   const res = await resp.json();
-    //   if (res.data) {
-    //     setTabsCount(res.data.count);
-    //     setTabs(res.data.rows);
-    //   }
-    // }
-    setTabsCount(Object.keys(tabMap).length);
-    // setTabs(
-    //   Object.entries(tabMap).map(([key, value]) => ({
-    //     tabValue: key, // 或者根据你实际需要的属性做调整
-    //   }))
-    // );
-
-    setTabs(Object.entries(tabMap).map(([key, value]) => key) as never[]);
-
-    setLoading(false);
-  };
-
-  useEffect(() => {
-    fetchTags();
-  }, []);
-
-  // 单独处理 URL 参数的逻辑
-  useEffect(() => {
-    const handleURLParams = () => {
-      const params = new URLSearchParams(searchParams);
-      if (tabValue && tabValue !== "All in One SEO") {
-        params.set("query", tabMap[tabValue]);
-        // 使用 next/navigation 中的方法来更新 URL
-        replace(`${pathname}?${params.toString()}`);
-      } else {
-        params.delete("query");
-        // 当 tabValue 等于 'web开发模版🔥' 时，设置路径为根目录 '/'
-        replace("/", undefined);
-        // replace("/", { state: { tabValue: "web开发模版" } });
-      }
-    };
-
-    handleURLParams();
-  }, [tabValue, searchParams, pathname, replace, router]);
-
-  console.log("tabs", tabs, tabsCount, loading);
+  console.log("selectedTag from tab", selectedTag);
   return (
     <section className="relative mt-4">
-      <div className="mx-auto max-w-6xl px-2 py-4 md:px-8 md:py-4 text-center">
-        <div className="mx-auto flex flex-wrap justify-center gap-2">
-          {tabs.map((tab: string, idx: number) => {
-            return (
-              <button
-                key={idx}
-                className={` ${
-                  tabValue === tab
-                    ? "bg-orange-500 font-bold border-orange text-white border text-sm rounded-md px-3 py-1 mx-1 leading-8"
-                    : "border text-sm rounded-md px-3 py-1 mx-1 leading-8"
-                }`}
-                // onClick={() => setTabValue(tab)}
-                onClick={(event) => {
-                  event.preventDefault();
-                  setTabValue(tab);
-                }}
-              >
-                {tab == "All in One SEO" ? "All in One SEO🔥" : tab}
-              </button>
-            );
-          })}
+      <div className="mx-auto max-w-6xl px-10 pt-6  sm:pt-8 ">
+        <div className="flex flex-row flex-wrap items-center justify-between">
+          {/* 左侧下拉菜单 */}
+          <LeftDropdownMenu selectedTag={selectedTag} />
+
+          {/* 中间部分 */}
+
+          <SelectionMenu selectedTag={selectedTag} />
+
+          {/* 右侧下拉菜单 */}
+
+          <RightDropdownMenu selectedTag={selectedTag} />
         </div>
       </div>
     </section>
   );
 };
+
+export default Tab;

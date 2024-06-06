@@ -2,7 +2,7 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-03-14 14:25:32
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 11:38:08
+ * @LastEditTime: 2024-06-06 12:01:18
  * @FilePath: /seo/app/components/PostsList/index.tsx
  * @Description:
  *
@@ -23,7 +23,7 @@ interface Props {
 }
 
 export default ({ posts, loading }: Props) => {
-  console.log("posts --->", posts);
+  // console.log("posts --->", posts);
 
   return (
     <section className="relative">
@@ -31,7 +31,7 @@ export default ({ posts, loading }: Props) => {
         {!loading ? (
           <div className="mb-8 gap-5 py-4 [column-count:1] md:mb-12 md:[column-count:2] lg:mb-16 lg:[column-count:3]">
             {posts?.map((item: any, idx: number) => {
-              console.log("item --->", item);
+              // console.log("item --->", item);
               return (
                 <Link
                   href={`/tools/about-${

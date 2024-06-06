@@ -1,3 +1,13 @@
+/*
+ * @Author: zhuima zhuima314@gmail.com
+ * @Date: 2024-04-23 11:22:14
+ * @LastEditors: zhuima zhuima314@gmail.com
+ * @LastEditTime: 2024-06-06 12:28:50
+ * @FilePath: /seo/app/components/Search/index.tsx
+ * @Description:
+ *
+ * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
+ */
 "use client";
 
 import {
@@ -9,20 +19,19 @@ import {
   useRef,
   useState,
 } from "react";
-
-import { Items } from "@/app/types/posts";
+import { useRouter } from "next/navigation";
 
 interface Props {
-  setPosts: Dispatch<SetStateAction<Items[]>>;
-  setLoading: Dispatch<SetStateAction<boolean>>;
+  query?: string;
 }
 
-export default ({ setPosts, setLoading }: Props) => {
+export default ({ query }: Props) => {
+  console.log("query", query);
+  const router = useRouter();
   const [inputDisabled, setInputDisabled] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [content, setContent] = useState("");
-  const [currentPostsCount, setCurrentPostsCount] = useState(0);
-  const [totalPostsCount, setTotalPostsCount] = useState(0);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setContent(e.target.value);
   };
@@ -31,51 +40,36 @@ export default ({ setPosts, setLoading }: Props) => {
     if (e.code === "Enter" && !e.shiftKey) {
       if (e.keyCode !== 229) {
         e.preventDefault();
-        handleSubmit(content);
+        handleSubmit("", content);
       }
     }
   };
 
-  const handleSubmit = async (question: string) => {
+  const handleSubmit = async (keyword: string, question: string) => {
     try {
-      const uri = "/api/posts/search";
-      const params = {
-        question: question,
-      };
-
-      setLoading(true);
-      const resp = await fetch(uri, {
-        method: "POST",
-        body: JSON.stringify(params),
-      });
-      setLoading(false);
-
-      if (resp.ok) {
-        const res = await resp.json();
-        if (res.data) {
-          setCurrentPostsCount(res.data.count);
-          setTotalPostsCount(res.data.totalCount);
-          setPosts(res.data.rows);
-        }
-      }
+      const url = `/categories/query-${encodeURIComponent(question)}`;
+      // console.log("query url", url);
+      router.push(url);
+      setInputDisabled(true);
     } catch (e) {
       console.log("search failed: ", e);
     }
   };
 
   useEffect(() => {
-    if (content) {
-      // handleSubmit(content, "");
+    if (query) {
+      setContent(query);
     }
-  }, [content]);
+  }, [query]);
 
   return (
-    <section className="relatve mt-4 md:mt-8">
+    <section className="relatve mt-4 md:mt-4">
       <div className="mx-auto w-full max-w-2xl px-6 text-center">
         <div className="flex items-center relative">
           <input
             type="text"
-            className="px-3 py-3 bg-white text-sm  border-2  border-orange-500 shadow-sm  placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-yellow-700 focus:ring-yellow-700 block w-full rounded-lg sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
+            // className="flex-1 px-1 py-3 border-2 border-primary bg-white rounded-lg text-sm md:px-4 focus:outline-none"
+            className="px-3 py-3 bg-white text-sm  border-2  border-orange-400 shadow-sm  placeholder-slate-400 disabled:bg-slate-50 disabled:text-slate-500 disabled:border-slate-200 focus:outline-none focus:border-orange-500 focus:ring-orange-500 block w-full rounded-lg sm:text-sm focus:ring-1 invalid:border-pink-500 invalid:text-pink-600 focus:invalid:border-pink-500 focus:invalid:ring-pink-500 disabled:shadow-none"
             placeholder="keyword for seo Tools"
             ref={inputRef}
             value={content}
@@ -96,7 +90,7 @@ export default ({ setPosts, setLoading }: Props) => {
             className="absolute right-4 cursor-pointer"
             onClick={() => {
               if (content) {
-                handleSubmit(content);
+                handleSubmit("", content);
               }
             }}
           >

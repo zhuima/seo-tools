@@ -2,13 +2,12 @@
  * @Author: zhuima zhuima314@gmail.com
  * @Date: 2024-04-07 14:33:31
  * @LastEditors: zhuima zhuima314@gmail.com
- * @LastEditTime: 2024-06-04 19:35:28
+ * @LastEditTime: 2024-06-06 09:58:26
  * @FilePath: /seo/app/components/Home/index.tsx
  * @Description:
  *
  * Copyright (c) 2024 by ${git_name_email}, All Rights Reserved.
  */
-"use client";
 import Link from "next/link";
 import { useCallback, useRef } from "react";
 import React, { useEffect, useState } from "react";
@@ -24,92 +23,44 @@ import PostsList from "@/app/components/PostsList";
 import Tab from "@/app/components/Tab";
 import ProductHunt from "@/app/components/ProductHunt";
 
-const Home = () => {
-  const [posts, setPosts] = useState<Items[]>([]);
-  const [currentPostsCount, setCurrentPostsCount] = useState(0);
-  const [totalPostsCount, setTotalPostsCount] = useState(0);
-  const [loading, setLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const router = useRouter();
+const getAllPosts = async () => {
+  const url = `${process.env.NEXT_PUBLIC_WEBSITE_URL}/api/posts/all`;
 
-  const pathname = usePathname();
-
-  const queryKey = getKeyByValue(tabMap, searchParams.get("query"));
-
-  const [tabValue, setTabValue] = useState(queryKey || "All in One SEO");
-
-  const postDataCache = useRef<{
-    [key: string]: { data: Items[]; count: number; totalCount: number };
-  }>({});
-
-  const fetchPosts = async (tabValue: string) => {
-    if (postDataCache.current[tabValue]) {
-      // 如果这个标签的数据已经在 postDataCache 中，直接使用它
-      setPosts(postDataCache.current[tabValue].data);
-      setCurrentPostsCount(postDataCache.current[tabValue].count);
-      setTotalPostsCount(postDataCache.current[tabValue].totalCount);
-      return;
-    }
-
-    const params = {
-      last_id: 0,
-      limit: 50,
-      tab: tabValue,
-    };
-
-    setLoading(true);
-    const resp = await fetch("/api/posts/all", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(params),
-    });
-
-    if (resp.ok) {
-      const res = await resp.json();
-      if (res.data) {
-        // console.log("res data", res.data);
-
-        res.data.rows.forEach((row: any) => {
-          const tag = row.properties?.Tags?.multi_select?.[0]?.name;
-          if (!postDataCache.current[tag]) {
-            postDataCache.current[tag] = {
-              data: [],
-              count: 0,
-              totalCount: res.data.totalCount,
-            };
-          }
-
-          if (
-            !postDataCache.current[tag].data.some(
-              (item) => JSON.stringify(item) === JSON.stringify(row.properties)
-            )
-          ) {
-            postDataCache.current[tag].data.push(row.properties);
-            postDataCache.current[tag].count += 1;
-          }
-        });
-      }
-    }
-    setLoading(false);
-
-    // 设置首个标签页的数据显示
-    setPosts(postDataCache.current[tabValue].data);
-    setCurrentPostsCount(postDataCache.current[tabValue].count);
-    setTotalPostsCount(postDataCache.current[tabValue].totalCount);
+  const params = {
+    last_id: 0,
+    limit: 50,
+    tab: "All in One SEO",
   };
 
-  useEffect(() => {
-    fetchPosts(tabValue);
-  }, [tabValue]); // eslint-disable-line react-hooks/exhaustive-deps
+  const resp = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(params),
+  });
 
-  // console.log("home postss", posts);
+  const res = await resp.json();
+
+  return res;
+};
+
+const Home = async () => {
+  const entries = await getAllPosts();
+
+  console.log("entries", entries);
+
+  // 如果你的数据结构不止 results，需要根据实际情况修改
+  const allPosts = entries.data.rows;
+  const totalPostsCount = entries.data.totalCount;
+
+  console.log("home page allPosts", allPosts);
+
   return (
     <>
       <Brand count={totalPostsCount} />
       <ProductHunt />
-      <Search setPosts={setPosts} setLoading={setLoading} />
+      <Search />
       <div className="flex flex-row md:flex-row items-center justify-center mx-auto text-center">
         <Link
           href="https://tally.so/r/mYOZMB"
@@ -129,8 +80,8 @@ const Home = () => {
           <h2>Submit your Tally 👉</h2>
         </Link>
       </div>
-      <Tab tabValue={tabValue} setTabValue={setTabValue} />
-      <PostsList posts={posts} loading={loading} />
+      <Tab selectedTag="all-in-one-seo-tool" />
+      <PostsList posts={allPosts} loading={false} />
     </>
   );
 };
