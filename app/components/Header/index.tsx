@@ -34,11 +34,11 @@ export default () => {
           {/* chuhai.tools */}
           {/* <img src="/logo.png" alt="Essential SEO Tools for SEO Pros in 2024" max-w-xs /> */}
           <Image
-            src="/logo.svg"
+            src="/logo.png"
             alt="logo for chuhai.tools - Essential SEO Tools for SEO Pros in 2024"
             width={138}
-            height={108}
-            style={{ maxWidth: "138px", height: "108px" }}
+            height={128}
+            style={{ maxWidth: "138px", height: "128px" }}
           />
         </Link>
 
