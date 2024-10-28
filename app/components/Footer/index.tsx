@@ -156,7 +156,7 @@ export default () => {
 
               <li>
                 <Link
-                  href="https://x.com/ilovek8s"
+		  href="https://x.com/intent/follow?screen_name=ilovek8s"
                   rel="noreferrer"
                   target="_blank"
                   className="text-gray-700 transition hover:opacity-75"
